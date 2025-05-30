@@ -196,7 +196,7 @@ const Contact: React.FC = () => {
                 <div className="flex space-x-4 sm:space-x-6 order-2 sm:order-1">
                   {/* Facebook */}
                   <a
-                    href="#"
+                    href="https://www.facebook.com/anupama.neupane.399/"
                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 focus:scale-110 focus:outline-none"
                     style={{
                       backgroundColor: '#423E3E',
@@ -219,7 +219,7 @@ const Contact: React.FC = () => {
 
                   {/* GitHub */}
                   <a
-                    href="#"
+                    href="https://github.com/Anupama-n/"
                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 focus:scale-110 focus:outline-none"
                     style={{
                       backgroundColor: '#423E3E',
@@ -242,7 +242,7 @@ const Contact: React.FC = () => {
 
                   {/* LinkedIn */}
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/in/anupama-neupane-918b0b32a/"
                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 focus:scale-110 focus:outline-none"
                     style={{
                       backgroundColor: '#423E3E',
