@@ -2,38 +2,21 @@ import React from 'react';
 
 const About: React.FC = () => {
   return (
-    <div id="about" className="w-full min-h-screen" style={{ backgroundColor: '#FFF2F2' }}>
+    <div
+      id="about"
+      className="w-full"
+      style={{ backgroundColor: '#FFF2F2' }}
+    >
       {/* Main Content */}
-      <div className="flex items-center justify-center px-2 sm:px-4 md:px-8 py-8 sm:py-10 md:py-24 min-h-[calc(100vh-120px)]">
+      <div className="flex items-center justify-center px-2 sm:px-4 md:px-8 py-8 sm:py-10 md:py-24">
         <div className="max-w-6xl w-full">
 
           {/* Mobile Layout - Stacked */}
-          <div className="flex flex-col lg:hidden items-center gap-4 sm:gap-6">
-            {/* Profile Image - Mobile */}
-            <div
-              className="flex-shrink-0 relative hover:scale-105 transition-transform duration-300"
-              style={{ width: '180px', height: '280px' }} // smaller than original 240x380
-            >
-              {/* Border / Frame Image */}
-              <img
-                src="/images/Rectangle 3.png"
-                alt="Decorative border"
-                className="absolute top-0 left-0 w-full h-full object-contain z-20 pointer-events-none"
-              />
-              {/* Profile Image inside the frame */}
-              <div className="relative z-10 w-full h-full flex items-center justify-center">
-                <img
-                  src="/images/About.jpg"
-                  alt="Profile illustration"
-                  className="w-[95%] h-[92%] object-contain rounded-3xl -translate-x-[3px] -translate-y-[ -8px]"
-                />
-              </div>
-            </div>
-
+          <div className="flex flex-col lg:hidden items-center justify-start gap-4 sm:gap-6 px-2">
             {/* Text Content - Mobile */}
-            <div className="w-full text-center px-2">
+            <div className="w-full text-center">
               <h2
-                className="text-3xl mb-4 sm:text-3xl sm:mb-5"
+                className="text-3xl mb-4 sm:text-3xl sm:mb-5 bg-gradient-to-b from-black to-[#666666] bg-clip-text text-transparent"
                 style={{ fontFamily: "'Instrument Serif', serif", fontWeight: 400 }}
               >
                 Introduction
@@ -57,18 +40,19 @@ const About: React.FC = () => {
                     >
                       I
                     </span>
-                    'm a final-year Computer Science student at Kathmandu University with a strong
-                    interest in UI/UX design and graphic design. I enjoy creating user-centered designs
-                    that are both functional and visually engaging. <br /> <br />
-                    While I've studied web development and worked on personal and academic projects, my
-                    true passion lies in designing intuitive interfaces and crafting seamless digital
-                    experiences. I'm always exploring new design trends, tools, and ideas to refine my
-                    skills and grow as a designer.
+                    'm a final-year Computer Science student at Kathmandu University with a strong interest in
+                    UI/UX design and graphic design. I enjoy creating user-centered designs that are both
+                    functional and visually engaging. <br /> <br />
+                    While I've studied web development and worked on personal and academic projects, my true
+                    passion lies in designing intuitive interfaces and crafting seamless digital experiences.
+                    I'm always exploring new design trends, tools, and ideas to refine my skills and grow as a
+                    designer.
                   </p>
                 </div>
               </div>
             </div>
           </div>
+
 
           {/* Desktop Layout - Side by Side */}
           <div className="hidden lg:flex items-center justify-between gap-16">

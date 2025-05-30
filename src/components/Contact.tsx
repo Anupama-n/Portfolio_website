@@ -205,7 +205,7 @@ const Contact: React.FC = () => {
 
           {/* Heading */}
           <h2
-            className="text-4xl sm:text-4xl lg:text-5xl mb-8 sm:mb-12 text-center bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
+            className="text-3xl sm:text-4xl lg:text-5xl mb-8 sm:mb-12 text-center bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
             style={{
               fontFamily: "'Instrument Serif', serif",
               fontWeight: 400
@@ -364,7 +364,7 @@ const Contact: React.FC = () => {
           href="https://www.facebook.com/anupama.neupane.399/"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-9 h-9 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 focus:scale-110 focus:outline-none"
+          className="w-6 h-6 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 focus:scale-110 focus:outline-none"
           style={{
             backgroundColor: '#423E3E',
             color: 'white',
@@ -389,7 +389,7 @@ const Contact: React.FC = () => {
   href="https://github.com/Anupama-n/"
   target="_blank"
   rel="noopener noreferrer"
-  className="w-9 h-9 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110 focus:scale-110 focus:outline-none"
+  className="w-6 h-6 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110 focus:scale-110 focus:outline-none"
   style={{
     backgroundColor: '#423E3E',
     color: 'white',
@@ -427,7 +427,7 @@ const Contact: React.FC = () => {
   href="https://www.linkedin.com/in/anupama-neupane-918b0b32a/"
   target="_blank"
   rel="noopener noreferrer"
-  className="w-9 h-9 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110 focus:scale-110 focus:outline-none"
+  className="w-6 h-6 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-transform hover:scale-110 focus:scale-110 focus:outline-none"
   style={{
     backgroundColor: '#423E3E',
     color: 'white',

@@ -28,26 +28,29 @@ const Home: React.FC = () => {
           {/* Subheading */}
           <div className="flex flex-row items-center justify-center mb-3 sm:mb-5 md:mb-6 px-2">
             <span
-              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl italic leading-none mr-1 sm:mr-3"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl italic leading-tight sm:leading-[1.1] align-baseline mr-1 sm:mr-3"
               style={{
                 fontFamily: "'Ingrid Darling', cursive",
                 color: 'rgba(0, 0, 0, 0.6)',
-                letterSpacing: '-0.05em',
+                display: 'inline-block',
+                transform: 'translateY(1px)', 
               }}
             >
               E
             </span>
 
+
             <p
-              className="text-base sm:text-xl md:text-2xl font-normal m-0 leading-relaxed"
+              className="text-sm sm:text-xl md:text-2xl font-normal m-0 leading-relaxed"
               style={{
                 fontFamily: "'Inika', serif",
                 color: 'rgba(0, 0, 0, 0.6)',
-                letterSpacing: '-0.05em',
+                letterSpacing: '-0.04em',
               }}
             >
               xploring the sweet spot between design and code.
             </p>
+
           </div>
 
           {/* Description */}
