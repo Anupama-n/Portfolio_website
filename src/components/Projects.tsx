@@ -133,7 +133,7 @@ const MySkillsAndWorks: React.FC = () => {
         className="bg-[#FFF2F2] min-h-screen px-4 sm:px-6 md:px-8 lg:px-32 py-12 sm:py-16 text-gray-800 relative overflow-hidden"
       >
         <h2
-          className="text-3xl sm:text-4xl md:text-5xl font-medium bg-gradient-to-b from-black to-[#666666] text-transparent bg-clip-text mb-8 sm:mb-10 mx-auto text-center lg:text-left lg:ml-24"
+          className="text-4xl sm:text-4xl md:text-5xl font-medium bg-gradient-to-b from-black to-[#666666] text-transparent bg-clip-text mb-8 sm:mb-10 mx-auto text-center lg:text-left lg:ml-24"
           style={{ fontFamily: "'Instrument Serif', serif" }}
         >
           My Skills
@@ -177,7 +177,7 @@ const MySkillsAndWorks: React.FC = () => {
 
         {/* My Works Section */}
         <h2
-          className="text-3xl sm:text-4xl md:text-5xl font-medium bg-gradient-to-b from-black to-[#666666] text-transparent bg-clip-text text-center mb-8 sm:mb-10 mx-auto text-center lg:text-left lg:ml-24"
+          className="text-4xl sm:text-4xl md:text-5xl font-medium bg-gradient-to-b from-black to-[#666666] text-transparent bg-clip-text text-center mb-8 sm:mb-10 mx-auto text-center lg:text-left lg:ml-24"
           style={{ fontFamily: "'Instrument Serif', serif" }}
         >
           My Works
