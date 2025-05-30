@@ -1,150 +1,252 @@
 import React, { useState } from 'react';
 
-const Projects: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState('Logo Designs');
+const skills = [
+  "Figma", "Flutter", "Express.js", "React", "Next.js", "Node.js", "SQL",
+  "MongoDB", "TypeScript", "Firebase"
+];
 
-  const filters = [
-    'Logo Designs',
-    'Mobile App Designs',
-    'Web App Designs',
-    'Other Designs',
-    'Web Development Projects'
-  ];
+const categories = [
+  "Logo Designs", "Mobile App Designs", "Web App Designs", "Other Designs", "Web Development Projects"
+];
+
+const projects = [
+  {
+    title: "Hulaki App Logo",
+    description:
+      "The Hulaki logo symbolizes trusted news delivery, inspired by traditional mail. Designed in Figma with Material UI colors, it blends minimalism and nostalgia.",
+    image: "/images/my_works.jpg",
+    link: "https://www.figma.com",
+    category: "Logo Designs"
+  },
+  {
+    title: "EduTrack Dashboard",
+    description:
+      "An education performance tracker for students and teachers. Built with React and Tailwind, integrated with Firebase for auth and database.",
+    image: "/images/my_works.jpg",
+    link: "#",
+    category: "Web Development Projects"
+  },
+  {
+    title: "NepaNotes App",
+    description:
+      "A note-taking app inspired by Nepali students' learning habits. Designed for mobile using Flutter with cloud sync features.",
+    image: "/images/my_works.jpg",
+    link: "#",
+    category: "Mobile App Designs"
+  },
+  {
+    title: "Kreative Portfolio",
+    description:
+      "A clean and interactive designer portfolio built using Next.js and Framer Motion. Focused on animations and responsiveness.",
+    image: "/images/my_works.jpg",
+    link: "#",
+    category: "Web App Designs"
+  }
+];
+
+const MySkillsAndWorks: React.FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+
+  const filteredProjects = selectedCategory === "All" 
+    ? projects 
+    : projects.filter(project => project.category === selectedCategory);
+
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategory(category);
+  };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-pink-50 to-purple-50">      
-      {/* Main Content */}
-      <div className="px-8 py-16 min-h-[calc(100vh-120px)]">
-        <div className="max-w-7xl mx-auto">
-          
-          {/* Header Section */}
-          <div className="flex items-center justify-between mb-16">
-            <div className="flex-1">
-              <h1 className="text-5xl md:text-6xl font-light text-gray-800 mb-12">
-                My Works
-              </h1>
-              
-              {/* Filter Buttons */}
-              <div className="flex flex-wrap gap-4">
-                {filters.map((filter) => (
-                  <button
-                    key={filter}
-                    onClick={() => setActiveFilter(filter)}
-                    className={`px-6 py-3 rounded-full border-2 transition-all ${
-                      activeFilter === filter
-                        ? 'bg-gray-700 text-white border-gray-700'
-                        : 'bg-transparent text-gray-600 border-gray-300 hover:border-gray-500'
-                    }`}
-                  >
-                    {filter}
-                  </button>
-                ))}
-              </div>
-            </div>
-            
-            {/* Illustration */}
-            <div className="flex-shrink-0 ml-16">
-              <svg width="300" height="400" viewBox="0 0 300 400" className="drop-shadow-lg">
-                {/* Body */}
-                <ellipse cx="150" cy="320" rx="60" ry="80" fill="#c084a1" />
-                
-                {/* Arms */}
-                <ellipse cx="90" cy="280" rx="25" ry="50" fill="#fdbcad" />
-                <ellipse cx="210" cy="280" rx="25" ry="50" fill="#fdbcad" />
-                
-                {/* Sleeves */}
-                <ellipse cx="90" cy="290" rx="30" ry="45" fill="#c084a1" />
-                <ellipse cx="210" cy="290" rx="30" ry="45" fill="#c084a1" />
-                
-                {/* Head */}
-                <ellipse cx="150" cy="160" rx="55" ry="60" fill="#fdbcad" />
-                
-                {/* Hair */}
-                <path d="M95 130 Q95 80 150 80 Q205 80 205 130 Q205 100 200 95 Q195 90 190 95 Q185 90 180 95 Q175 90 170 95 Q165 90 160 95 Q155 90 150 95 Q145 90 140 95 Q135 90 130 95 Q125 90 120 95 Q115 90 110 95 Q105 90 100 95 Q95 100 95 130" fill="#2d2d2d" />
-                <path d="M205 130 Q215 140 220 160 Q225 180 215 200 Q205 190 200 180 Q195 170 205 160 Q210 145 205 130" fill="#2d2d2d" />
-                <path d="M95 140 Q85 150 80 170 Q75 190 85 210 Q95 200 100 190 Q105 180 95 170 Q90 155 95 140" fill="#2d2d2d" />
-                
-                {/* Eyes */}
-                <ellipse cx="135" cy="155" rx="3" ry="4" fill="#2d2d2d" />
-                <ellipse cx="165" cy="155" rx="3" ry="4" fill="#2d2d2d" />
-                
-                {/* Nose */}
-                <path d="M148 165 Q150 170 152 165" stroke="#e8a696" strokeWidth="1" fill="none" />
-                
-                {/* Mouth */}
-                <path d="M142 175 Q150 180 158 175" stroke="#d4928a" strokeWidth="2" fill="none" strokeLinecap="round" />
-                
-                {/* Gesture - Hand pointing */}
-                <ellipse cx="50" cy="250" rx="20" ry="15" fill="#fdbcad" />
-                <rect x="30" y="245" width="25" height="8" rx="4" fill="#fdbcad" />
-              </svg>
-            </div>
-          </div>
-          
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Project Card 1 - Bhalam News */}
-            <div className="bg-white/50 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all hover:scale-105">
-              <div className="bg-gradient-to-br from-blue-900 to-blue-700 rounded-2xl p-6 mb-6">
-                <div className="relative">
-                  {/* Envelope */}
-                  <div className="bg-gray-300 rounded-lg p-4 transform rotate-6">
-                    <div className="bg-white rounded p-3">
-                      <div className="text-center">
-                        <div className="text-xl font-bold text-gray-800 mb-2">भलाम</div>
-                        <div className="text-sm text-gray-600">NEWS</div>
-                        <div className="border-t border-orange-400 mt-2 pt-1">
-                          <div className="flex justify-center space-x-1">
-                            <div className="w-1 h-1 bg-red-400 rounded-full"></div>
-                            <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
-                            <div className="w-1 h-1 bg-red-400 rounded-full"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    {/* Envelope flap */}
-                    <div className="absolute -top-2 left-2 right-2 h-4 bg-gray-400 rounded-t-lg transform -rotate-12"></div>
-                  </div>
-                  
-                  {/* Postal elements */}
-                  <div className="absolute -right-2 -top-2">
-                    <div className="w-8 h-6 bg-red-500 opacity-80 rounded-sm transform rotate-12"></div>
-                    <div className="w-8 h-6 bg-blue-500 opacity-80 rounded-sm transform rotate-12 -mt-1"></div>
-                  </div>
-                </div>
-              </div>
-              
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">भलाम News</h3>
-              <p className="text-gray-600 text-sm">Logo Design for Nepali News Platform</p>
-            </div>
-            
-            {/* Placeholder for more projects */}
-            <div className="bg-white/30 backdrop-blur-sm rounded-3xl p-8 shadow-lg border-2 border-dashed border-gray-300 flex items-center justify-center min-h-[300px]">
-              <div className="text-center text-gray-500">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gray-200 rounded-full flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
-                  </svg>
-                </div>
-                <p>More projects coming soon</p>
-              </div>
-            </div>
-            
-            <div className="bg-white/30 backdrop-blur-sm rounded-3xl p-8 shadow-lg border-2 border-dashed border-gray-300 flex items-center justify-center min-h-[300px]">
-              <div className="text-center text-gray-500">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gray-200 rounded-full flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
-                  </svg>
-                </div>
-                <p>More projects coming soon</p>
-              </div>
-            </div>
-          </div>
+    <section id='projects' className="bg-[#FFF2F2] min-h-screen px-4 sm:px-6 md:px-8 lg:px-16 py-12 sm:py-16 text-gray-800 relative overflow-hidden">
+
+      {/* My Skills Section */}
+      <div className="bg-[#FFeded] shadow-[0_4px_20px_rgba(137,137,137,0.25)] rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 max-w-5xl mx-auto mb-12 sm:mb-16 hover:shadow-[0_6px_30px_rgba(137,137,137,0.35)] transition-all duration-300">
+        <h2 
+          className="text-3xl sm:text-4xl md:text-5xl font-medium bg-gradient-to-b from-black to-[#666666] text-transparent bg-clip-text text-center mb-8 sm:mb-10"
+          style={{ fontFamily: "'Instrument Serif', serif" }}
+        >
+          My Skills
+        </h2>
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
+          {skills.map((skill, idx) => (
+            <span
+              key={idx}
+              onMouseEnter={() => setHoveredSkill(skill)}
+              onMouseLeave={() => setHoveredSkill(null)}
+              className={`px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full border transition-all duration-300 cursor-pointer transform ${
+                skill === "" 
+                  ? "bg-gray-800 text-white shadow-lg" 
+                  : hoveredSkill === skill
+                  ? "bg-gray-200 scale-105 shadow-md"
+                  : "hover:bg-gray-100 hover:scale-105"
+              }`}
+              style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+            >
+              {skill}
+            </span>
+          ))}
         </div>
       </div>
-    </div>
+
+      {/* My Works Section */}
+      <div className="bg-[#FFeded] shadow-[0_4px_20px_rgba(137,137,137,0.25)] rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 max-w-5xl mx-auto relative hover:shadow-[0_6px_30px_rgba(137,137,137,0.35)] transition-all duration-300">
+        <h2 
+          className="text-3xl sm:text-4xl md:text-5xl font-medium bg-gradient-to-b from-black to-[#666666] text-transparent bg-clip-text text-center mb-8 sm:mb-10"
+          style={{ fontFamily: "'Instrument Serif', serif" }}
+        >
+          My Works
+        </h2>
+
+        {/* Categories */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-10">
+          <span
+            onClick={() => handleCategoryClick("All")}
+            className={`px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full border transition-all duration-300 cursor-pointer transform hover:scale-105 ${
+              selectedCategory === "All" 
+                ? "bg-gray-800 text-white shadow-lg" 
+                : "hover:bg-gray-200 hover:shadow-md"
+            }`}
+            style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+          >
+            All
+          </span>
+          {categories.map((cat, idx) => (
+            <span
+              key={idx}
+              onClick={() => handleCategoryClick(cat)}
+              className={`px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full border transition-all duration-300 cursor-pointer transform hover:scale-105 ${
+                selectedCategory === cat 
+                  ? "bg-gray-800 text-white shadow-lg" 
+                  : "hover:bg-gray-200 hover:shadow-md"
+              }`}
+              style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+            >
+              {cat}
+            </span>
+          ))}
+        </div>
+
+        {/* Projects Grid - Responsive Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-h-[500px] sm:max-h-[600px] overflow-y-auto pr-2">
+          {filteredProjects.map((proj, idx) => (
+            <div
+              key={idx}
+              className="bg-[#FFF1F2] rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] group"
+            >
+              {/* Mobile Layout - Stacked */}
+              <div className="flex flex-col sm:hidden gap-4">
+                <img
+                  src={proj.image}
+                  alt={proj.title}
+                  className="w-full h-32 object-cover rounded-xl border group-hover:scale-105 transition-transform duration-300"
+                />
+                <div>
+                  <h3 
+                    className="text-lg font-semibold mb-2"
+                    style={{ fontFamily: "'Instrument Serif', serif" }}
+                  >
+                    {proj.title}
+                  </h3>
+                  <p 
+                    className="text-sm text-gray-700 mb-3 leading-relaxed"
+                    style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+                  >
+                    {proj.description}
+                  </p>
+                  <a
+                    href={proj.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors duration-300"
+                    style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+                  >
+                    🔗 View Project
+                  </a>
+                </div>
+              </div>
+
+              {/* Desktop/Tablet Layout - Side by Side */}
+              <div className="hidden sm:flex gap-4 sm:gap-6 items-start">
+                <img
+                  src={proj.image}
+                  alt={proj.title}
+                  className="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-xl border flex-shrink-0 group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="flex flex-col justify-between min-h-[6rem]">
+                  <div>
+                    <h3 
+                      className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2"
+                      style={{ fontFamily: "'Instrument Serif', serif" }}
+                    >
+                      {proj.title}
+                    </h3>
+                    <p 
+                      className="text-sm sm:text-base text-gray-700 mb-2 sm:mb-3 leading-relaxed"
+                      style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+                    >
+                      {proj.description}
+                    </p>
+                  </div>
+                  <a
+                    href={proj.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors duration-300 self-start"
+                    style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+                  >
+                    🔗 View Project
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Empty State */}
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-12">
+            <p 
+              className="text-gray-500 text-lg"
+              style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+            >
+              No projects found in this category.
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* Bottom-right Illustration - Responsive */}
+      <img
+        src="/images/my_works.jpg"
+        alt="Illustration"
+        className="absolute bottom-0 right-0 w-48 sm:w-56 md:w-64 lg:w-72 xl:w-80 pointer-events-none select-none opacity-70 hover:opacity-100 transition-opacity duration-300"
+      />
+
+      {/* Navigation Button for Mobile */}
+      <div className="flex justify-center mt-12 sm:mt-16 lg:hidden">
+        <button
+          onClick={() => {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+              contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }}
+          className="px-6 py-3 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95"
+          style={{
+            backgroundColor: '#423E3E',
+            color: '#FFF2F2',
+            fontFamily: "'Instrument Sans', sans-serif",
+            fontSize: '14px',
+            fontWeight: '500',
+            border: 'none',
+            cursor: 'pointer'
+          }}
+        >
+          Get In Touch
+        </button>
+      </div>
+    </section>
   );
 };
 
-export default Projects;
+export default MySkillsAndWorks;
