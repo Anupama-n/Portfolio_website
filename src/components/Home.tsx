@@ -75,7 +75,7 @@ const Home: React.FC = () => {
                   aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
               }}
-              className="px-4 py-2 sm:px-8 sm:py-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95 text-[12px] sm:text-base md:text-lg"
+              className="px-4 py-2 sm:px-8 sm:py-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95 text-[12px] sm:text-base md:text-lg "
               style={{
                 backgroundColor: '#423E3E',
                 color: '#FFF2F2',

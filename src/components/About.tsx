@@ -130,7 +130,7 @@ const About: React.FC = () => {
           </div>
 
           {/* Scroll Indicator for Desktop */}
-          <div className="hidden lg:flex justify-start mt-12">
+          <div className="hidden lg:flex justify-start mt-12 pb-56">
             <button
               onClick={() => {
                 const skillsSection = document.getElementById('projects');
