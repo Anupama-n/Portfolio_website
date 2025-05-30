@@ -6,11 +6,11 @@ const About: React.FC = () => {
       {/* Main Content */}
       <div className="flex items-center justify-center px-4 sm:px-6 md:px-8 py-16 sm:py-20 md:py-24 min-h-[calc(100vh-120px)]">
         <div className="max-w-6xl w-full">
-          
+
           {/* Mobile Layout - Stacked */}
           <div className="flex flex-col lg:hidden items-center gap-8 sm:gap-12">
             {/* Profile Image - Mobile */}
-            <div className="flex-shrink-0 relative" style={{ width: '240px', height: '360px' }}>
+            <div className="flex-shrink-0 relative hover:scale-105 transition-transform duration-300" style={{ width: '240px', height: '380px' }}>
               {/* Border / Frame Image */}
               <img
                 src="/images/Rectangle 3.png"
@@ -22,7 +22,7 @@ const About: React.FC = () => {
                 <img
                   src="/images/About.jpg"
                   alt="Profile illustration"
-                  className="w-[95%] h-[95%] object-contain rounded-3xl -translate-x-[3px] -translate-y-[8px] hover:scale-105 transition-transform duration-300"
+                  className="w-[95%] h-[95%] object-contain rounded-3xl -translate-x-[3px] -translate-y-[8px] "
                 />
               </div>
             </div>
@@ -83,15 +83,23 @@ const About: React.FC = () => {
                 style={{ fontFamily: "'Inika', serif", color: '#2d2d2d' }}
               >
                 <div
-                  className="flex items-start p-10 xl:p-12 rounded-[60px] xl:rounded-[70px] shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="flex items-start p-10 xl:p-12 rounded-[60px] xl:rounded-[70px] shadow-lg hover:shadow-xl transition-all duration-300 "
                   style={{
                     backgroundColor: '#FFEDED',
-                    boxShadow: '0px 4px 20px rgba(137, 137, 137, 0.25)'
+                    boxShadow: '0px 4px 20px rgba(137, 137, 137, 0.25)',
+                    maxWidth: '900px', // increase max width
+                    width: '110%',
+                    transform: 'translateX(-15px)'
+
                   }}
                 >
-                  <p className="pt-2">
+                  <p className="pt-2"
+                    style={{
+                      fontSize: '20px', // or '1.25rem', '24px', etc.
+                      lineHeight: '1.6',
+                    }}>
                     <span
-                      className="text-5xl xl:text-6xl mr-4 italic leading-none"
+                      className="text-5xl xl:text-7xl mr-4 italic leading-none"
                       style={{ fontFamily: "'Ingrid Darling'" }}
                     >
                       I
@@ -109,22 +117,45 @@ const About: React.FC = () => {
             </div>
 
             {/* Profile Image - Desktop */}
-            <div className="flex-shrink-0 relative" style={{ width: '300px', height: '470px' }}>
+            <div className="flex-shrink-0 relative hover:scale-105 transition-transform duration-300" style={{ width: '300px', height: '470px' }}>
               {/* Border / Frame Image */}
               <img
                 src="/images/Rectangle 3.png"
                 alt="Decorative border"
-                className="absolute top-0 left-0 w-full h-full object-contain z-20 pointer-events-none"
+                className="absolute top-8 left-0 w-full h-full object-contain z-20 pointer-events-none"
               />
               {/* Profile Image inside the frame */}
               <div className="relative z-10 w-full h-full flex items-center justify-center">
                 <img
                   src="/images/About.jpg"
                   alt="Profile illustration"
-                  className="w-[95%] h-[95%] object-contain rounded-3xl -translate-x-[3px] -translate-y-[8px] hover:scale-105 transition-transform duration-300"
+                  className="w-[95%] h-[95%] object-contain rounded-3xl -translate-x-[2px] -translate-y-[-24px]"
                 />
               </div>
             </div>
+          </div>
+          {/* Scroll Indicator for Desktop */}
+          <div className="hidden lg:flex justify-start mt-12">
+            <button
+              onClick={() => {
+                const skillsSection = document.getElementById('projects');
+                if (skillsSection) {
+                  skillsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className="px-6 py-3 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95"
+              style={{
+                backgroundColor: '#423E3E',
+                color: '#FFF2F2',
+                fontFamily: "'Instrument Sans', sans-serif",
+                fontSize: '16px',
+                fontWeight: '500',
+                border: 'none',
+                cursor: 'pointer'
+              }}
+            >
+              View My Work
+            </button>
           </div>
 
           {/* Scroll Indicator for Mobile */}
