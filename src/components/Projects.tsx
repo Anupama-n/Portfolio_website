@@ -6,7 +6,7 @@ const skills = [
 ];
 
 const categories = [
-  "Logo Designs", "Mobile App Designs", "Web App Designs", "Other Designs", "Web Development Projects"
+  "Logo Designs", "Mobile App Designs", "Web App Designs", "Other Designs","Flutter Projects", "Web Development Projects"
 ];
 
 const projects = [
@@ -14,34 +14,77 @@ const projects = [
     title: "Hulaki App Logo",
     description:
       "The Hukali logo symbolizes trusted news delivery, inspired by traditional mail. Designed in Figma with Material UI colors, it blends minimalism and nostalgia.",
-      image: "/images/Hulaki_logo.png",
-    link: "https://www.figma.com",
+    image: "/images/Hulaki_logo.png",
+    link: "https://www.figma.com/design/jlhee6nGQIxAnqJNOi7Yz9/HULAKI?t=A20G9z1fzIbv9znd-0",
     category: "Logo Designs"
   },
   {
-    title: "EduTrack Dashboard",
+    title: "KURCH Logo",
     description:
-      "An education performance tracker for students and teachers. Built with React and Tailwind, integrated with Firebase for auth and database.",
-    image: "/images/my_works.png",
-    link: "#",
+      "This logo for Kathmandu University Research and Collaboration Hub symbolizes research, innovation, and unity. Designed with a clean, academic palette to reflect clarity and professionalism.",
+    image: "/images/KURCH_logo.png",
+    link: "https://www.figma.com/design/KWRaNqyuESApgMFNRGc7WP/KURCH?node-id=2-2&t=jdQ14BY8YTYIVOFt-1",
+    category: "Logo Designs"
+    // category: "Web Development Projects"
+  },
+  {
+    title: "Hulaki Mobile App Design",
+    description:
+    "Hulaki is a news aggregator app that lets users personalize content by language, theme, and topics. It offers three UI modes—Listicle for quick reads, Brainrot for social-style scrolling, and Pinterest-style for visual discovery—each designed to study user engagement and preference.",
+    image: "/images/hulaki.png",
+    link: "https://www.figma.com/design/jlhee6nGQIxAnqJNOi7Yz9/HULAKI?t=A20G9z1fzIbv9znd-0",
+    category: "Mobile App Designs"
+    // category: "Web Development Projects"
+  },
+  {
+    title: "Portfolio Website Design",
+    description:
+      "A minimal, elegant portfolio website with a custom hand-drawn vector illustration, designed to highlight my work and creative identity with clarity and subtlety.",
+    image: "/images/portfolio_website.png",
+    link: "https://www.figma.com/design/UU9aslccru9gpuyEAHnKug/Portfolio-website?node-id=0-1&t=Sdx7s7VHKLHQhTjc-1",
+    category: "Web App Designs"
+  },
+  {
+    title: "Other Designs",
+    description:
+      "Crafted digital visuals for KURCH and university workshops, emphasizing clarity and consistency. Custom vector art was designed in Figma to enhance personal branding across digital platforms.",
+    image: "/images/Other_designs.png",
+    link: "https://www.figma.com/design/Y1k0Xik70xYMghxBrzk2KE/Other-Designs?node-id=0-1&t=jdQ14BY8YTYIVOFt-1",
+    category: "Other Designs"
+  },
+  {
+    title: "Hulaki Mobile App",
+    description:
+      "Developed UI screens in Flutter for a group project—a news aggregator app featuring three distinct interfaces to explore user engagement. Focused on building responsive, user-friendly layouts based on collaborative team designs.",
+    image: "/images/hulaki1.png",
+    link: "https://www.figma.com/design/Y1k0Xik70xYMghxBrzk2KE/Other-Designs?node-id=0-1&t=jdQ14BY8YTYIVOFt-1",
+    category: "Flutter Projects"
+  },
+  {
+    title: "Portfolio Web App",
+    description:
+      "A personal portfolio built with React to showcase my projects and design work. It features custom vector artwork, a fully responsive layout for seamless viewing on all devices, and smooth, intuitive navigation to enhance the user experience.",
+    image: "/images/portfolio1.png",
+    link: "https://github.com/Anupama-n/Portfolio_website",
     category: "Web Development Projects"
   },
   {
-    title: "NepaNotes App",
+    title: "Job Portal App",
     description:
-      "A note-taking app inspired by Nepali students' learning habits. Designed for mobile using Flutter with cloud sync features.",
-    image: "/images/my_works.png",
-    link: "#",
-    category: "Mobile App Designs"
+      "A MERN stack job portal featuring user authentication and role-based access control. It supports job listings, application submissions, and comprehensive profile management for both employers and job seekers.",
+    image: "/images/image.png",
+    link: "https://github.com/Anupama-n/job-portal",
+    category: "Web Development Projects"
   },
   {
-    title: "Kreative Portfolio",
+    title: "Blog App",
     description:
-      "A clean and interactive designer portfolio built using Next.js and Framer Motion. Focused on animations and responsiveness.",
-    image: "/images/my_works.png",
-    link: "#",
-    category: "Web App Designs"
-  }
+      "Developed a full-stack MERN blog application with complete CRUD operations for posts. It includes user authentication, profile management, and update features, all delivered through a clean and user-friendly interface for an engaging experience.",
+    image: "/images/image1.png",
+    link: "https://github.com/Anupama-n/project-blogapp",
+    category: "Web Development Projects"
+  },
+
 ];
 
 const MySkillsAndWorks: React.FC = () => {
@@ -57,18 +100,18 @@ const MySkillsAndWorks: React.FC = () => {
   };
 
   return (
-    
-<section
-  id='projects'
-  className="bg-[#FFF2F2] min-h-screen px-4 sm:px-6 md:px-8 lg:px-32 py-12 sm:py-16 text-gray-800 relative overflow-hidden"
->
-  <h2
-className="text-3xl sm:text-4xl md:text-5xl font-medium bg-gradient-to-b from-black to-[#666666] text-transparent bg-clip-text mb-8 sm:mb-10 mx-auto text-center lg:text-left lg:ml-24"
 
-  style={{ fontFamily: "'Instrument Serif', serif" }}
->
-  My Skills
-</h2>
+    <section
+      id='projects'
+      className="bg-[#FFF2F2] min-h-screen px-4 sm:px-6 md:px-8 lg:px-32 py-12 sm:py-16 text-gray-800 relative overflow-hidden"
+    >
+      <h2
+        className="text-3xl sm:text-4xl md:text-5xl font-medium bg-gradient-to-b from-black to-[#666666] text-transparent bg-clip-text mb-8 sm:mb-10 mx-auto text-center lg:text-left lg:ml-24"
+
+        style={{ fontFamily: "'Instrument Serif', serif" }}
+      >
+        My Skills
+      </h2>
 
 
 
@@ -93,18 +136,18 @@ className="text-3xl sm:text-4xl md:text-5xl font-medium bg-gradient-to-b from-bl
               {skill}
             </span>
           ))}
-          
+
         </div>
       </div>
 
       {/* My Works Section */}
       <h2
-          className="text-3xl sm:text-4xl md:text-5xl font-medium bg-gradient-to-b from-black to-[#666666] text-transparent bg-clip-text text-center mb-8 sm:mb-10 mx-auto text-center lg:text-left lg:ml-24"
-          style={{ fontFamily: "'Instrument Serif', serif" }}
-        >
-          My Works
-        </h2>
-     <div className="bg-[#FFeded] shadow-[0_8px_30px_rgba(137,137,137,0.15)] rounded-[32px] sm:rounded-[40px] p-6 sm:p-8 md:p-10 max-w-5xl mb-12 sm:mb-16 transition-shadow duration-300 mx-auto lg:ml-24 lg:mr-0 hover:shadow-[0_10px_40px_rgba(137,137,137,0.2)]">
+        className="text-3xl sm:text-4xl md:text-5xl font-medium bg-gradient-to-b from-black to-[#666666] text-transparent bg-clip-text text-center mb-8 sm:mb-10 mx-auto text-center lg:text-left lg:ml-24"
+        style={{ fontFamily: "'Instrument Serif', serif" }}
+      >
+        My Works
+      </h2>
+      <div className="bg-[#FFeded] shadow-[0_8px_30px_rgba(137,137,137,0.15)] rounded-[32px] sm:rounded-[40px] p-6 sm:p-8 md:p-10 max-w-5xl mb-12 sm:mb-16 transition-shadow duration-300 mx-auto lg:ml-24 lg:mr-0 hover:shadow-[0_10px_40px_rgba(137,137,137,0.2)]">
 
         {/* Categories */}
         <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-10">
@@ -133,80 +176,108 @@ className="text-3xl sm:text-4xl md:text-5xl font-medium bg-gradient-to-b from-bl
           ))}
         </div>
 
-        {/* Projects Grid - Responsive Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-h-[500px] sm:max-h-[600px] overflow-y-auto pr-2">
-          {filteredProjects.map((proj, idx) => (
-            <div
-              key={idx}
-              className="bg-[#FFF1F2] rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] group"
+ {/* Projects Grid - Responsive Layout */}
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-h-[500px] sm:max-h-[600px] overflow-y-auto pr-2">
+  {filteredProjects.length === 0 ? (
+    <div className="text-center py-12 col-span-full">
+      <p
+        className="text-gray-500 text-lg"
+        style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+      >
+        No projects found in this category.
+      </p>
+    </div>
+  ) : (
+    filteredProjects.map((proj, idx) => (
+      <div
+        key={idx}
+        className="bg-[#FFF1F2] rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] group"
+      >
+        {/* Mobile Layout - Stacked */}
+        <div className="flex flex-col sm:hidden gap-4">
+          <img
+            src={proj.image}
+            alt={proj.title}
+            className="w-full h-32 object-cover rounded-xl border group-hover:scale-105 transition-transform duration-300"
+          />
+          <div>
+            <h3
+              className="text-lg font-regular mb-2"
+              style={{ fontFamily: "'Instrument Serif', serif" }}
             >
-              {/* Mobile Layout - Stacked */}
-              <div className="flex flex-col sm:hidden gap-4">
-                <img
-                  src={proj.image}
-                  alt={proj.title}
-                  className="w-full h-32 object-cover rounded-xl border group-hover:scale-105 transition-transform duration-300"
-                />
-                <div>
-                  <h3
-                    className="text-lg font-regular mb-2"
-                    style={{ fontFamily: "'Instrument Serif', serif" }}
-                  >
-                    {proj.title}
-                  </h3>
-                  <p
-                    className="text-sm text-gray-500 mb-3 leading-relaxed"
-                    style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-                  >
-                    {proj.description}
-                  </p>
-                  <a
-                    href={proj.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors duration-300"
-                    style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-                  >
-                    🔗 View Project
-                  </a>
-                </div>
-              </div>
-
-              {/* Desktop/Tablet Layout - Side by Side */}
-              <div className="hidden sm:flex gap-4 sm:gap-6 items-start">
-                <img
-                  src={proj.image}
-                  alt={proj.title}
-                   className="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-xl border flex-shrink-0 group-hover:scale-105 transition-transform duration-300 mt-4"/>
-                <div className="flex flex-col justify-between min-h-[6rem]">
-                  <div>
-                    <h3
-                      className="text-lg sm:text-xl font-regular mb-1 sm:mb-2"
-                      style={{ fontFamily: 'Inika' }}
-                    >
-                      {proj.title}
-                    </h3>
-                    <p
-                      className="text-sm sm:text-sm text-gray-500 mb-2 sm:mb-3 leading-relaxed"
-                      style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-                    >
-                      {proj.description}
-                    </p>
-                  </div>
-                  <a
-                    href={proj.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors duration-300 self-start"
-                    style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-                  >
-                    🔗 View Project
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+              {proj.title}
+            </h3>
+            <p
+              className="text-sm text-gray-500 mb-3 leading-relaxed"
+              style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+            >
+              {proj.description}
+            </p>
+            <a
+              href={proj.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors duration-300"
+              style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+            >
+              🔗 View Project
+            </a>
+          </div>
         </div>
+
+        {/* Desktop/Tablet Layout - Side by Side */}
+        <div
+          className={`hidden sm:flex gap-4 ${
+            proj.image.includes('hulaki') || proj.image.includes('hulaki1')
+              ? 'items-start'
+              : 'items-center'
+          }`}
+        >
+          <div
+            className="w-20 sm:w-24 max-w-full h-auto max-h-36 sm:max-h-40 flex-shrink-0 overflow-hidden"
+style={{
+  marginTop: proj.image.includes('hulaki') || proj.image.includes('hulaki1') ? '0' : '0.5rem',
+}}
+          >
+            <img
+              src={proj.image}
+              alt={proj.title}
+              className="h-full w-auto object-contain rounded-lg border group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          <div className="flex flex-col justify-between min-h-[6rem]">
+            <div>
+              <h3
+                className="text-lg sm:text-xl font-regular mb-1 sm:mb-2"
+                style={{ fontFamily: 'Inika' }}
+              >
+                {proj.title}
+              </h3>
+              <p
+                className="text-sm sm:text-sm text-gray-500 mb-2 sm:mb-3 leading-relaxed"
+                style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+              >
+                {proj.description}
+              </p>
+            </div>
+            <a
+              href={proj.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200"
+              style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 'light' }}
+            >
+              View Project
+            </a>
+          </div>
+        </div>
+      </div>
+    ))
+  )}
+</div>
+
+
 
         {/* Empty State */}
         {filteredProjects.length === 0 && (
