@@ -8,9 +8,10 @@ const About: React.FC = () => {
       style={{ backgroundColor: '#FFF2F2' }}
     >
       {/* Main Content */}
-      <div className="flex items-center justify-center px-2 sm:px-4 md:px-8 py-8 sm:py-10 md:py-24">
-        <div className="max-w-6xl w-full">
+      <div className="flex items-center justify-center px-2 sm:px-4 md:px-8 py-4 sm:py-6 md:py-24 -mt-[256px] sm:mt-0">
 
+
+        <div className="max-w-6xl w-full">
           {/* Mobile Layout - Stacked */}
           <div className="flex flex-col lg:hidden items-center justify-start gap-4 sm:gap-6 px-2">
             {/* Text Content - Mobile */}
@@ -40,18 +41,20 @@ const About: React.FC = () => {
                     >
                       I
                     </span>
-                    'm a final-year Computer Science student at Kathmandu University with a strong interest in
-                    UI/UX design and graphic design. I enjoy creating user-centered designs that are both
-                    functional and visually engaging. <br /> <br />
-                    While I've studied web development and worked on personal and academic projects, my true
-                    passion lies in designing intuitive interfaces and crafting seamless digital experiences.
-                    I'm always exploring new design trends, tools, and ideas to refine my skills and grow as a
-                    designer.
+                    'm a final-year Computer Science student at Kathmandu University with a strong
+                    interest in UI/UX design and graphic design. I enjoy creating user-centered designs
+                    that are both functional and visually engaging. <br /> <br />
+                    While I've studied web development and worked on personal and academic projects, my
+                    true passion lies in designing intuitive interfaces and crafting seamless digital
+                    experiences. I'm always exploring new design trends, tools, and ideas to refine my
+                    skills and grow as a designer.
                   </p>
                 </div>
               </div>
             </div>
           </div>
+
+
 
 
           {/* Desktop Layout - Side by Side */}
@@ -151,28 +154,29 @@ const About: React.FC = () => {
           </div>
 
           {/* Scroll Indicator for Mobile */}
-          <div className="flex lg:hidden justify-center mt-6 sm:mt-8">
-            <button
-              onClick={() => {
-                const skillsSection = document.getElementById('projects');
-                if (skillsSection) {
-                  skillsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
-              className="px-5 py-2.5 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95"
-              style={{
-                backgroundColor: '#423E3E',
-                color: '#FFF2F2',
-                fontFamily: "'Instrument Sans', sans-serif",
-                fontSize: '13px',
-                fontWeight: '500',
-                border: 'none',
-                cursor: 'pointer',
-              }}
-            >
-              View My Work
-            </button>
-          </div>
+<div className="flex lg:hidden justify-center mt-6 sm:mt-8 pb-14">
+  <button
+    onClick={() => {
+      const skillsSection = document.getElementById('projects');
+      if (skillsSection) {
+        skillsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }}
+    className="px-5 py-2 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95"
+    style={{
+      backgroundColor: '#423E3E',
+      color: '#FFF2F2',
+      fontFamily: "'Instrument Sans', sans-serif",
+      fontSize: '13px',
+      fontWeight: '500',
+      border: 'none',
+      cursor: 'pointer',
+    }}
+  >
+    View My Work
+  </button>
+</div>
+
         </div>
       </div>
     </div>
