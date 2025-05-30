@@ -8,7 +8,7 @@ const About: React.FC = () => {
       style={{ backgroundColor: '#FFF2F2' }}
     >
       {/* Main Content */}
-      <div className="flex items-center justify-center px-2 sm:px-4 md:px-8 py-4 sm:py-6 md:py-24 -mt-[112px] sm:mt-0">
+      <div className="flex items-center justify-center px-2 sm:px-4 md:px-8 py-4 sm:py-6 md:py-24 -mt-[94px] sm:mt-0">
 
 
         <div className="max-w-6xl w-full">
@@ -154,7 +154,7 @@ const About: React.FC = () => {
           </div>
 
           {/* Scroll Indicator for Mobile */}
-<div className="flex lg:hidden justify-center mt-6 sm:mt-8 pb-14">
+<div className="flex lg:hidden justify-center mt-6 sm:mt-8 pb-20">
   <button
     onClick={() => {
       const skillsSection = document.getElementById('projects');
