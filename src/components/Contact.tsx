@@ -36,7 +36,7 @@ const Contact: React.FC = () => {
 
           {/* Heading */}
           <h2
-            className="text-3xl sm:text-4xl lg:text-5xl mb-8 sm:mb-12 text-center bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
+            className="text-4xl sm:text-4xl lg:text-5xl mb-8 sm:mb-12 text-center bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
             style={{
               fontFamily: "'Instrument Serif', serif",
               fontWeight: 400
@@ -60,8 +60,9 @@ const Contact: React.FC = () => {
                   onChange={handleInputChange}
                   className="w-full px-[13px] sm:px-[19px] py-[13px] sm:py-[17px] rounded-full border-2 transition-all focus:outline-none"
                   style={{
+                    
                     backgroundColor: '#FFEDED',
-                    boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.25)',
+                    boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.10)',
                     borderColor: 'rgba(100, 100, 100, 0.1)',
                     color: '#2d2d2d',
                     fontFamily: "'Inika', serif",
@@ -70,14 +71,14 @@ const Contact: React.FC = () => {
                   onFocus={(e) => {
                     e.target.style.borderColor = '#EECCCC'; // pastel pink stroke
                     e.target.style.backgroundColor = '#FCECEC'; // slight visual feedback
-                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.4)';
+                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
                     e.target.style.fontSize = '22px';
 
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = 'rgba(100, 100, 100, 0.1)';
                     e.target.style.backgroundColor = '#FFEDED';
-                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.25)';
+                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
                     e.target.style.fontSize = '20px';
                   }}
                   required
@@ -94,8 +95,9 @@ const Contact: React.FC = () => {
                   onChange={handleInputChange}
                   className="w-full px-[13px] sm:px-[19px] py-[13px] sm:py-[17px] rounded-full border-2 transition-all focus:outline-none"
                   style={{
+                    
                     backgroundColor: '#FFEDED',
-                    boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.25)',
+                    boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.10)',
                     borderColor: 'rgba(100, 100, 100, 0.1)',
                     color: '#2d2d2d',
                     fontFamily: "'Inika', serif",
@@ -104,14 +106,14 @@ const Contact: React.FC = () => {
                   onFocus={(e) => {
                     e.target.style.borderColor = '#EECCCC'; // pastel pink stroke
                     e.target.style.backgroundColor = '#FCECEC'; // slight visual feedback
-                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.4)';
+                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
                     e.target.style.fontSize = '22px';
 
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = 'rgba(100, 100, 100, 0.1)';
                     e.target.style.backgroundColor = '#FFEDED';
-                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.25)';
+                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
                     e.target.style.fontSize = '20px';
                   }}
                   required
@@ -128,8 +130,9 @@ const Contact: React.FC = () => {
                   onChange={handleInputChange}
                   className="w-full px-[13px] sm:px-[19px] py-[13px] sm:py-[17px] rounded-full border-2 transition-all focus:outline-none"
                   style={{
+                    
                     backgroundColor: '#FFEDED',
-                    boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.25)',
+                    boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.10)',
                     borderColor: 'rgba(100, 100, 100, 0.1)',
                     color: '#2d2d2d',
                     fontFamily: "'Inika', serif",
@@ -138,14 +141,14 @@ const Contact: React.FC = () => {
                   onFocus={(e) => {
                     e.target.style.borderColor = '#EECCCC'; // pastel pink stroke
                     e.target.style.backgroundColor = '#FCECEC'; // slight visual feedback
-                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.4)';
+                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
                     e.target.style.fontSize = '22px';
 
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = 'rgba(100, 100, 100, 0.1)';
                     e.target.style.backgroundColor = '#FFEDED';
-                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.25)';
+                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
                     e.target.style.fontSize = '20px';
                   }}
                   required
@@ -164,7 +167,7 @@ const Contact: React.FC = () => {
                   style={{
                     
                     backgroundColor: '#FFEDED',
-                    boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.25)',
+                    boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.10)',
                     borderColor: 'rgba(100, 100, 100, 0.1)',
                     color: '#2d2d2d',
                     fontFamily: "'Inika', serif",
@@ -173,14 +176,14 @@ const Contact: React.FC = () => {
                   onFocus={(e) => {
                     e.target.style.borderColor = '#EECCCC'; // pastel pink stroke
                     e.target.style.backgroundColor = '#FCECEC'; // slight visual feedback
-                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.4)';
+                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
                     e.target.style.fontSize = '22px';
 
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = 'rgba(100, 100, 100, 0.1)';
                     e.target.style.backgroundColor = '#FFEDED';
-                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.25)';
+                    e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
                     e.target.style.fontSize = '20px';
                   }}
                   required

@@ -30,7 +30,7 @@ const About: React.FC = () => {
             {/* Text Content - Mobile */}
             <div className="w-full text-center">
               <h2
-                className="text-3xl sm:text-4xl mb-6 sm:mb-8"
+                className="text-4xl sm:text-4xl mb-6 sm:mb-8"
                 style={{ fontFamily: "'Instrument Serif', serif", fontWeight: 400 }}
               >
                 Introduction

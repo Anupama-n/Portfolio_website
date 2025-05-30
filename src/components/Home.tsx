@@ -19,7 +19,7 @@ const Home: React.FC = () => {
         <div className="flex flex-col items-center text-center" style={{ marginTop: 5 }}>
           {/* Main Heading */}
           <h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light bg-gradient-to-r from-black to-[#666666] text-transparent bg-clip-text mb-4 sm:mb-5 md:mb-6 leading-tight"
+            className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-light bg-gradient-to-r from-black to-[#666666] text-transparent bg-clip-text mb-4 sm:mb-5 md:mb-6 leading-tight"
             style={{ fontFamily: "'Instrument Serif', serif" }}
           >
             Hey I'm Anupama
