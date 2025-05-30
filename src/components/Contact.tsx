@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +8,10 @@ const Contact: React.FC = () => {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [showPopup, setShowPopup] = useState(false);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -16,20 +20,185 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = () => {
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
+  const handleSubmit = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('https://getform.io/f/akknyjqa', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setShowPopup(true);
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Auto-hide popup after 5 seconds
+  useEffect(() => {
+    if (showPopup) {
+      const timer = setTimeout(() => {
+        setShowPopup(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showPopup]);
+
+  const closePopup = () => {
+    setShowPopup(false);
   };
 
   return (
     <div
       id='contact'
-      className="w-full min-h-screen"
+      className="w-full min-h-screen relative"
       style={{
         backgroundColor: '#FFF2F2',
         scrollBehavior: 'smooth'
       }}
     >
+      {/* Thank You Popup */}
+      {showPopup && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+          onClick={closePopup}
+        >
+          <div 
+            className="relative max-w-md w-full mx-auto p-8 rounded-3xl transform transition-all duration-300 ease-out"
+            style={{
+              backgroundColor: '#FFFFFF',
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
+              animation: 'slideUp 0.3s ease-out'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closePopup}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-110 focus:outline-none"
+              style={{
+                backgroundColor: '#F5F5F5',
+                color: '#666'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#E0E0E0';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#F5F5F5';
+              }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+
+            {/* Success Icon */}
+            <div className="text-center mb-6">
+              <div 
+                className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"
+                style={{
+                  backgroundColor: '#D4EDDA',
+                  animation: 'pulse 2s infinite'
+                }}
+              >
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#155724" strokeWidth="3">
+                  <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+              </div>
+              
+              <h3 
+                className="text-2xl mb-3"
+                style={{
+                  fontFamily: "'Instrument Serif', serif",
+                  color: '#2D2D2D',
+                  fontWeight: 400
+                }}
+              >
+                Thank You!
+              </h3>
+              
+              <p 
+                className="text-lg leading-relaxed mb-6"
+                style={{
+                  fontFamily: "'Inika', serif",
+                  color: '#666',
+                  lineHeight: '1.6'
+                }}
+              >
+                Your message has been sent successfully. I'll get back to you as soon as possible!
+              </p>
+
+              {/* Decorative Elements */}
+              <div className="flex justify-center space-x-2 mb-4">
+                <div 
+                  className="w-2 h-2 rounded-full"
+                  style={{ 
+                    backgroundColor: '#EECCCC',
+                    animation: 'bounce 1s infinite 0s'
+                  }}
+                ></div>
+                <div 
+                  className="w-2 h-2 rounded-full"
+                  style={{ 
+                    backgroundColor: '#EECCCC',
+                    animation: 'bounce 1s infinite 0.1s'
+                  }}
+                ></div>
+                <div 
+                  className="w-2 h-2 rounded-full"
+                  style={{ 
+                    backgroundColor: '#EECCCC',
+                    animation: 'bounce 1s infinite 0.2s'
+                  }}
+                ></div>
+              </div>
+            </div>
+
+            {/* Auto-close indicator */}
+            <div className="text-center">
+              <p 
+                className="text-sm"
+                style={{
+                  fontFamily: "'Inika', serif",
+                  color: '#999'
+                }}
+              >
+                This popup will close automatically in a few seconds
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Main Content */}
       <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 min-h-screen">
         <div className="max-w-2xl w-full">
@@ -41,14 +210,19 @@ const Contact: React.FC = () => {
               fontFamily: "'Instrument Serif', serif",
               fontWeight: 400
             }}
-
           >
             Contact Me
           </h2>
 
-          {/* Contact Form with Shadow Box */}
-          <div
-          >
+          {/* Status Messages (keeping the original inline message for error states) */}
+          {submitStatus === 'error' && (
+            <div className="mb-6 p-4 rounded-full text-center" style={{ backgroundColor: '#f8d7da', color: '#721c24', fontFamily: "'Inika', serif" }}>
+              Sorry, there was an error sending your message. Please try again.
+            </div>
+          )}
+
+          {/* Contact Form */}
+          <div>
             <div className="space-y-4 sm:space-y-6">
               {/* Name Field */}
               <div>
@@ -58,9 +232,9 @@ const Contact: React.FC = () => {
                   placeholder="Name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-[13px] sm:px-[19px] py-[13px] sm:py-[17px] rounded-full border-2 transition-all focus:outline-none"
+                  disabled={isSubmitting}
+                  className="w-full px-[13px] sm:px-[19px] py-[13px] sm:py-[17px] rounded-full border-2 transition-all focus:outline-none disabled:opacity-50"
                   style={{
-                    
                     backgroundColor: '#FFEDED',
                     boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.10)',
                     borderColor: 'rgba(100, 100, 100, 0.1)',
@@ -69,11 +243,10 @@ const Contact: React.FC = () => {
                     fontSize: '18px'
                   }}
                   onFocus={(e) => {
-                    e.target.style.borderColor = '#EECCCC'; // pastel pink stroke
-                    e.target.style.backgroundColor = '#FCECEC'; // slight visual feedback
+                    e.target.style.borderColor = '#EECCCC';
+                    e.target.style.backgroundColor = '#FCECEC';
                     e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
                     e.target.style.fontSize = '22px';
-
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = 'rgba(100, 100, 100, 0.1)';
@@ -93,9 +266,9 @@ const Contact: React.FC = () => {
                   placeholder="Email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-[13px] sm:px-[19px] py-[13px] sm:py-[17px] rounded-full border-2 transition-all focus:outline-none"
+                  disabled={isSubmitting}
+                  className="w-full px-[13px] sm:px-[19px] py-[13px] sm:py-[17px] rounded-full border-2 transition-all focus:outline-none disabled:opacity-50"
                   style={{
-                    
                     backgroundColor: '#FFEDED',
                     boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.10)',
                     borderColor: 'rgba(100, 100, 100, 0.1)',
@@ -104,11 +277,10 @@ const Contact: React.FC = () => {
                     fontSize: '18px'
                   }}
                   onFocus={(e) => {
-                    e.target.style.borderColor = '#EECCCC'; // pastel pink stroke
-                    e.target.style.backgroundColor = '#FCECEC'; // slight visual feedback
+                    e.target.style.borderColor = '#EECCCC';
+                    e.target.style.backgroundColor = '#FCECEC';
                     e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
                     e.target.style.fontSize = '22px';
-
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = 'rgba(100, 100, 100, 0.1)';
@@ -128,9 +300,9 @@ const Contact: React.FC = () => {
                   placeholder="Subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="w-full px-[13px] sm:px-[19px] py-[13px] sm:py-[17px] rounded-full border-2 transition-all focus:outline-none"
+                  disabled={isSubmitting}
+                  className="w-full px-[13px] sm:px-[19px] py-[13px] sm:py-[17px] rounded-full border-2 transition-all focus:outline-none disabled:opacity-50"
                   style={{
-                    
                     backgroundColor: '#FFEDED',
                     boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.10)',
                     borderColor: 'rgba(100, 100, 100, 0.1)',
@@ -139,11 +311,10 @@ const Contact: React.FC = () => {
                     fontSize: '18px'
                   }}
                   onFocus={(e) => {
-                    e.target.style.borderColor = '#EECCCC'; // pastel pink stroke
-                    e.target.style.backgroundColor = '#FCECEC'; // slight visual feedback
+                    e.target.style.borderColor = '#EECCCC';
+                    e.target.style.backgroundColor = '#FCECEC';
                     e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
                     e.target.style.fontSize = '22px';
-
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = 'rgba(100, 100, 100, 0.1)';
@@ -151,7 +322,6 @@ const Contact: React.FC = () => {
                     e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
                     e.target.style.fontSize = '20px';
                   }}
-                  required
                 />
               </div>
 
@@ -162,10 +332,10 @@ const Contact: React.FC = () => {
                   placeholder="Your Message"
                   value={formData.message}
                   onChange={handleInputChange}
+                  disabled={isSubmitting}
                   rows={5}
-                  className="w-full px-[13px] sm:px-[19px] py-[13px] sm:py-[17px] rounded-3xl border-2 transition-all focus:outline-none resize-none " 
+                  className="w-full px-[13px] sm:px-[19px] py-[13px] sm:py-[17px] rounded-3xl border-2 transition-all focus:outline-none resize-none disabled:opacity-50" 
                   style={{
-                    
                     backgroundColor: '#FFEDED',
                     boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.10)',
                     borderColor: 'rgba(100, 100, 100, 0.1)',
@@ -174,11 +344,10 @@ const Contact: React.FC = () => {
                     fontSize: '18px'
                   }}
                   onFocus={(e) => {
-                    e.target.style.borderColor = '#EECCCC'; // pastel pink stroke
-                    e.target.style.backgroundColor = '#FCECEC'; // slight visual feedback
+                    e.target.style.borderColor = '#EECCCC';
+                    e.target.style.backgroundColor = '#FCECEC';
                     e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
                     e.target.style.fontSize = '22px';
-
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = 'rgba(100, 100, 100, 0.1)';
@@ -197,6 +366,8 @@ const Contact: React.FC = () => {
                   {/* Facebook */}
                   <a
                     href="https://www.facebook.com/anupama.neupane.399/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 focus:scale-110 focus:outline-none"
                     style={{
                       backgroundColor: '#423E3E',
@@ -220,6 +391,8 @@ const Contact: React.FC = () => {
                   {/* GitHub */}
                   <a
                     href="https://github.com/Anupama-n/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 focus:scale-110 focus:outline-none"
                     style={{
                       backgroundColor: '#423E3E',
@@ -243,6 +416,8 @@ const Contact: React.FC = () => {
                   {/* LinkedIn */}
                   <a
                     href="https://www.linkedin.com/in/anupama-neupane-918b0b32a/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 focus:scale-110 focus:outline-none"
                     style={{
                       backgroundColor: '#423E3E',
@@ -266,11 +441,12 @@ const Contact: React.FC = () => {
 
                 {/* Submit Button */}
                 <button
-                  type="button"
+                  type="submit"
                   onClick={handleSubmit}
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-full transition-all hover:scale-105 focus:scale-105 focus:outline-none order-1 sm:order-2"
+                  disabled={isSubmitting}
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-full transition-all hover:scale-105 focus:scale-105 focus:outline-none order-1 sm:order-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   style={{
-                    backgroundColor: '#423E3E',
+                    backgroundColor: isSubmitting ? '#6B6B6B' : '#423E3E',
                     color: 'white',
                     fontFamily: "'Inika', serif",
                     fontWeight: 400,
@@ -278,21 +454,63 @@ const Contact: React.FC = () => {
                     fontSize: '18px'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#3C3636';
-                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(45, 45, 45, 0.4)';
+                    if (!isSubmitting) {
+                      e.currentTarget.style.backgroundColor = '#3C3636';
+                      e.currentTarget.style.boxShadow = '0 6px 16px rgba(45, 45, 45, 0.4)';
+                    }
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#423E3E';
-                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(45, 45, 45, 0.3)';
+                    if (!isSubmitting) {
+                      e.currentTarget.style.backgroundColor = '#423E3E';
+                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(45, 45, 45, 0.3)';
+                    }
                   }}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* CSS Animations */}
+      <style>{`
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+
+        @keyframes pulse {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+        }
+
+        @keyframes bounce {
+          0%, 20%, 53%, 80%, 100% {
+            transform: translateY(0);
+          }
+          40%, 43% {
+            transform: translateY(-8px);
+          }
+          70% {
+            transform: translateY(-4px);
+          }
+          90% {
+            transform: translateY(-2px);
+          }
+        }
+      `}</style>
     </div>
   );
 };
