@@ -38,7 +38,7 @@ const About: React.FC = () => {
 
               <div
                 className="space-y-6 text-base sm:text-lg leading-relaxed"
-                style={{ fontFamily: "'Inika', serif", color: '#2d2d2d' }}
+                style={{ fontFamily: "'Inika', serif", color: '#666161' }}
               >
                 <div
                   className="flex items-start p-6 sm:p-8 rounded-[40px] sm:rounded-[50px] shadow-lg hover:shadow-xl transition-all duration-300"
@@ -80,7 +80,7 @@ const About: React.FC = () => {
 
               <div
                 className="space-y-8 text-lg xl:text-xl leading-relaxed"
-                style={{ fontFamily: "'Inika', serif", color: '#2d2d2d' }}
+                style={{ fontFamily: "'Inika', serif", color: '#666161' }}
               >
                 <div
                   className="flex items-start p-10 xl:p-12 rounded-[60px] xl:rounded-[70px] shadow-lg hover:shadow-xl transition-all duration-300 "

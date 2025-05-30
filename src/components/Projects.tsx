@@ -100,16 +100,16 @@ const MySkillsAndWorks: React.FC = () => {
   };
 
   const scrollSkills = (direction: "left" | "right") => {
-  const container = document.getElementById("skills-scroll");
-  if (!container) return;
+    const container = document.getElementById("skills-scroll");
+    if (!container) return;
 
-  const scrollAmount = 150; // adjust if needed
+    const scrollAmount = 150; // adjust if needed
 
-  container.scrollBy({
-    left: direction === "right" ? scrollAmount : -scrollAmount,
-    behavior: "smooth",
-  });
-};
+    container.scrollBy({
+      left: direction === "right" ? scrollAmount : -scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
 
   return (
@@ -141,39 +141,38 @@ const MySkillsAndWorks: React.FC = () => {
 
         <div className="relative bg-[#FFeded] shadow-[0_8px_30px_rgba(137,137,137,0.15)] rounded-[32px] sm:rounded-[40px] p-4 sm:p-8 md:p-10 max-w-5xl mb-12 sm:mb-16 transition-shadow duration-300 mx-auto lg:ml-24 lg:mr-0 hover:shadow-[0_10px_40px_rgba(137,137,137,0.2)]">
 
-  {/* Scrollable Skills Row */}
-  <div
-    id="skills-scroll"
-    className="flex sm:flex-wrap gap-2 sm:gap-3 md:gap-4 sm:justify-center overflow-x-auto flex-nowrap px-1 hide-scrollbar"
-  >
-    {skills.map((skill, idx) => (
-      <span
-        key={idx}
-        onMouseEnter={() => setHoveredSkill(skill)}
-        onMouseLeave={() => setHoveredSkill(null)}
-        className={`px-3 sm:px-4 py-1.5 text-sm sm:text-base whitespace-nowrap rounded-full border transition-all duration-300 cursor-pointer transform ${
-          skill === ""
-            ? "bg-gray-800 text-white shadow-lg"
-            : hoveredSkill === skill
-            ? "bg-gray-200 scale-105 shadow-md"
-            : "hover:bg-gray-100 hover:scale-105"
-        }`}
-        style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-      >
-        {skill}
-      </span>
-    ))}
-  </div>
+          {/* Scrollable Skills Row */}
+          <div
+            id="skills-scroll"
+            className="flex sm:flex-wrap gap-2 sm:gap-3 md:gap-4 sm:justify-center overflow-x-auto flex-nowrap px-1 hide-scrollbar"
+          >
+            {skills.map((skill, idx) => (
+              <span
+                key={idx}
+                onMouseEnter={() => setHoveredSkill(skill)}
+                onMouseLeave={() => setHoveredSkill(null)}
+                className={`px-3 sm:px-4 py-1.5 text-sm sm:text-base whitespace-nowrap rounded-full border transition-all duration-300 cursor-pointer transform ${skill === ""
+                  ? "bg-gray-800 text-white shadow-lg"
+                  : hoveredSkill === skill
+                    ? "bg-gray-200 scale-105 shadow-md"
+                    : "hover:bg-gray-100 hover:scale-105"
+                  }`}
+                style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
 
-  {/* Right Arrow Button - Aligned to end (Small devices only) */}
-  <button
-    onClick={() => scrollSkills("right")}
-    className="sm:hidden absolute right-4 top-1/2 -translate-y-1/2 bg-red-100 text-black px-2.5 py-1.5 rounded-full shadow hover:bg-red-200 transition-all duration-300"
-    aria-label="Scroll right"
-  >
-    →
-  </button>
-</div>
+          {/* Right Arrow Button - Aligned to end (Small devices only) */}
+          <button
+            onClick={() => scrollSkills("right")}
+            className="sm:hidden absolute right-4 top-1/2 -translate-y-1/2 bg-red-100 text-black px-2.5 py-1.5 rounded-full shadow hover:bg-red-200 transition-all duration-300"
+            aria-label="Scroll right"
+          >
+            →
+          </button>
+        </div>
 
 
         {/* My Works Section */}
@@ -185,149 +184,158 @@ const MySkillsAndWorks: React.FC = () => {
         </h2>
         <div className="bg-[#FFeded] shadow-[0_8px_30px_rgba(137,137,137,0.15)] rounded-[32px] sm:rounded-[40px] p-6 sm:p-8 md:p-10 max-w-5xl mb-12 sm:mb-16 transition-shadow duration-300 mx-auto lg:ml-24 lg:mr-0 hover:shadow-[0_10px_40px_rgba(137,137,137,0.2)]">
 
+
           {/* Categories */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-10">
-            <span
-              onClick={() => handleCategoryClick("All")}
-              className={`px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full border transition-all duration-300 cursor-pointer transform hover:scale-105 ${selectedCategory === "All"
-                ? "bg-gray-800 text-white shadow-lg"
-                : "hover:bg-gray-200 hover:shadow-md"
-                }`}
-              style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-            >
-              All
-            </span>
-            {categories.map((cat, idx) => (
-              <span
-                key={idx}
-                onClick={() => handleCategoryClick(cat)}
-                className={`px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full border transition-all duration-300 cursor-pointer transform hover:scale-105 ${selectedCategory === cat
-                  ? "bg-gray-800 text-white shadow-lg"
-                  : "hover:bg-gray-200 hover:shadow-md"
-                  }`}
-                style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-              >
-                {cat}
-              </span>
-            ))}
-          </div>
+          <div
+  className="flex sm:flex-wrap sm:justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-10 overflow-x-auto sm:overflow-visible hide-scrollbar px-1 sm:px-0"
+>
+  <span
+    onClick={() => handleCategoryClick("All")}
+    className={`whitespace-nowrap px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full border transition-all duration-300 cursor-pointer transform hover:scale-105 ${
+      selectedCategory === "All"
+        ? "bg-gray-800 text-white shadow-lg"
+        : "hover:bg-gray-200 hover:shadow-md"
+    }`}
+    style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+  >
+    All
+  </span>
+
+  {categories.map((cat, idx) => (
+    <span
+      key={idx}
+      onClick={() => handleCategoryClick(cat)}
+      className={`whitespace-nowrap px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full border transition-all duration-300 cursor-pointer transform hover:scale-105 ${
+        selectedCategory === cat
+          ? "bg-gray-800 text-white shadow-lg"
+          : "hover:bg-gray-200 hover:shadow-md"
+      }`}
+      style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+    >
+      {cat}
+    </span>
+  ))}
+</div>
+
+
 
           {/* Projects Grid - Responsive Layout with Hidden Scrollbar */}
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-h-[500px] sm:max-h-[600px] overflow-y-auto hide-scrollbar">
-  {filteredProjects.length === 0 ? (
-    <div className="text-center py-12 col-span-full">
-      <p
-        className="text-gray-500 text-lg"
-        style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-      >
-        No projects found in this category.
-      </p>
-    </div>
-  ) : (
-    filteredProjects.map((proj, idx) => (
-      <div
-        key={idx}
-        className="bg-[#FFF1F2] rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] group"
-      >
-        {/* Mobile Layout - Stacked - Hidden on sm and above */}
-        <div
-          className={`flex gap-4 sm:hidden ${
-            proj.image.includes('hulaki') || proj.image.includes('hulaki1')
-              ? 'items-start'
-              : 'items-center'
-          }`}
-        >
-          <div
-            className="w-20 sm:w-24 max-w-full h-auto max-h-36 sm:max-h-40 flex-shrink-0 overflow-hidden"
-            style={{
-              marginTop: proj.image.includes('hulaki') || proj.image.includes('hulaki1') ? '0' : '0.5rem',
-            }}
-          >
-            <img
-              src={proj.image}
-              alt={proj.title}
-              className="h-full w-auto object-contain rounded-lg border group-hover:scale-105 transition-transform duration-300"
-            />
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-h-[500px] sm:max-h-[600px] overflow-y-auto hide-scrollbar">
+            {filteredProjects.length === 0 ? (
+              <div className="text-center py-12 col-span-full">
+                <p
+                  className="text-gray-500 text-lg"
+                  style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+                >
+                  No projects found in this category.
+                </p>
+              </div>
+            ) : (
+              filteredProjects.map((proj, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#FFF1F2] rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] group"
+                >
+                  {/* Mobile Layout - Stacked - Hidden on sm and above */}
+                  <div
+                    className={`flex gap-2 sm:hidden ${proj.image.includes('hulaki') || proj.image.includes('hulaki1')
+                        ? 'items-start'
+                        : 'items-center'
+                      }`}
+                  >
+                    {/* Smaller Image */}
+                    <div
+                      className="w-14 max-w-full h-auto max-h-24 flex-shrink-0 overflow-hidden"
+                      style={{
+                        marginTop: proj.image.includes('hulaki') || proj.image.includes('hulaki1') ? '0' : '0.25rem',
+                      }}
+                    >
+                      <img
+                        src={proj.image}
+                        alt={proj.title}
+                        className="h-full w-auto object-contain rounded-md border group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
 
-          <div className="flex flex-col justify-between min-h-[6rem]">
-            <div>
-              <h3
-                className="text-lg sm:text-xl font-regular mb-1 sm:mb-2"
-                style={{ fontFamily: 'Inika' }}
-              >
-                {proj.title}
-              </h3>
-              <p
-                className="text-sm text-gray-500 mb-2 leading-relaxed"
-                style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-              >
-                {proj.description}
-              </p>
-            </div>
-            <a
-              href={proj.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200"
-              style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 'light' }}
-            >
-              View Project
-            </a>
-          </div>
-        </div>
+                    {/* Reduced Text Size and Tighter Layout */}
+                    <div className="flex flex-col justify-between min-h-[4.5rem]">
+                      <div>
+                        <h3
+                          className="text-sm font-small mb-1"
+                          style={{ fontFamily: 'Inika' }}
+                        >
+                          {proj.title}
+                        </h3>
+                        <p
+                          className="text-xs text-gray-600 mb-1 leading-snug"
+                          style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+                        >
+                          {proj.description}
+                        </p>
+                      </div>
+                      <a
+                        href={proj.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200"
+                        style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 'light' }}
+                      >
+                        View Project
+                      </a>
+                    </div>
+                  </div>
 
-        {/* Desktop/Tablet Layout - Side by Side - Visible only on sm and above */}
-        <div
-          className={`hidden sm:flex gap-4 ${
-            proj.image.includes('hulaki') || proj.image.includes('hulaki1')
-              ? 'items-start'
-              : 'items-center'
-          }`}
-        >
-          <div
-            className="w-20 sm:w-24 max-w-full h-auto max-h-36 sm:max-h-40 flex-shrink-0 overflow-hidden"
-            style={{
-              marginTop: proj.image.includes('hulaki') || proj.image.includes('hulaki1') ? '0' : '0.5rem',
-            }}
-          >
-            <img
-              src={proj.image}
-              alt={proj.title}
-              className="h-full w-auto object-contain rounded-lg border group-hover:scale-105 transition-transform duration-300"
-            />
-          </div>
 
-          <div className="flex flex-col justify-between min-h-[6rem]">
-            <div>
-              <h3
-                className="text-lg sm:text-xl font-regular mb-1 sm:mb-2"
-                style={{ fontFamily: 'Inika' }}
-              >
-                {proj.title}
-              </h3>
-              <p
-                className="text-sm sm:text-sm text-gray-500 mb-2 sm:mb-3 leading-relaxed"
-                style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-              >
-                {proj.description}
-              </p>
-            </div>
-            <a
-              href={proj.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200"
-              style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 'light' }}
-            >
-              View Project
-            </a>
+                  {/* Desktop/Tablet Layout - Side by Side - Visible only on sm and above */}
+                  <div
+                    className={`hidden sm:flex gap-4 ${proj.image.includes('hulaki') || proj.image.includes('hulaki1')
+                      ? 'items-start'
+                      : 'items-center'
+                      }`}
+                  >
+                    <div
+                      className="w-20 sm:w-24 max-w-full h-auto max-h-36 sm:max-h-40 flex-shrink-0 overflow-hidden"
+                      style={{
+                        marginTop: proj.image.includes('hulaki') || proj.image.includes('hulaki1') ? '0' : '0.5rem',
+                      }}
+                    >
+                      <img
+                        src={proj.image}
+                        alt={proj.title}
+                        className="h-full w-auto object-contain rounded-lg border group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+
+                    <div className="flex flex-col justify-between min-h-[6rem]">
+                      <div>
+                        <h3
+                          className="text-lg sm:text-xl font-regular mb-1 sm:mb-2"
+                          style={{ fontFamily: 'Inika' }}
+                        >
+                          {proj.title}
+                        </h3>
+                        <p
+                          className="text-sm sm:text-sm text-gray-500 mb-2 sm:mb-3 leading-relaxed"
+                          style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+                        >
+                          {proj.description}
+                        </p>
+                      </div>
+                      <a
+                        href={proj.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200"
+                        style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 'light' }}
+                      >
+                        View Project
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
-        </div>
-      </div>
-    ))
-  )}
-</div>
 
 
           {/* Empty State */}
