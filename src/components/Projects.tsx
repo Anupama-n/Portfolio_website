@@ -57,7 +57,7 @@ const projects = [
     description:
       "Developed UI screens in Flutter for a group project—a news aggregator app featuring three distinct interfaces to explore user engagement. Focused on building responsive, user-friendly layouts based on collaborative team designs.",
     image: "/images/hulaki1.png",
-    link: "https://www.figma.com/design/Y1k0Xik70xYMghxBrzk2KE/Other-Designs?node-id=0-1&t=jdQ14BY8YTYIVOFt-1",
+    link: "/file/hulaki-report.pdf",
     category: "Flutter Projects"
   },
   {
