@@ -4,7 +4,7 @@ const Home: React.FC = () => {
   return (
     <div id='home' className="w-full min-h-screen" style={{ backgroundColor: '#FFF2F2' }}>
       {/* Main Content */}
-     <div className="flex flex-col items-center justify-center px-2 sm:px-6 md:px-8 py-6 sm:py-14 md:py-20">
+      <div className="flex flex-col items-center justify-center px-2 sm:px-6 md:px-8 py-6 sm:py-14 md:py-20 min-h-screen sm:min-h-0">
 
         {/* Profile Illustration replaced with Image */}
         <div className="mb-4 sm:mb-10 md:mb-12">
@@ -39,7 +39,6 @@ const Home: React.FC = () => {
               E
             </span>
 
-
             <p
               className="text-sm sm:text-xl md:text-2xl font-normal m-0 leading-relaxed"
               style={{
@@ -50,7 +49,6 @@ const Home: React.FC = () => {
             >
               xploring the sweet spot between design and code.
             </p>
-
           </div>
 
           {/* Description */}
@@ -75,7 +73,7 @@ const Home: React.FC = () => {
                   aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
               }}
-              className="px-4 py-2 sm:px-8 sm:py-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95 text-[12px] sm:text-base md:text-lg "
+              className="px-4 py-2 sm:px-8 sm:py-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95 text-[12px] sm:text-base md:text-lg"
               style={{
                 backgroundColor: '#423E3E',
                 color: '#FFF2F2',
@@ -87,7 +85,6 @@ const Home: React.FC = () => {
             >
               Learn More About Me
             </button>
-
           </div>
         </div>
       </div>
