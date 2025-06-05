@@ -4,7 +4,7 @@ const Home: React.FC = () => {
   return (
     <div id='home' className="w-full min-h-screen flex flex-col" style={{ backgroundColor: '#FFF2F2' }}>
       {/* Main Content */}
-     <div className="flex flex-col items-center justify-center px-2 sm:px-6 md:px-8 py-6 sm:py-14 md:py-20 flex-grow mt-0 sm:mt-0 -mt-12">
+     <div className="flex flex-col items-center justify-center px-2 sm:px-6 md:px-8 py-6 sm:py-14 md:py-20 flex-grow -mt-28 sm:-mt-12 md:mt-0">
 
         {/* Profile Illustration */}
         <div className="mb-4 sm:mb-10 md:mb-12">
