@@ -2,11 +2,11 @@ import React from 'react';
 
 const Home: React.FC = () => {
   return (
-    <div id='home' className="w-full min-h-screen" style={{ backgroundColor: '#FFF2F2' }}>
+    <div id='home' className="w-full min-h-screen flex flex-col" style={{ backgroundColor: '#FFF2F2' }}>
       {/* Main Content */}
-      <div className="flex flex-col items-center justify-center px-2 sm:px-6 md:px-8 py-6 sm:py-14 md:py-20 min-h-screen sm:min-h-0">
+     <div className="flex flex-col items-center justify-center px-2 sm:px-6 md:px-8 py-6 sm:py-14 md:py-20 flex-grow mt-0 sm:mt-0 -mt-12">
 
-        {/* Profile Illustration replaced with Image */}
+        {/* Profile Illustration */}
         <div className="mb-4 sm:mb-10 md:mb-12">
           <img
             src="/images/Home.jpg"
@@ -15,8 +15,8 @@ const Home: React.FC = () => {
           />
         </div>
 
-        {/* Text Block with marginTop to move downward 5px */}
-        <div className="flex flex-col items-center text-center" style={{ marginTop: 5 }}>
+        {/* Text Block */}
+        <div className="flex flex-col items-center text-center mt-1">
           {/* Main Heading */}
           <h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light bg-gradient-to-r from-black to-[#666666] text-transparent bg-clip-text mb-3 sm:mb-5 md:mb-6 leading-tight"
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
                 fontFamily: "'Ingrid Darling', cursive",
                 color: 'rgba(0, 0, 0, 0.6)',
                 display: 'inline-block',
-                transform: 'translateY(1px)', 
+                transform: 'translateY(1px)',
               }}
             >
               E
@@ -64,7 +64,7 @@ const Home: React.FC = () => {
             </p>
           </div>
 
-          {/* Optional Call-to-Action Button for better mobile UX */}
+          {/* Call-to-Action Button */}
           <div className="mt-6 sm:mt-10 md:mt-12">
             <button
               onClick={() => {

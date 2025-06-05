@@ -8,7 +8,8 @@ const About: React.FC = () => {
       style={{ backgroundColor: '#FFF2F2' }}
     >
       {/* Main Content */}
-      <div className="flex flex-col justify-center min-h-screen sm:min-h-0 px-2 sm:px-4 md:px-8 py-4 sm:py-6 md:py-24 -mt-[94px] sm:mt-0">
+      <div className="flex items-center justify-center px-2 sm:px-4 md:px-8 py-4 sm:py-6 md:py-24 -mt-[94px] sm:mt-0 min-h-screen lg:min-h-auto lg:py-24">
+
 
         <div className="max-w-6xl w-full">
           {/* Mobile Layout - Stacked */}
@@ -53,6 +54,9 @@ const About: React.FC = () => {
             </div>
           </div>
 
+
+
+
           {/* Desktop Layout - Side by Side */}
           <div className="hidden lg:flex items-center justify-between gap-16">
             {/* Text Content - Desktop */}
@@ -73,7 +77,7 @@ const About: React.FC = () => {
                   style={{
                     backgroundColor: '#FFEDED',
                     boxShadow: '0px 4px 20px rgba(137, 137, 137, 0.25)',
-                    maxWidth: '900px',
+                    maxWidth: '900px', // increase max width
                     width: '110%',
                     transform: 'translateX(-15px)',
                   }}
@@ -81,7 +85,7 @@ const About: React.FC = () => {
                   <p
                     className="pt-2"
                     style={{
-                      fontSize: '20px',
+                      fontSize: '20px', // or '1.25rem', '24px', etc.
                       lineHeight: '1.6',
                     }}
                   >
@@ -150,28 +154,28 @@ const About: React.FC = () => {
           </div>
 
           {/* Scroll Indicator for Mobile */}
-          <div className="flex lg:hidden justify-center mt-6 sm:mt-8 pb-20">
-            <button
-              onClick={() => {
-                const skillsSection = document.getElementById('projects');
-                if (skillsSection) {
-                  skillsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
-              className="px-5 py-2 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95"
-              style={{
-                backgroundColor: '#423E3E',
-                color: '#FFF2F2',
-                fontFamily: "'Instrument Sans', sans-serif",
-                fontSize: '13px',
-                fontWeight: '500',
-                border: 'none',
-                cursor: 'pointer',
-              }}
-            >
-              View My Work
-            </button>
-          </div>
+<div className="flex lg:hidden justify-center mt-6 sm:mt-8 pb-20">
+  <button
+    onClick={() => {
+      const skillsSection = document.getElementById('projects');
+      if (skillsSection) {
+        skillsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }}
+    className="px-5 py-2 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95"
+    style={{
+      backgroundColor: '#423E3E',
+      color: '#FFF2F2',
+      fontFamily: "'Instrument Sans', sans-serif",
+      fontSize: '13px',
+      fontWeight: '500',
+      border: 'none',
+      cursor: 'pointer',
+    }}
+  >
+    View My Work
+  </button>
+</div>
 
         </div>
       </div>
