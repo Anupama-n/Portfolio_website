@@ -1,9 +1,39 @@
 import React, { useState } from 'react';
 
-const skills = [
-  "Figma", "Flutter", "Express.js", "React", "Next.js", "Node.js", "SQL",
-  "MongoDB", "TypeScript", "Firebase"
-];
+const skills = {
+  TechStack: [
+    "Flutter", "Express.js", "React", "Next.js", "Node.js",
+    "SQL", "MongoDB", "TypeScript", "Firebase"
+  ],
+
+  CoreSkills: [
+    "User Interface (UI) Design",
+    "User Experience (UX) Design",
+    "Wireframing & Prototyping",
+    "Design Systems",
+    "Interaction Design",
+    "Responsive Design",
+    "Design Thinking",
+    "Usability Testing",
+    "User Research",
+    "Information Architecture"
+  ],
+
+  Tools: [
+    "Figma",
+    "Canva (for visual content or mockups)"
+  ],
+
+  SoftSkills: [
+    "Collaboration",
+    "Communication",
+    "Feedback Iteration",
+    "Attention to Detail",
+    "Problem Solving",
+    "Time Management"
+  ]
+};
+
 
 const categories = [
   "Logo Designs", "Mobile App Designs", "Web App Designs", "Other Designs", "Flutter Projects", "Web Development Projects"
@@ -142,27 +172,47 @@ const MySkillsAndWorks: React.FC = () => {
         <div className="relative bg-[#FFeded] shadow-[0_8px_30px_rgba(137,137,137,0.15)] rounded-[32px] sm:rounded-[40px] p-4 sm:p-8 md:p-10 max-w-5xl mb-12 sm:mb-16 transition-shadow duration-300 mx-auto lg:ml-24 lg:mr-0 hover:shadow-[0_10px_40px_rgba(137,137,137,0.2)]">
 
           {/* Scrollable Skills Row */}
-          <div
-            id="skills-scroll"
-            className="flex sm:flex-wrap gap-2 sm:gap-3 md:gap-4 sm:justify-center overflow-x-auto flex-nowrap px-1 hide-scrollbar"
-          >
-            {skills.map((skill, idx) => (
-              <span
-                key={idx}
-                onMouseEnter={() => setHoveredSkill(skill)}
-                onMouseLeave={() => setHoveredSkill(null)}
-                className={`px-3 sm:px-4 py-1.5 text-sm sm:text-base whitespace-nowrap rounded-full border transition-all duration-300 cursor-pointer transform ${skill === ""
-                  ? "bg-gray-800 text-white shadow-lg"
-                  : hoveredSkill === skill
-                    ? "bg-gray-200 scale-105 shadow-md"
-                    : "hover:bg-gray-100 hover:scale-105"
-                  }`}
-                style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
+    <div className="space-y-10">
+  {Object.entries(skills).map(([category, items]) => {
+    const isSerifHeading = ["TechStack", "Tools", "SoftSkills", "CoreSkills"].includes(category);
+    const headingFontFamily = isSerifHeading ? "'Instrument Serif', serif" : "'Instrument Sans', sans-serif";
+
+    return (
+      <div key={category}>
+        <h3
+          className="text-lg sm:text-xl font-semibold mb-4"
+          style={{ fontFamily: headingFontFamily }}
+        >
+          {category.replace(/([A-Z])/g, ' $1').trim()}
+        </h3>
+
+        <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
+          {items.map((skill, idx) => (
+            <span
+              key={`${category}-${idx}`}
+              className="whitespace-nowrap px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full border border-gray-300 bg-[#fff2f2] text-gray-800 transition-all duration-300 cursor-default transform hover:scale-105 hover:bg-gray-200 hover:shadow-md"
+              style={
+                // For TechStack, Tools, SoftSkills skill items: no explicit font (default)
+                // For others: keep Instrument Sans
+                ["TechStack", "Tools", "SoftSkills", "CoreSkills"].includes(category)
+                  ? undefined
+                  : { fontFamily: "'Instrument Sans', sans-serif" }
+              }
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    );
+  })}
+</div>
+
+
+ 
+  
+
+
 
           {/* Right Arrow Button - Aligned to end (Small devices only) */}
           <button
