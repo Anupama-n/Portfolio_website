@@ -119,7 +119,7 @@ const projects = [
 
 const MySkillsAndWorks: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+ 
 
   const filteredProjects = selectedCategory === "All"
     ? projects
