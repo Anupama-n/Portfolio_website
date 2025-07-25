@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 
 const skills = {
-  TechStack: [
-    "Flutter", "Express.js", "React", "Next.js", "Node.js",
-    "SQL", "MongoDB", "TypeScript", "Firebase"
-  ],
+
 
   CoreSkills: [
     "User Interface (UI) Design",
@@ -36,7 +33,7 @@ const skills = {
 
 
 const categories = [
-  "Logo Designs", "Mobile App Designs", "Web App Designs", "Other Designs", "Flutter Projects", "Web Development Projects"
+  "Logo Designs", "Mobile App Designs", "Web App Designs", "Flutter Projects", "Web Development Projects"
 ];
 
 const projects = [
@@ -74,14 +71,7 @@ const projects = [
     link: "https://www.figma.com/design/UU9aslccru9gpuyEAHnKug/Portfolio-website?node-id=0-1&t=Sdx7s7VHKLHQhTjc-1",
     category: "Web App Designs"
   },
-  {
-    title: "Other Designs",
-    description:
-      "Crafted digital visuals for KURCH and university workshops, emphasizing clarity and consistency. Custom vector art was designed in Figma to enhance personal branding across digital platforms.",
-    image: "/images/Other_designs.png",
-    link: "https://www.figma.com/design/Y1k0Xik70xYMghxBrzk2KE/Other-Designs?node-id=0-1&t=jdQ14BY8YTYIVOFt-1",
-    category: "Other Designs"
-  },
+ 
   {
     title: "Hulaki Mobile App",
     description:
@@ -128,18 +118,7 @@ const MySkillsAndWorks: React.FC = () => {
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
   };
-
-  const scrollSkills = (direction: "left" | "right") => {
-    const container = document.getElementById("skills-scroll");
-    if (!container) return;
-
-    const scrollAmount = 150; // adjust if needed
-
-    container.scrollBy({
-      left: direction === "right" ? scrollAmount : -scrollAmount,
-      behavior: "smooth",
-    });
-  };
+  
 
 
   return (
@@ -172,41 +151,35 @@ const MySkillsAndWorks: React.FC = () => {
         <div className="relative bg-[#FFeded] shadow-[0_8px_30px_rgba(137,137,137,0.15)] rounded-[32px] sm:rounded-[40px] p-4 sm:p-8 md:p-10 max-w-5xl mb-12 sm:mb-16 transition-shadow duration-300 mx-auto lg:ml-24 lg:mr-0 hover:shadow-[0_10px_40px_rgba(137,137,137,0.2)]">
 
           {/* Scrollable Skills Row */}
-    <div className="space-y-10">
-  {Object.entries(skills).map(([category, items]) => {
-    const isSerifHeading = ["TechStack", "Tools", "SoftSkills", "CoreSkills"].includes(category);
-    const headingFontFamily = isSerifHeading ? "'Instrument Serif', serif" : "'Instrument Sans', sans-serif";
+<div className="space-y-10">
+  {Object.entries(skills).map(([category, items]) => (
+    <div key={category}>
+      <h3
+        className="text-lg sm:text-xl font-medium text-gray-700 mb-4 tracking-wide"
+        style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+      >
+        {category.replace(/([A-Z])/g, ' $1').trim()}
+      </h3>
 
-    return (
-      <div key={category}>
-        <h3
-          className="text-lg sm:text-xl font-semibold mb-4"
-          style={{ fontFamily: headingFontFamily }}
-        >
-          {category.replace(/([A-Z])/g, ' $1').trim()}
-        </h3>
-
-        <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
-          {items.map((skill, idx) => (
-            <span
-              key={`${category}-${idx}`}
-              className="whitespace-nowrap px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full border border-gray-300 bg-[#fff2f2] text-gray-800 transition-all duration-300 cursor-default transform hover:scale-105 hover:bg-gray-200 hover:shadow-md"
-              style={
-                // For TechStack, Tools, SoftSkills skill items: no explicit font (default)
-                // For others: keep Instrument Sans
-                ["TechStack", "Tools", "SoftSkills", "CoreSkills"].includes(category)
-                  ? undefined
-                  : { fontFamily: "'Instrument Sans', sans-serif" }
-              }
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
+      <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
+        {items.map((skill, idx) => (
+          <span
+            key={`${category}-${idx}`}
+            className="whitespace-nowrap px-4 py-2 text-sm sm:text-base rounded-full border border-gray-200 bg-[#FFeded] text-gray-800 shadow-sm transition-all duration-300 transform hover:scale-[1.03] hover:bg-gray-200 hover:text-black hover:shadow-md"
+            style={{
+              fontFamily: "'Instrument Sans', sans-serif",
+              fontWeight: 400,
+            }}
+          >
+            {skill}
+          </span>
+        ))}
       </div>
-    );
-  })}
+    </div>
+  ))}
 </div>
+
+
 
 
  
@@ -214,14 +187,7 @@ const MySkillsAndWorks: React.FC = () => {
 
 
 
-          {/* Right Arrow Button - Aligned to end (Small devices only) */}
-          <button
-            onClick={() => scrollSkills("right")}
-            className="sm:hidden absolute right-4 top-1/2 -translate-y-1/2 bg-red-100 text-black px-2.5 py-1.5 rounded-full shadow hover:bg-red-200 transition-all duration-300"
-            aria-label="Scroll right"
-          >
-            →
-          </button>
+          
         </div>
 
 
