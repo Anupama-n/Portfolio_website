@@ -233,28 +233,23 @@ const Contact: React.FC = () => {
         value={formData.name}
         onChange={handleInputChange}
         disabled={isSubmitting}
-        className="w-full px-3 sm:px-[19px] py-3 sm:py-[17px] rounded-full border-2 transition-all focus:outline-none disabled:opacity-50 text-[16px] sm:text-[18px]"
-        style={{
-          backgroundColor: '#FFEDED',
-          boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.10)',
-          borderColor: 'rgba(100, 100, 100, 0.1)',
-          color: '#2d2d2d',
-          fontFamily: "'Inika', serif"
-        }}
-        onFocus={(e) => {
-          e.target.style.borderColor = '#EECCCC';
-          e.target.style.backgroundColor = '#FCECEC';
-          e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
-          e.target.style.fontSize = '20px';
-        }}
-        onBlur={(e) => {
-          e.target.style.borderColor = 'rgba(100, 100, 100, 0.1)';
-          e.target.style.backgroundColor = '#FFEDED';
-          e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
-          e.target.style.fontSize = '16px';
-        }}
         required
-      />
+        className="
+    w-full 
+    border-2 border-[#f5c2c2] 
+    bg-[#FFE4E4] 
+    px-6 py-4 
+    text-[#2d2d2d] 
+    placeholder-gray-500 
+    text-base sm:text-lg 
+    rounded-3xl
+    transition-all duration-300 
+    focus:outline-none 
+    focus:bg-[#FCECEC] 
+    focus:border-[#EECCCC]
+  "
+  style={{ fontFamily: "'Inika', serif" }}
+/>
     </div>
 
     {/* Email Field */}
@@ -266,28 +261,23 @@ const Contact: React.FC = () => {
         value={formData.email}
         onChange={handleInputChange}
         disabled={isSubmitting}
-        className="w-full px-3 sm:px-[19px] py-3 sm:py-[17px] rounded-full border-2 transition-all focus:outline-none disabled:opacity-50 text-[16px] sm:text-[18px]"
-        style={{
-          backgroundColor: '#FFEDED',
-          boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.10)',
-          borderColor: 'rgba(100, 100, 100, 0.1)',
-          color: '#2d2d2d',
-          fontFamily: "'Inika', serif"
-        }}
-        onFocus={(e) => {
-          e.target.style.borderColor = '#EECCCC';
-          e.target.style.backgroundColor = '#FCECEC';
-          e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
-          e.target.style.fontSize = '20px';
-        }}
-        onBlur={(e) => {
-          e.target.style.borderColor = 'rgba(100, 100, 100, 0.1)';
-          e.target.style.backgroundColor = '#FFEDED';
-          e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
-          e.target.style.fontSize = '16px';
-        }}
         required
-      />
+        className="
+    w-full 
+    border-2 border-[#f5c2c2] 
+    bg-[#FFE4E4] 
+    px-6 py-4 
+    text-[#2d2d2d] 
+    placeholder-gray-500 
+    text-base sm:text-lg 
+    rounded-3xl
+    transition-all duration-300 
+    focus:outline-none 
+    focus:bg-[#FCECEC] 
+    focus:border-[#EECCCC]
+  "
+  style={{ fontFamily: "'Inika', serif" }}
+/>
     </div>
 
     {/* Subject Field */}
@@ -299,27 +289,23 @@ const Contact: React.FC = () => {
         value={formData.subject}
         onChange={handleInputChange}
         disabled={isSubmitting}
-        className="w-full px-3 sm:px-[19px] py-3 sm:py-[17px] rounded-full border-2 transition-all focus:outline-none disabled:opacity-50 text-[16px] sm:text-[18px]"
-        style={{
-          backgroundColor: '#FFEDED',
-          boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.10)',
-          borderColor: 'rgba(100, 100, 100, 0.1)',
-          color: '#2d2d2d',
-          fontFamily: "'Inika', serif"
-        }}
-        onFocus={(e) => {
-          e.target.style.borderColor = '#EECCCC';
-          e.target.style.backgroundColor = '#FCECEC';
-          e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
-          e.target.style.fontSize = '20px';
-        }}
-        onBlur={(e) => {
-          e.target.style.borderColor = 'rgba(100, 100, 100, 0.1)';
-          e.target.style.backgroundColor = '#FFEDED';
-          e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
-          e.target.style.fontSize = '16px';
-        }}
-      />
+        required
+        className="
+    w-full 
+    border-2 border-[#f5c2c2] 
+    bg-[#FFE4E4] 
+    px-6 py-4 
+    text-[#2d2d2d] 
+    placeholder-gray-500 
+    text-base sm:text-lg 
+    rounded-3xl
+    transition-all duration-300 
+    focus:outline-none 
+    focus:bg-[#FCECEC] 
+    focus:border-[#EECCCC]
+  "
+  style={{ fontFamily: "'Inika', serif" }}
+/>
     </div>
 
     {/* Message Field */}
@@ -331,28 +317,23 @@ const Contact: React.FC = () => {
         onChange={handleInputChange}
         disabled={isSubmitting}
         rows={5}
-        className="w-full px-3 sm:px-[19px] py-3 sm:py-[17px] rounded-3xl border-2 transition-all focus:outline-none resize-none disabled:opacity-50 text-[16px] sm:text-[18px]"
-        style={{
-          backgroundColor: '#FFEDED',
-          boxShadow: 'inset 0 0 20px rgba(178, 145, 145, 0.10)',
-          borderColor: 'rgba(100, 100, 100, 0.1)',
-          color: '#2d2d2d',
-          fontFamily: "'Inika', serif"
-        }}
-        onFocus={(e) => {
-          e.target.style.borderColor = '#EECCCC';
-          e.target.style.backgroundColor = '#FCECEC';
-          e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
-          e.target.style.fontSize = '20px';
-        }}
-        onBlur={(e) => {
-          e.target.style.borderColor = 'rgba(100, 100, 100, 0.1)';
-          e.target.style.backgroundColor = '#FFEDED';
-          e.target.style.boxShadow = 'inset 0 0 20px rgba(178, 145, 145, 0.1)';
-          e.target.style.fontSize = '16px';
-        }}
         required
-      />
+        className="
+    w-full 
+    border-2 border-[#f5c2c2] 
+    bg-[#FFE4E4] 
+    px-6 py-4 
+    text-[#2d2d2d] 
+    placeholder-gray-500 
+    text-base sm:text-lg 
+    rounded-3xl
+    transition-all duration-300 
+    focus:outline-none 
+    focus:bg-[#FCECEC] 
+    focus:border-[#EECCCC]
+  "
+  style={{ fontFamily: "'Inika', serif" }}
+/>
     </div>
 
     {/* Social Links and Submit Button */}

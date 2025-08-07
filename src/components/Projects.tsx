@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Code, Palette, Users, Lightbulb, Briefcase } from 'lucide-react';
+import { Palette, Users, Lightbulb, Briefcase } from 'lucide-react';
 
 const skills = {
 
