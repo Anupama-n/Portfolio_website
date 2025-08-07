@@ -272,44 +272,44 @@ const getSkillTagColor = (_category: string) => {
   className="bg-[#FFE4E4] border border-[#f5c2c2] rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] group border-2 border-gray-100 hover:border-orange-200"
                     style={{ animationDelay: `${idx * 100}ms` }}
                   >
-                    {/* Mobile Layout - Stacked - Hidden on sm and above */}
-                    <div className="flex gap-2 sm:hidden items-center">
-                      {/* Smaller Image */}
-                      <div className="w-14 max-w-full h-auto max-h-24 flex-shrink-0 overflow-hidden">
-                        <img
-                          src={proj.image}
-                          alt={proj.title}
-                          className="h-full w-auto object-cover rounded-md border group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
+                    {/* Mobile Layout - Compact - Visible only on small screens */}
+<div className="flex gap-2 sm:hidden items-start">
+  {/* Smaller Image */}
+  <div className="w-12 h-12 flex-shrink-0 overflow-hidden rounded-md border">
+    <img
+      src={proj.image}
+      alt={proj.title}
+      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+    />
+  </div>
 
-                      {/* Reduced Text Size and Tighter Layout */}
-                      <div className="flex flex-col justify-between min-h-[4.5rem]">
-                        <div>
-                          <h3
-                            className="text-sm font-medium mb-1 text-gray-800"
-                            style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-                          >
-                            {proj.title}
-                          </h3>
-                          <p
-                            className="text-xs text-gray-600 mb-1 leading-snug"
-                            style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-                          >
-                            {proj.description}
-                          </p>
-                        </div>
-                        <a
-                          href={proj.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-xs text-orange-600 hover:text-orange-800 hover:underline transition-colors duration-200"
-                          style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 500 }}
-                        >
-                          View Project
-                        </a>
-                      </div>
-                    </div>
+  {/* Compact Text Area */}
+  <div className="flex flex-col justify-between">
+    <div>
+      <h3
+        className="text-xs font-semibold text-gray-800 mb-0.5"
+        style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+      >
+        {proj.title}
+      </h3>
+      <p
+        className="text-[11px] text-gray-600 leading-snug mb-1"
+        style={{ fontFamily: "'Instrument Sans', sans-serif'" }}
+      >
+        {proj.description}
+      </p>
+    </div>
+    <a
+      href={proj.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[11px] text-orange-600 hover:text-orange-800 hover:underline"
+      style={{ fontFamily: "'Instrument Sans', sans-serif'", fontWeight: 500 }}
+    >
+      View
+    </a>
+  </div>
+</div>
 
                     {/* Desktop/Tablet Layout - Side by Side - Visible only on sm and above */}
                     <div className="hidden sm:flex gap-4 items-center">
