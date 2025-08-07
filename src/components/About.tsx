@@ -20,7 +20,7 @@ const About: React.FC = () => {
 
           </div>
           <h2
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl bg-gradient-to-b from-black to-[#666666] bg-clip-text text-transparent"
+            className="text-3xl sm:text-4xl md:text-5xl l bg-gradient-to-b from-black to-[#666666] bg-clip-text text-transparent"
             style={{ fontFamily: "'Instrument Serif', serif", fontWeight: 400 }}
           >
             Introduction
