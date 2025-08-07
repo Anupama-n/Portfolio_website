@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Palette, Users, Lightbulb, Briefcase } from 'lucide-react';
 
