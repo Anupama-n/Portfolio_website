@@ -230,8 +230,8 @@ const getSkillTagColor = (_category: string) => {
                 onClick={() => handleCategoryClick("All")}
                 className={`whitespace-nowrap px-4 py-3 text-sm sm:text-base rounded-xl border-2 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-md ${
                   selectedCategory === "All"
-                    ? "bg-white border-orange-200 text-orange-800 shadow-lg"
-                    : "bg-white border-gray-200 text-gray-700 hover:bg-orange-50 hover:border-orange-200"
+                    ? "bg-[#FFE4E4]  border-[#f5c2c2] border-orange-200 text-orange-800 shadow-lg"
+                    : "bg-[#FFE4E4] border-[#f5c2c2]  text-gray-700 hover:bg-orange-50 hover:border-orange-200"
                 }`}
                 style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 500 }}
               >
@@ -244,8 +244,8 @@ const getSkillTagColor = (_category: string) => {
                   onClick={() => handleCategoryClick(cat)}
                   className={`whitespace-nowrap px-4 py-3 text-sm sm:text-base rounded-xl border-2 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-md ${
                     selectedCategory === cat
-                      ? "bg-[#FFE4E4] border border-[#f5c2c2] text-orange-800 shadow-lg"
-                      : "bg-[#FFE4E4] border border-[#f5c2c2] text-gray-700 hover:bg-orange-50 hover:border-orange-200"
+                      ? "bg-[#FFE4E4] border-[#f5c2c2] border-orange-200 text-orange-800 shadow-lg"
+                    : "bg-[#FFE4E4] border border-[#f5c2c2]  text-gray-700 hover:bg-orange-50 hover:border-orange-200"
                   }`}
                   style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 500 }}
                 >
@@ -270,7 +270,7 @@ const getSkillTagColor = (_category: string) => {
                   <div
                     key={idx}
                   
-  className="bg-[#FFE4E4] border border-[#f5c2c2] rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] group border-2 border-gray-100 hover:border-orange-200"
+  className="bg-[#FFE4E4] border border-[#f5c2c2] rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] group border-2  hover:border-orange-200"
                     style={{ animationDelay: `${idx * 100}ms` }}
                   >
                     {/* Mobile Layout - Compact - Visible only on small screens */}

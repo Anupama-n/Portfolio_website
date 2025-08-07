@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="w-full py-2 sm:py-4" style={{ backgroundColor: '#FFEDED' }}>
+    <footer className="w-full py-2 sm:py-4 bg-[#FFE4E4] border border-[#f5c2c2]" >
       <div className="max-w-6xl mx-auto px-2 sm:px-4 sm:px-6 lg:px-8">
         <div className="text-center py-2 sm:py-3">
           {/* Designer Credit */}
