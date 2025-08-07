@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
     <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-white/20 shadow-sm" style={{ backgroundColor: '#FFF2F2' }}>
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-8 py-4">
         {/* Logo */}
-        <div className="text-5xl md:text-4xl sm:text-3xl font-light bg-gradient-to-r from-black to-[#666666] text-transparent bg-clip-text" style={{ fontFamily: "'Instrument Serif', serif" }}>
+        <div className="text-3xl md:text-4xl sm:text-xl font-light bg-gradient-to-r from-black to-[#666666] text-transparent bg-clip-text" style={{ fontFamily: "'Instrument Serif', serif" }}>
           Anupama Neupane
         </div>
 

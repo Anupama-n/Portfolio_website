@@ -72,7 +72,7 @@ const projects = [
     description:
       "Redesigned key screens of the DOTM portal by identifying and addressing major usability issues in the existing interface.",
     image: "/images/DOTM_redesigned.png",
-    link: "https://www.figma.com/design/lTEkLTh79abg1JZCESmiV4/DOTM-REDISIGNED?node-id=1-186&t=tOIcod87W4m8y0uP-1",
+    link: "https://www.figma.com/design/UU9aslccru9gpuyEAHnKug/Portfolio-website?node-id=0-1&t=Sdx7s7VHKLHQhTjc-1",
     category: "Web App Designs"
   },
  
