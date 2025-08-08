@@ -318,26 +318,7 @@ const HobbiesPage: React.FC = () => {
 
         {/* Navigation Button for Mobile */}
         <div className="flex justify-center mt-6 sm:mt-16 lg:hidden">
-          <button
-            onClick={() => {
-              const contactSection = document.getElementById('contact');
-              if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }
-            }}
-            className="px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95"
-            style={{
-              backgroundColor: '#423E3E',
-              color: '#FFF2F2',
-              fontFamily: "'Instrument Sans', sans-serif",
-              fontSize: '12px',
-              fontWeight: '500',
-              border: 'none',
-              cursor: 'pointer'
-            }}
-          >
-            Get In Touch
-          </button>
+          
         </div>
       </section>
 
