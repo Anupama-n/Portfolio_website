@@ -38,7 +38,7 @@ export default function EducationContactSections() {
     },
     {
       type: "linkedIn",
-      value: "Anupama Nupane",
+      value: "Anupama Neupane",
       icon: <Linkedin className="w-4 h-4 lg:w-5 lg:h-5" />,
       link: "https://www.linkedin.com/in/anupama-neupane/"
     },
