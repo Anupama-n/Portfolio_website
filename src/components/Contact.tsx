@@ -205,7 +205,7 @@ const Contact: React.FC = () => {
 
           {/* Heading */}
           <h2
-            className="text-3xl sm:text-4xl lg:text-5xl mb-8 sm:mb-12 text-center bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
+            className="text-2xl sm:text-4xl lg:text-5xl mb-8 sm:mb-12 text-center bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
             style={{
               fontFamily: "'Instrument Serif', serif",
               fontWeight: 400

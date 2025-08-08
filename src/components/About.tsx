@@ -11,7 +11,7 @@ const About: React.FC = () => {
         {/* Introduction Heading - Outside everything */}
         <div className="text-center lg:text-left mb-3 sm:mb-6 lg:mb-12">
           <h2
-            className="text-xl sm:text-2xl md:text-3xl lg:text-5xl bg-gradient-to-b from-black to-[#666666] bg-clip-text text-transparent"
+            className="text-2xl sm:text-2xl md:text-3xl lg:text-5xl bg-gradient-to-b from-black to-[#666666] bg-clip-text text-transparent"
             style={{ fontFamily: "'Instrument Serif', serif", fontWeight: 400 }}
           >
             Introduction
