@@ -5,6 +5,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import EducationContactSections from './components/myContact';
+import HobbiesPage from './components/hobbies';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <About />
       <Projects />
     <EducationContactSections/>
+    <HobbiesPage/>
       <Contact />
       <Footer />
     </main>

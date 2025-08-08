@@ -2,6 +2,7 @@ import React from 'react';
 
 const About: React.FC = () => {
   return (
+    <section>
     <div
       id="about"
       className="w-full"
@@ -142,6 +143,7 @@ const About: React.FC = () => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 
