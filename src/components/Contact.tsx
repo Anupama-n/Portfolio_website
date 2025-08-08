@@ -78,7 +78,7 @@ const Contact: React.FC = () => {
   return (
     <div
       id='contact'
-      className="w-full min-h-screen relative"
+      className="w-full min-h-screen relative " 
       style={{
         backgroundColor: '#FFF2F2',
         scrollBehavior: 'smooth'

@@ -103,8 +103,8 @@ export default function EducationContactSections() {
   const displayedHighlights = isExpanded ? researchProject.highlights : researchProject.highlights.slice(0, 2)
 
   return (
-    <div className="bg-[#FFF2F2] min-h-screen px-2 sm:px-6 md:px-8 lg:px-32 py-4 sm:py-12 lg:py-16 text-gray-800 relative overflow-hidden space-y-3 lg:space-y-12">
-      
+    // Add the main education ID to the outermost container
+    <div id="education" className="bg-[#FFF2F2] min-h-screen px-2 sm:px-6 md:px-8 lg:px-32 py-4 sm:py-12 lg:py-16 text-gray-800 relative overflow-hidden space-y-3 lg:space-y-12">
       {/* Research Section */}
       <div className="relative bg-[#FFeded] shadow-[0_8px_30px_rgba(137,137,137,0.15)] rounded-lg sm:rounded-[32px] lg:rounded-[40px] p-3 sm:p-6 lg:p-10 transition-shadow duration-300 max-w-7xl mx-auto">
         <section id="research">
@@ -134,7 +134,6 @@ export default function EducationContactSections() {
                       <h4 className="text-sm lg:text-xl font-bold text-gray-800 leading-tight">
                         {researchProject.title}
                       </h4>
-                      
                       {/* Conference Badge */}
                       <div className="flex items-center gap-2">
                         <div className="bg-gradient-to-r from-green-100 to-emerald-100 border-2 border-green-300 px-2 lg:px-4 py-1 lg:py-2 rounded-full">
@@ -148,7 +147,6 @@ export default function EducationContactSections() {
                     {/* Project Highlights */}
                     <div className="space-y-2 lg:space-y-4">
                       <h5 className="text-xs lg:text-lg font-semibold text-gray-800 mb-2 lg:mb-4">Key Contributions & Methodology:</h5>
-                      
                       {displayedHighlights.map((highlight, idx) => (
                         <div key={idx} className="flex items-start gap-2 lg:gap-4">
                           <div className="w-1 h-1 lg:w-2.5 lg:h-2.5 bg-blue-400 rounded-full mt-1.5 lg:mt-2.5 flex-shrink-0"></div>
@@ -205,9 +203,8 @@ export default function EducationContactSections() {
       <div className="relative bg-[#FFeded] shadow-[0_8px_30px_rgba(137,137,137,0.15)] rounded-lg sm:rounded-[32px] lg:rounded-[40px] p-3 sm:p-6 lg:p-10 transition-shadow duration-300 max-w-7xl mx-auto">
         {/* Split Layout: Education Left, Contact Right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12">
-          
           {/* Education Section - Left Half */}
-          <section id="education" className="mb-4 lg:mb-0">
+          <section className="mb-4 lg:mb-0">
             <div className="grid gap-3 lg:gap-10">
               <div className="group">
                 {/* Category Header with Icon */}
@@ -367,9 +364,7 @@ export default function EducationContactSections() {
                           {achievement.responsibilities.map((responsibility, respIdx) => (
                             <div key={respIdx} className="flex items-start gap-1.5">
                               <div className="w-1 h-1 bg-gray-400 rounded-full mt-1.5 lg:mt-2 flex-shrink-0"></div>
-                              <p className="text-gray-700 text-xs lg:text-lg leading-relaxed">
-                                {responsibility}
-                              </p>
+                              <p className="text-gray-700 text-xs lg:text-lg leading-relaxed">{responsibility}</p>
                             </div>
                           ))}
                         </div>
