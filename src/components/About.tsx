@@ -7,9 +7,10 @@ const About: React.FC = () => {
       className="w-full"
       style={{ backgroundColor: '#FFF2F2' }}
     >
-      <div className="container mx-auto px-3 sm:px-6 lg:px-8 pt-4 sm:pt-8 lg:pt-20">
-        {/* Introduction Heading - Outside everything */}
-        <div className="text-center lg:text-left mb-3 sm:mb-6 lg:mb-12">
+      {/* Reduced top padding for mobile: pt-2 instead of pt-4 */}
+      <div className="container mx-auto px-3 sm:px-6 lg:px-8 pt-2 sm:pt-4 lg:pt-20">
+        {/* Reduced margin bottom for mobile: mb-2 instead of mb-3 */}
+        <div className="text-center lg:text-left mb-2 sm:mb-4 lg:mb-12">
           <h2
             className="text-2xl sm:text-2xl md:text-3xl lg:text-5xl bg-gradient-to-b from-black to-[#666666] bg-clip-text text-transparent"
             style={{ fontFamily: "'Instrument Serif', serif", fontWeight: 400 }}
@@ -20,14 +21,13 @@ const About: React.FC = () => {
 
         {/* Mobile Layout - Stacked */}
         <div className="lg:hidden">
-          {/* Outer Container - #FFEDED */}
+          {/* Reduced padding and margin for mobile */}
           <div 
-            className="w-full rounded-lg p-3 sm:p-4 mb-4"
+            className="w-full rounded-lg p-2 sm:p-4 mb-2"
             style={{ backgroundColor: '#FFEDED' }}
           >
-            {/* Inner Text Box - #FFE4E4 */}
             <div
-              className="w-full border-2 rounded-lg p-3 sm:p-4 shadow-sm transition-all duration-300"
+              className="w-full border-2 rounded-lg p-2 sm:p-4 shadow-sm transition-all duration-300"
               style={{
                 backgroundColor: '#FFE4E4',
                 borderColor: '#f5c2c2',
@@ -45,11 +45,9 @@ const About: React.FC = () => {
                 </span>
                 'm passionate about designing digital experiences that feel thoughtful and intuitive. I love simplifying complexity turning ideas into clear, functional interfaces that people enjoy using.
               </p>
-              
               <p className="text-xs sm:text-sm leading-snug mt-2">
                 I enjoy the entire design process: understanding user needs, sketching ideas, and crafting clean, user-friendly interfaces. I'm always exploring new tools and design trends to grow my perspective.
               </p>
-              
               <p className="text-xs sm:text-sm leading-snug mt-2">
                 Above all, I solve problems creatively and I'm excited by opportunities where good design can make everyday interactions better.
               </p>
@@ -59,13 +57,11 @@ const About: React.FC = () => {
 
         {/* Desktop Layout - Side by Side */}
         <div className="hidden lg:block">
-          {/* Outer Container - #FFEDED */}
           <div 
             className="w-full rounded-[8px] xl:rounded-[10px] p-8 xl:p-12"
             style={{ backgroundColor: '#FFEDED' }}
           >
             <div className="flex items-center justify-between gap-12 xl:gap-20">
-              {/* Inner Text Box - #FFE4E4 */}
               <div className="flex-1">
                 <div
                   className="p-10 xl:p-16 rounded-[5px] xl:rounded-[7px] shadow-lg hover:shadow-xl transition-all duration-300 border-2"
@@ -112,10 +108,8 @@ const About: React.FC = () => {
                 className="flex-shrink-0 relative hover:scale-105 transition-transform duration-300"
                 style={{ width: '320px', height: '480px' }}
               >
-                {/* Profile Image inside the frame */}
                 <div className="relative z-10 w-full h-full flex items-center justify-center">
                   <div className="relative z-50 w-full h-full flex items-center justify-center">
-                    {/* Border wrapper */}
                     <div
                       className="rounded-xl border-2 border-[#f5c2c2] p-6"
                       style={{
@@ -126,9 +120,8 @@ const About: React.FC = () => {
                         justifyContent: 'center',
                       }}
                     >
-                      {/* Actual image */}
                       <img
-                        src="/images/About.jpg?height=400&width=280&text=Profile+Photo"
+                        src="/images/About.jpg"
                         alt="Profile illustration"
                         className="w-full h-full object-cover rounded-2xl"
                       />
@@ -143,28 +136,9 @@ const About: React.FC = () => {
         {/* Scroll Indicator for Desktop */}
         <div className="hidden lg:flex justify-center mt-12 xl:mt-16 pb-20"></div>
 
-        {/* Scroll Indicator for Mobile */}
-        <div className="flex lg:hidden justify-center mt-3 pb-6">
-          <button
-            onClick={() => {
-              const skillsSection = document.getElementById('projects');
-              if (skillsSection) {
-                skillsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }
-            }}
-            className="px-4 py-2 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95"
-            style={{
-              backgroundColor: '#423E3E',
-              color: '#FFF2F2',
-              fontFamily: "'Instrument Sans', sans-serif",
-              fontSize: '13px',
-              fontWeight: '500',
-              border: 'none',
-              cursor: 'pointer',
-            }}
-          >
-            View My Work
-          </button>
+        {/* Reduced spacing for mobile scroll indicator */}
+        <div className="flex lg:hidden justify-center mt-2 pb-3">
+          
         </div>
       </div>
     </div>

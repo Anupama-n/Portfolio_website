@@ -4,14 +4,14 @@ const Home: React.FC = () => {
   return (
     <div id='home' className="w-full min-h-screen flex flex-col" style={{ backgroundColor: '#FFF2F2' }}>
       {/* Main Content */}
-     <div className="flex flex-col items-center justify-center px-2 sm:px-6 md:px-8 py-6 sm:py-14 md:py-20 flex-grow -mt-28 sm:-mt-12 md:mt-0">
+      <div className="flex flex-col items-center justify-center px-2 sm:px-6 md:px-8 py-6 sm:py-14 md:py-20 flex-grow -mt-28 sm:-mt-12 md:mt-0">
 
         {/* Profile Illustration */}
         <div className="mb-4 sm:mb-10 md:mb-12">
           <img
             src="/images/Home.jpg"
             alt="Profile Illustration"
-            className="w-[120px] h-[180px] sm:w-[180px] sm:h-[270px] md:w-[200px] md:h-[300px] object-cover rounded-[15px] sm:rounded-[25px] md:rounded-[30px] transition-all duration-300 hover:scale-105"
+            className="w-[160px] h-[200px] sm:w-[180px] sm:h-[270px] md:w-[200px] md:h-[300px] object-cover rounded-[15px] sm:rounded-[25px] md:rounded-[30px] transition-all duration-300 hover:scale-105"
           />
         </div>
 
@@ -65,7 +65,7 @@ const Home: React.FC = () => {
           </div>
 
           {/* Call-to-Action Button */}
-          <div className="mt-6 sm:mt-10 md:mt-12">
+          <div className="mt-6 sm:mt-10 md:mt-12 block md:hidden">
             <button
               onClick={() => {
                 const aboutSection = document.getElementById('about');
@@ -86,6 +86,7 @@ const Home: React.FC = () => {
               Learn More About Me
             </button>
           </div>
+
         </div>
       </div>
     </div>
