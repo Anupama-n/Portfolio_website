@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Palette, Users, Lightbulb, Briefcase } from 'lucide-react';
 
 const skills = {
@@ -94,10 +94,67 @@ const projects = [
 
 const MySkillsAndWorks: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [isImageVisible, setIsImageVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const filteredProjects = selectedCategory === "All"
     ? projects
     : projects.filter(project => project.category === selectedCategory);
+
+  // Updated logic for image visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        
+        // Show image when section starts covering significant portion of viewport
+        const visibleTop = Math.max(0, rect.top);
+        const visibleBottom = Math.min(viewportHeight, rect.bottom);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        const coveragePercentage = visibleHeight / viewportHeight;
+        
+        // Hide image when section bottom is 15% above the bottom of the screen
+        const sectionBottomFromScreenBottom = viewportHeight - rect.bottom;
+        const hideThreshold = viewportHeight * 0.05; // 15% of viewport height
+        
+        // Show image if section covers 85% or more of viewport AND
+        // section bottom is not 15% above screen bottom
+        const shouldShowImage = coveragePercentage >= 0.95 && sectionBottomFromScreenBottom < hideThreshold;
+        
+        setIsImageVisible(shouldShowImage);
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([]) => {
+        // Trigger handleScroll when intersection changes
+        handleScroll();
+      },
+      {
+        threshold: 0,
+        rootMargin: '0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+
+    // Initial check
+    handleScroll();
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
@@ -118,9 +175,8 @@ const MySkillsAndWorks: React.FC = () => {
 
   return (
     <>
-      {/* Custom CSS for hiding scrollbars */}
-      <style>
-        {`
+      {/* Custom CSS for hiding scrollbars and image animations */}
+      <style>{`
         .hide-scrollbar {
           /* Hide scrollbar for Chrome, Safari and Opera */
           -webkit-overflow-scrolling: touch;
@@ -130,10 +186,29 @@ const MySkillsAndWorks: React.FC = () => {
         .hide-scrollbar::-webkit-scrollbar {
           display: none; /* Safari and Chrome */
         }
-      `}
-      </style>
+        .floating-image {
+          animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px) scale(1);
+          }
+          50% {
+            transform: translateY(-20px) scale(1.02);
+          }
+        }
+        .image-glow {
+          filter: drop-shadow(0 10px 30px rgba(255, 182, 193, 0.3));
+        }
+        @media (max-width: 1536px) {
+          .floating-image {
+            animation: float 8s ease-in-out infinite;
+          }
+        }
+      `}</style>
 
       <section
+        ref={sectionRef}
         id='projects'
         className="bg-[#FFF2F2] min-h-screen px-3 sm:px-6 md:px-8 lg:px-32 py-6 sm:py-16 text-gray-800 relative overflow-hidden"
       >
@@ -344,13 +419,6 @@ const MySkillsAndWorks: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom-right Illustration - Responsive */}
-        <img
-          src="/images/my_works.png"
-          alt="Illustration"
-          className="hidden lg:block absolute bottom-36 right-0 w-64 lg:w-96 xl:w-[32rem] pointer-events-none select-none"
-        />
-
         {/* Navigation Button for Mobile */}
         <div className="flex justify-center mt-6 sm:mt-16 lg:hidden">
           <button
@@ -375,6 +443,42 @@ const MySkillsAndWorks: React.FC = () => {
           </button>
         </div>
       </section>
+
+      {/* Enhanced Fixed Image - More elegant and integrated */}
+      <div
+        className={`hidden xl:block fixed bottom-20 right-0 pointer-events-none select-none z-20 transition-all duration-700 ease-out ${
+          isImageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+      >
+        <img
+          src="/images/my_works.png"
+          alt="Creative Illustration"
+          className="w-[34rem] h-auto floating-image image-glow object-contain max-w-none"
+          style={{
+            transformOrigin: 'center bottom',
+            mixBlendMode: 'multiply',
+          }}
+        />
+        {/* Subtle background blur effect */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FFF2F2] via-transparent to-transparent opacity-20 rounded-t-full blur-lg -z-10"></div>
+      </div>
+
+      {/* Responsive version for large screens (but not xl+) */}
+      <div
+        className={`hidden lg:block xl:hidden fixed bottom-20 right-4 pointer-events-none select-none z-20 transition-all duration-700 ease-out ${
+          isImageVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
+        }`}
+      >
+        <img
+          src="/images/my_works.png"
+          alt="Creative Illustration"
+          className="w-[28rem] h-auto floating-image image-glow object-contain"
+          style={{
+            transformOrigin: 'center bottom',
+            mixBlendMode: 'multiply',
+          }}
+        />
+      </div>
     </>
   );
 };
