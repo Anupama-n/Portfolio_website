@@ -125,11 +125,11 @@ export default function EducationContactSections() {
       </a>
     ),
     highlights: [
-      "Analyzed 3,986 records from cities/districts all over Nepal with hazard, housing, poverty, exposure, vulnerability & severity data from the 2015 earthquake.",
-      "Used descriptive, bivariate, spatial & geospatial analysis techniques to uncover comprehensive impact patterns and damage distribution.",
-      "Found central & western Nepal (Gorkha, Lalitpur, Chitwan) most affected; poverty & poor housing conditions significantly amplified damage severity.",
-      "Identified critical data gaps in some districts highlighting the need for better real-time disaster reporting systems.",
-      ],
+  "Analyzed 3,986 records from cities and districts across Nepal, covering hazard, housing, poverty, exposure, vulnerability, and severity data related to the 2015 earthquake.",
+  "Applied descriptive, bivariate, spatial, and geospatial analysis methods to reveal detailed impact patterns and damage distribution.",
+  "Determined that central and western regions (Gorkha, Lalitpur, Chitwan) were the most affected, with poverty and poor housing conditions significantly increasing damage severity.",
+  "Uncovered critical data gaps in certain districts, underscoring the need for improved real-time disaster reporting and data collection systems."
+],
   }
 
   // Show only first 2 highlights on mobile when collapsed
@@ -240,86 +240,87 @@ export default function EducationContactSections() {
                   </div>
                 </div>
 
-                {/* Second Research Project - Nepal Earthquake */}
-                <div
-                  className="border-2 border-[#f5c2c2] bg-[#FFE4E4] px-3 lg:px-6 py-3 lg:py-6 rounded-lg lg:rounded-xl transition-all duration-300 cursor-default hover:scale-[1.01] hover:shadow-md group-hover:translate-y-[-2px]"
-                  style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-                >
-                  <div className="flex flex-col gap-3 lg:gap-5">
-                    {/* Project Header */}
-                    <div className="flex flex-col gap-1 lg:gap-3">
-                      <h4 className="text-sm lg:text-xl font-bold text-gray-800 leading-tight">
-                        {earthquakeProject.title}
-                      </h4>
-                      {/* Publication Badge */}
-                      <div className="flex items-center gap-2">
-                        <div className="bg-gradient-to-r from-purple-100 to-violet-100 border-2 border-purple-300 px-2 lg:px-4 py-1 lg:py-2 rounded-full hover:scale-105 transition-transform duration-200">
-                          <span className="text-purple-700 font-semibold text-xs lg:text-sm flex items-center gap-1 lg:gap-2">
-                            📊 {earthquakeProject.status}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
+              {/* Second Research Project - Nepal Earthquake Data Analysis */}
+<div
+  className="border-2 border-[#f5c2c2] bg-[#FFE4E4] px-3 lg:px-6 py-3 lg:py-6 rounded-lg lg:rounded-xl transition-all duration-300 cursor-default hover:scale-[1.01] hover:shadow-md group-hover:translate-y-[-2px]"
+  style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+>
+  <div className="flex flex-col gap-3 lg:gap-5">
+    {/* Project Header */}
+    <div className="flex flex-col gap-1 lg:gap-3">
+      <h4 className="text-sm lg:text-xl font-bold text-gray-800 leading-tight">
+        {earthquakeProject.title}
+      </h4>
+      {/* Publication Badge */}
+      <div className="flex items-center gap-2">
+        <div className="bg-gradient-to-r from-purple-100 to-violet-100 border-2 border-purple-300 px-2 lg:px-4 py-1 lg:py-2 rounded-full hover:scale-105 transition-transform duration-200">
+          <span className="text-purple-700 font-semibold text-xs lg:text-sm flex items-center gap-1 lg:gap-2">
+            📊 {earthquakeProject.status}
+          </span>
+        </div>
+      </div>
+    </div>
 
-                    {/* Project Highlights */}
-                    <div className="space-y-2 lg:space-y-4">
-                      <h5 className="text-xs lg:text-lg font-semibold text-gray-800 mb-2 lg:mb-4">
-                        Data Analysis Summary & UI/UX Application:
-                      </h5>
-                      {displayedHighlights2.map((highlight, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-start gap-2 lg:gap-4 hover:translate-x-1 transition-transform duration-200"
-                        >
-                          <div className="w-1 h-1 lg:w-2.5 lg:h-2.5 bg-purple-400 rounded-full mt-1.5 lg:mt-2.5 flex-shrink-0"></div>
-                          <p className="text-gray-700 text-xs lg:text-lg leading-relaxed">{highlight}</p>
-                        </div>
-                      ))}
+    {/* Project Highlights */}
+    <div className="space-y-2 lg:space-y-4">
+      <h5 className="text-xs lg:text-lg font-semibold text-gray-800 mb-2 lg:mb-4">
+        Data Analysis Summary:
+      </h5>
+      {displayedHighlights2.map((highlight, idx) => (
+        <div
+          key={idx}
+          className="flex items-start gap-2 lg:gap-4 hover:translate-x-1 transition-transform duration-200"
+        >
+          <div className="w-1 h-1 lg:w-2.5 lg:h-2.5 bg-purple-400 rounded-full mt-1.5 lg:mt-2.5 flex-shrink-0"></div>
+          <p className="text-gray-700 text-xs lg:text-lg leading-relaxed">{highlight}</p>
+        </div>
+      ))}
 
-                      {/* Read More/Less Button - Only show on mobile/tablet */}
-                      <div className="lg:hidden">
-                        <button
-                          onClick={() => setIsExpanded2(!isExpanded2)}
-                          className="flex items-center gap-1 mt-2 px-2 py-1 border border-black rounded-sm text-xs text-black font-medium hover:bg-black hover:text-white transition-colors duration-200 hover:scale-105"
-                        >
-                          {isExpanded2 ? (
-                            <>
-                              <span>Show Less</span>
-                              <ChevronUp className="w-3 h-3" />
-                            </>
-                          ) : (
-                            <>
-                              <span>Read More</span>
-                              <ChevronDown className="w-3 h-3" />
-                            </>
-                          )}
-                        </button>
-                      </div>
+      {/* Read More/Less Button - Only show on mobile/tablet */}
+      <div className="lg:hidden">
+        <button
+          onClick={() => setIsExpanded2(!isExpanded2)}
+          className="flex items-center gap-1 mt-2 px-2 py-1 border border-black rounded-sm text-xs text-black font-medium hover:bg-black hover:text-white transition-colors duration-200 hover:scale-105"
+        >
+          {isExpanded2 ? (
+            <>
+              <span>Show Less</span>
+              <ChevronUp className="w-3 h-3" />
+            </>
+          ) : (
+            <>
+              <span>Read More</span>
+              <ChevronDown className="w-3 h-3" />
+            </>
+          )}
+        </button>
+      </div>
 
-                      {/* Show remaining highlights on desktop always */}
-                      <div className="hidden lg:block">
-                        {earthquakeProject.highlights.slice(2).map((highlight, idx) => (
-                          <div
-                            key={idx + 2}
-                            className="flex items-start gap-3 lg:gap-4 hover:translate-x-1 transition-transform duration-200"
-                          >
-                            <div className="w-1.5 h-1.5 lg:w-2.5 lg:h-2.5 bg-purple-400 rounded-full mt-2 lg:mt-2.5 flex-shrink-0"></div>
-                            <p className="text-gray-700 text-sm lg:text-lg leading-relaxed">{highlight}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+      {/* Show remaining highlights on desktop always */}
+      <div className="hidden lg:block">
+        {earthquakeProject.highlights.slice(2).map((highlight, idx) => (
+          <div
+            key={idx + 2}
+            className="flex items-start gap-3 lg:gap-4 hover:translate-x-1 transition-transform duration-200"
+          >
+            <div className="w-1.5 h-1.5 lg:w-2.5 lg:h-2.5 bg-purple-400 rounded-full mt-2 lg:mt-2.5 flex-shrink-0"></div>
+            <p className="text-gray-700 text-sm lg:text-lg leading-relaxed">{highlight}</p>
+          </div>
+        ))}
+      </div>
+    </div>
 
-                    {/* Impact Statement */}
-                    <div className="bg-gradient-to-r from-orange-50 to-red-50 border-2 border-orange-200 p-2 lg:p-4 rounded-lg mt-2 lg:mt-4 hover:shadow-sm transition-shadow duration-200">
-                      <p className="text-orange-800 text-xs lg:text-base font-medium leading-relaxed">
-                        This data-driven approach to disaster management research directly informs user-centered design
-                        principles for emergency response applications, bridging the gap between analytical insights and
-                        practical UI/UX solutions for vulnerable communities.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+    {/* Impact Statement */}
+    <div className="bg-gradient-to-r from-orange-50 to-red-50 border-2 border-orange-200 p-2 lg:p-4 rounded-lg mt-2 lg:mt-4 hover:shadow-sm transition-shadow duration-200">
+      <p className="text-orange-800 text-xs lg:text-base font-medium leading-relaxed">
+        This research presents a comprehensive data analysis of the 2015 Nepal earthquake’s impact,
+        utilizing hazard, housing, poverty, exposure, vulnerability, and severity data to inform disaster management
+        and future risk mitigation strategies.
+      </p>
+    </div>
+  </div>
+</div>
+
               </div>
             </div>
           </div>
