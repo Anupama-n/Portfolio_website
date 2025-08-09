@@ -129,10 +129,7 @@ export default function EducationContactSections() {
       "Used descriptive, bivariate, spatial & geospatial analysis techniques to uncover comprehensive impact patterns and damage distribution.",
       "Found central & western Nepal (Gorkha, Lalitpur, Chitwan) most affected; poverty & poor housing conditions significantly amplified damage severity.",
       "Identified critical data gaps in some districts highlighting the need for better real-time disaster reporting systems.",
-      "Created interactive maps & visualizations to reveal high-risk areas and severity distribution patterns across affected regions.",
-      "Applied findings to inform UI/UX design of Community Disaster Alert & Safety App with prioritized alerts for high-risk areas.",
-      "Developed user segmentation strategy based on regional vulnerability, offline mode for rural areas, and community reporting features to fill real-time data gaps.",
-    ],
+      ],
   }
 
   // Show only first 2 highlights on mobile when collapsed
