@@ -115,14 +115,15 @@ export default function EducationContactSections() {
   const earthquakeProject = {
     title: "Data Analysis – Nepal Earthquake Damage Severity Study",
     status: (
-    <a
-      href="https://www.techrxiv.org/users/920171/articles/1294469-analysis-of-earthquake-induced-damage-severity-in-nepal-an-exploratory-data-approach"
-      target="_blank"
-      rel="noopener noreferrer"
-      
-    >
-      Pre Print Available in TechRxiv - May 2025
-    </a>),
+      <a
+        href="https://www.techrxiv.org/users/920171/articles/1294469-analysis-of-earthquake-induced-damage-severity-in-nepal-an-exploratory-data-approach"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:underline transition-all duration-200"
+      >
+        Pre Print Available in TechRxiv - May 2025
+      </a>
+    ),
     highlights: [
       "Analyzed 3,986 records from cities/districts all over Nepal with hazard, housing, poverty, exposure, vulnerability & severity data from the 2015 earthquake.",
       "Used descriptive, bivariate, spatial & geospatial analysis techniques to uncover comprehensive impact patterns and damage distribution.",
@@ -139,18 +140,17 @@ export default function EducationContactSections() {
   const displayedHighlights2 = isExpanded2 ? earthquakeProject.highlights : earthquakeProject.highlights.slice(0, 2)
 
   return (
-    
     <div
       id="education"
       className="bg-[#FFF2F2] min-h-screen px-2 sm:px-6 md:px-8 lg:px-32 py-4 sm:py-12 lg:py-16 text-gray-800 relative overflow-hidden space-y-3 lg:space-y-12"
     >
       {/* Research Section */}
-      <div className="relative bg-[#FFeded] shadow-[0_8px_30px_rgba(137,137,137,0.15)] rounded-lg sm:rounded-[32px] lg:rounded-[40px] p-3 sm:p-6 lg:p-10 transition-shadow duration-300 max-w-7xl mx-auto">
+      <div className="relative bg-[#FFeded] shadow-[0_8px_30px_rgba(137,137,137,0.15)] rounded-lg sm:rounded-[32px] lg:rounded-[40px] p-3 sm:p-6 lg:p-10 transition-shadow duration-300 max-w-7xl mx-auto hover:shadow-[0_10px_40px_rgba(137,137,137,0.2)]">
         <section id="research">
           <div className="grid gap-3 lg:gap-10">
             <div className="group">
               {/* Category Header with Icon */}
-              <div className="border-2 border-[#f5c2c2] bg-[#FFE4E4] rounded-lg lg:rounded-2xl p-3 lg:p-6 transition-all duration-300">
+              <div className="border-2 border-[#f5c2c2] bg-[#FFE4E4] rounded-lg lg:rounded-2xl p-3 lg:p-6 transition-all duration-300 hover:shadow-lg">
                 <div className="flex items-center gap-2 lg:gap-3 mb-3 lg:mb-6">
                   <FileText className="w-4 h-4 lg:w-6 lg:h-6 text-gray-600" />
                   <h3
@@ -164,7 +164,7 @@ export default function EducationContactSections() {
 
                 {/* First Research Project - DOTM */}
                 <div
-                  className="border-2 border-[#f5c2c2] bg-[#FFE4E4] px-3 lg:px-6 py-3 lg:py-6 rounded-lg lg:rounded-xl transition-all duration-300 cursor-default mb-4 lg:mb-6"
+                  className="border-2 border-[#f5c2c2] bg-[#FFE4E4] px-3 lg:px-6 py-3 lg:py-6 rounded-lg lg:rounded-xl transition-all duration-300 cursor-default mb-4 lg:mb-6 hover:scale-[1.01] hover:shadow-md group-hover:translate-y-[-2px]"
                   style={{ fontFamily: "'Instrument Sans', sans-serif" }}
                 >
                   <div className="flex flex-col gap-3 lg:gap-5">
@@ -175,7 +175,7 @@ export default function EducationContactSections() {
                       </h4>
                       {/* Conference Badge */}
                       <div className="flex items-center gap-2">
-                        <div className="bg-gradient-to-r from-green-100 to-emerald-100 border-2 border-green-300 px-2 lg:px-4 py-1 lg:py-2 rounded-full">
+                        <div className="bg-gradient-to-r from-green-100 to-emerald-100 border-2 border-green-300 px-2 lg:px-4 py-1 lg:py-2 rounded-full hover:scale-105 transition-transform duration-200">
                           <span className="text-green-700 font-semibold text-xs lg:text-sm flex items-center gap-1 lg:gap-2">
                             🏆 {researchProject.status}
                           </span>
@@ -189,7 +189,10 @@ export default function EducationContactSections() {
                         Key Contributions & Methodology:
                       </h5>
                       {displayedHighlights.map((highlight, idx) => (
-                        <div key={idx} className="flex items-start gap-2 lg:gap-4">
+                        <div
+                          key={idx}
+                          className="flex items-start gap-2 lg:gap-4 hover:translate-x-1 transition-transform duration-200"
+                        >
                           <div className="w-1 h-1 lg:w-2.5 lg:h-2.5 bg-blue-400 rounded-full mt-1.5 lg:mt-2.5 flex-shrink-0"></div>
                           <p className="text-gray-700 text-xs lg:text-lg leading-relaxed">{highlight}</p>
                         </div>
@@ -199,7 +202,7 @@ export default function EducationContactSections() {
                       <div className="lg:hidden">
                         <button
                           onClick={() => setIsExpanded(!isExpanded)}
-                          className="flex items-center gap-1 mt-2 px-2 py-1 border border-black rounded-sm text-xs text-black font-medium hover:bg-black hover:text-white transition-colors duration-200"
+                          className="flex items-center gap-1 mt-2 px-2 py-1 border border-black rounded-sm text-xs text-black font-medium hover:bg-black hover:text-white transition-colors duration-200 hover:scale-105"
                         >
                           {isExpanded ? (
                             <>
@@ -218,7 +221,10 @@ export default function EducationContactSections() {
                       {/* Show remaining highlights on desktop always */}
                       <div className="hidden lg:block">
                         {researchProject.highlights.slice(2).map((highlight, idx) => (
-                          <div key={idx + 2} className="flex items-start gap-3 lg:gap-4">
+                          <div
+                            key={idx + 2}
+                            className="flex items-start gap-3 lg:gap-4 hover:translate-x-1 transition-transform duration-200"
+                          >
                             <div className="w-1.5 h-1.5 lg:w-2.5 lg:h-2.5 bg-blue-400 rounded-full mt-2 lg:mt-2.5 flex-shrink-0"></div>
                             <p className="text-gray-700 text-sm lg:text-lg leading-relaxed">{highlight}</p>
                           </div>
@@ -227,7 +233,7 @@ export default function EducationContactSections() {
                     </div>
 
                     {/* Impact Statement */}
-                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 p-2 lg:p-4 rounded-lg mt-2 lg:mt-4">
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 p-2 lg:p-4 rounded-lg mt-2 lg:mt-4 hover:shadow-sm transition-shadow duration-200">
                       <p className="text-blue-800 text-xs lg:text-base font-medium leading-relaxed">
                         This research addresses the critical need for inclusive, accessible, and responsive government
                         services in developing countries, contributing to digital transformation in public service
@@ -239,7 +245,7 @@ export default function EducationContactSections() {
 
                 {/* Second Research Project - Nepal Earthquake */}
                 <div
-                  className="border-2 border-[#f5c2c2] bg-[#FFE4E4] px-3 lg:px-6 py-3 lg:py-6 rounded-lg lg:rounded-xl transition-all duration-300 cursor-default"
+                  className="border-2 border-[#f5c2c2] bg-[#FFE4E4] px-3 lg:px-6 py-3 lg:py-6 rounded-lg lg:rounded-xl transition-all duration-300 cursor-default hover:scale-[1.01] hover:shadow-md group-hover:translate-y-[-2px]"
                   style={{ fontFamily: "'Instrument Sans', sans-serif" }}
                 >
                   <div className="flex flex-col gap-3 lg:gap-5">
@@ -250,7 +256,7 @@ export default function EducationContactSections() {
                       </h4>
                       {/* Publication Badge */}
                       <div className="flex items-center gap-2">
-                        <div className="bg-gradient-to-r from-purple-100 to-violet-100 border-2 border-purple-300 px-2 lg:px-4 py-1 lg:py-2 rounded-full">
+                        <div className="bg-gradient-to-r from-purple-100 to-violet-100 border-2 border-purple-300 px-2 lg:px-4 py-1 lg:py-2 rounded-full hover:scale-105 transition-transform duration-200">
                           <span className="text-purple-700 font-semibold text-xs lg:text-sm flex items-center gap-1 lg:gap-2">
                             📊 {earthquakeProject.status}
                           </span>
@@ -264,7 +270,10 @@ export default function EducationContactSections() {
                         Data Analysis Summary & UI/UX Application:
                       </h5>
                       {displayedHighlights2.map((highlight, idx) => (
-                        <div key={idx} className="flex items-start gap-2 lg:gap-4">
+                        <div
+                          key={idx}
+                          className="flex items-start gap-2 lg:gap-4 hover:translate-x-1 transition-transform duration-200"
+                        >
                           <div className="w-1 h-1 lg:w-2.5 lg:h-2.5 bg-purple-400 rounded-full mt-1.5 lg:mt-2.5 flex-shrink-0"></div>
                           <p className="text-gray-700 text-xs lg:text-lg leading-relaxed">{highlight}</p>
                         </div>
@@ -274,7 +283,7 @@ export default function EducationContactSections() {
                       <div className="lg:hidden">
                         <button
                           onClick={() => setIsExpanded2(!isExpanded2)}
-                          className="flex items-center gap-1 mt-2 px-2 py-1 border border-black rounded-sm text-xs text-black font-medium hover:bg-black hover:text-white transition-colors duration-200"
+                          className="flex items-center gap-1 mt-2 px-2 py-1 border border-black rounded-sm text-xs text-black font-medium hover:bg-black hover:text-white transition-colors duration-200 hover:scale-105"
                         >
                           {isExpanded2 ? (
                             <>
@@ -293,7 +302,10 @@ export default function EducationContactSections() {
                       {/* Show remaining highlights on desktop always */}
                       <div className="hidden lg:block">
                         {earthquakeProject.highlights.slice(2).map((highlight, idx) => (
-                          <div key={idx + 2} className="flex items-start gap-3 lg:gap-4">
+                          <div
+                            key={idx + 2}
+                            className="flex items-start gap-3 lg:gap-4 hover:translate-x-1 transition-transform duration-200"
+                          >
                             <div className="w-1.5 h-1.5 lg:w-2.5 lg:h-2.5 bg-purple-400 rounded-full mt-2 lg:mt-2.5 flex-shrink-0"></div>
                             <p className="text-gray-700 text-sm lg:text-lg leading-relaxed">{highlight}</p>
                           </div>
@@ -302,7 +314,7 @@ export default function EducationContactSections() {
                     </div>
 
                     {/* Impact Statement */}
-                    <div className="bg-gradient-to-r from-orange-50 to-red-50 border-2 border-orange-200 p-2 lg:p-4 rounded-lg mt-2 lg:mt-4">
+                    <div className="bg-gradient-to-r from-orange-50 to-red-50 border-2 border-orange-200 p-2 lg:p-4 rounded-lg mt-2 lg:mt-4 hover:shadow-sm transition-shadow duration-200">
                       <p className="text-orange-800 text-xs lg:text-base font-medium leading-relaxed">
                         This data-driven approach to disaster management research directly informs user-centered design
                         principles for emergency response applications, bridging the gap between analytical insights and
@@ -318,7 +330,7 @@ export default function EducationContactSections() {
       </div>
 
       {/* Education and Contact Section */}
-      <div className="relative bg-[#FFeded] shadow-[0_8px_30px_rgba(137,137,137,0.15)] rounded-lg sm:rounded-[32px] lg:rounded-[40px] p-3 sm:p-6 lg:p-10 transition-shadow duration-300 max-w-7xl mx-auto">
+      <div className="relative bg-[#FFeded] shadow-[0_8px_30px_rgba(137,137,137,0.15)] rounded-lg sm:rounded-[32px] lg:rounded-[40px] p-3 sm:p-6 lg:p-10 transition-shadow duration-300 max-w-7xl mx-auto hover:shadow-[0_10px_40px_rgba(137,137,137,0.2)]">
         {/* Split Layout: Education Left, Contact Right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12">
           {/* Education Section - Left Half */}
@@ -326,7 +338,7 @@ export default function EducationContactSections() {
             <div className="grid gap-3 lg:gap-10">
               <div className="group">
                 {/* Category Header with Icon */}
-                <div className="border-2 border-[#f5c2c2] bg-[#FFE4E4] rounded-lg lg:rounded-2xl p-3 lg:p-6 transition-all duration-300">
+                <div className="border-2 border-[#f5c2c2] bg-[#FFE4E4] rounded-lg lg:rounded-2xl p-3 lg:p-6 transition-all duration-300 hover:shadow-lg">
                   <div className="flex items-center gap-2 lg:gap-3 mb-3 lg:mb-6">
                     <GraduationCap className="w-4 h-4 lg:w-6 lg:h-6 text-gray-600" />
                     <h3
@@ -343,7 +355,7 @@ export default function EducationContactSections() {
                     {education.map((edu, idx) => (
                       <div
                         key={idx}
-                        className="border-2 border-[#f5c2c2] bg-[#FFE4E4] px-3 lg:px-6 py-2 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 cursor-default"
+                        className="border-2 border-[#f5c2c2] bg-[#FFE4E4] px-3 lg:px-6 py-2 lg:py-4 rounded-lg lg:rounded-xl transition-all duration-300 cursor-default hover:scale-[1.02] hover:shadow-md group-hover:translate-y-[-2px]"
                         style={{
                           fontFamily: "'Instrument Sans', sans-serif",
                           animationDelay: `${idx * 100}ms`,
@@ -358,7 +370,7 @@ export default function EducationContactSections() {
                             {edu.board && <p className="text-gray-500 text-xs lg:text-sm mt-0.5">Board: {edu.board}</p>}
                           </div>
                           <div className="text-left">
-                            <span className="inline-block bg-white/70 px-2 lg:px-3 py-0.5 lg:py-1 rounded-full text-xs lg:text-sm font-medium text-gray-700 border border-[#f5c2c2]">
+                            <span className="inline-block bg-white/70 px-2 lg:px-3 py-0.5 lg:py-1 rounded-full text-xs lg:text-sm font-medium text-gray-700 border border-[#f5c2c2] hover:bg-white transition-colors duration-200">
                               {edu.period}
                             </span>
                           </div>
@@ -376,7 +388,7 @@ export default function EducationContactSections() {
             <div className="grid gap-3 lg:gap-10">
               <div className="group">
                 {/* Category Header with Icon */}
-                <div className="border-2 border-[#f5c2c2] bg-[#FFE4E4] rounded-lg lg:rounded-2xl p-3 lg:p-6 transition-all duration-300">
+                <div className="border-2 border-[#f5c2c2] bg-[#FFE4E4] rounded-lg lg:rounded-2xl p-3 lg:p-6 transition-all duration-300 hover:shadow-lg">
                   <div className="flex items-center gap-2 lg:gap-3 mb-3 lg:mb-6">
                     <Phone className="w-4 h-4 lg:w-6 lg:h-6 text-gray-600" />
                     <h3
@@ -393,7 +405,7 @@ export default function EducationContactSections() {
                     {contactInfo.map((contact, idx) => (
                       <div
                         key={idx}
-                        className="border-2 border-[#f5c2c2] bg-[#FFE4E4] px-2.5 lg:px-4 py-1.5 lg:py-3 rounded-lg lg:rounded-xl transition-all duration-300 cursor-default"
+                        className="border-2 border-[#f5c2c2] bg-[#FFE4E4] px-2.5 lg:px-4 py-1.5 lg:py-3 rounded-lg lg:rounded-xl transition-all duration-300 cursor-default hover:scale-[1.02] hover:shadow-md group-hover:translate-y-[-2px]"
                         style={{
                           fontFamily: "'Instrument Sans', sans-serif",
                           fontWeight: 500,
@@ -409,7 +421,7 @@ export default function EducationContactSections() {
                                 ? "noopener noreferrer"
                                 : undefined
                             }
-                            className="flex items-center gap-2 lg:gap-3 transition-opacity"
+                            className="flex items-center gap-2 lg:gap-3 transition-opacity hover:opacity-80"
                           >
                             {contact.icon}
                             <div>
@@ -441,12 +453,12 @@ export default function EducationContactSections() {
       </div>
 
       {/* Achievements Section */}
-      <div className="relative bg-[#FFeded] shadow-[0_8px_30px_rgba(137,137,137,0.15)] rounded-lg sm:rounded-[32px] lg:rounded-[40px] p-3 sm:p-6 lg:p-10 transition-shadow duration-300 max-w-7xl mx-auto">
+      <div className="relative bg-[#FFeded] shadow-[0_8px_30px_rgba(137,137,137,0.15)] rounded-lg sm:rounded-[32px] lg:rounded-[40px] p-3 sm:p-6 lg:p-10 transition-shadow duration-300 max-w-7xl mx-auto hover:shadow-[0_10px_40px_rgba(137,137,137,0.2)]">
         <section id="achievements">
           <div className="grid gap-3 lg:gap-10">
             <div className="group">
               {/* Category Header with Icon */}
-              <div className="border-2 border-[#f5c2c2] bg-[#FFE4E4] rounded-lg lg:rounded-2xl p-3 lg:p-6 transition-all duration-300">
+              <div className="border-2 border-[#f5c2c2] bg-[#FFE4E4] rounded-lg lg:rounded-2xl p-3 lg:p-6 transition-all duration-300 hover:shadow-lg">
                 <div className="flex items-center gap-2 lg:gap-3 mb-3 lg:mb-6">
                   <Trophy className="w-4 h-4 lg:w-6 lg:h-6 text-gray-600" />
                   <h3
@@ -463,7 +475,7 @@ export default function EducationContactSections() {
                   {achievements.map((achievement, idx) => (
                     <div
                       key={idx}
-                      className="border-2 border-[#f5c2c2] bg-[#FFE4E4] px-3 lg:px-6 py-3 lg:py-5 rounded-lg lg:rounded-xl transition-all duration-300 cursor-default"
+                      className="border-2 border-[#f5c2c2] bg-[#FFE4E4] px-3 lg:px-6 py-3 lg:py-5 rounded-lg lg:rounded-xl transition-all duration-300 cursor-default hover:scale-[1.02] hover:shadow-md group-hover:translate-y-[-2px]"
                       style={{
                         fontFamily: "'Instrument Sans', sans-serif",
                         animationDelay: `${idx * 100}ms`,
@@ -480,7 +492,10 @@ export default function EducationContactSections() {
                         {/* Responsibilities */}
                         <div className="space-y-1 lg:space-y-2">
                           {achievement.responsibilities.map((responsibility, respIdx) => (
-                            <div key={respIdx} className="flex items-start gap-1.5">
+                            <div
+                              key={respIdx}
+                              className="flex items-start gap-1.5 hover:translate-x-1 transition-transform duration-200"
+                            >
                               <div className="w-1 h-1 bg-gray-400 rounded-full mt-1.5 lg:mt-2 flex-shrink-0"></div>
                               <p className="text-gray-700 text-xs lg:text-lg leading-relaxed">{responsibility}</p>
                             </div>
@@ -488,7 +503,7 @@ export default function EducationContactSections() {
                         </div>
 
                         <div className="text-left">
-                          <span className="inline-block bg-white/70 px-2 lg:px-3 py-0.5 lg:py-1 rounded-full text-xs lg:text-sm font-medium text-gray-700 border border-[#f5c2c2]">
+                          <span className="inline-block bg-white/70 px-2 lg:px-3 py-0.5 lg:py-1 rounded-full text-xs lg:text-sm font-medium text-gray-700 border border-[#f5c2c2] hover:bg-white transition-colors duration-200">
                             {achievement.period}
                           </span>
                         </div>
