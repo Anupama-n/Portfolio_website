@@ -69,7 +69,7 @@ export default function EducationContactSections() {
     },
     {
       type: "Location",
-      value: "Budhanilkantha, Kathmandu",
+      value: "Kathmandu, Nepal",
       icon: <MapPin className="w-4 h-4 lg:w-5 lg:h-5" />,
       link: null,
     },
@@ -121,7 +121,7 @@ export default function EducationContactSections() {
       rel="noopener noreferrer"
       
     >
-      Published in TechRxiv - May 2025
+      Pre Print Available in TechRxiv - May 2025
     </a>),
     highlights: [
       "Analyzed 3,986 records from cities/districts all over Nepal with hazard, housing, poverty, exposure, vulnerability & severity data from the 2015 earthquake.",
