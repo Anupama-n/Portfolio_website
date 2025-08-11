@@ -65,27 +65,22 @@ const Home: React.FC = () => {
           </div>
 
           {/* Call-to-Action Button */}
-          <div className="mt-6 sm:mt-10 md:mt-12 block md:hidden">
-            <button
-              onClick={() => {
-                const aboutSection = document.getElementById('about');
-                if (aboutSection) {
-                  aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
-              className="px-4 py-2 sm:px-8 sm:py-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95 text-[12px] sm:text-base md:text-lg"
-              style={{
-                backgroundColor: '#423E3E',
-                color: '#FFF2F2',
-                fontFamily: "'Instrument Sans', sans-serif",
-                fontWeight: '500',
-                border: 'none',
-                cursor: 'pointer'
-              }}
-            >
-              Learn More About Me
-            </button>
-          </div>
+<div className="mt-6 sm:mt-10 md:mt-12 block">
+  <button
+    onClick={() => window.open('/resume.pdf', '_blank')}
+    className="px-4 py-2 sm:px-8 sm:py-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95 text-[12px] sm:text-base md:text-lg"
+    style={{
+      backgroundColor: '#423E3E',
+      color: '#FFF2F2',
+      fontFamily: "'Instrument Sans', sans-serif",
+      fontWeight: '500',
+      border: 'none',
+      cursor: 'pointer'
+    }}
+  >
+    View Resume
+  </button>
+</div>
 
         </div>
       </div>
