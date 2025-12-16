@@ -122,7 +122,8 @@ const Navbar: React.FC = () => {
         style={{
           backgroundColor: isScrolled || isPortfolioPage ? `rgba(245, 237, 228, 0.95)` : 'transparent',
           backdropFilter: isScrolled || isPortfolioPage ? 'blur(12px)' : 'none',
-          borderBottom: `1px solid ${isScrolled || isPortfolioPage ? 'rgba(201, 169, 97, 0.15)' : 'transparent'}`,
+          // Only show border if scrolled AND NOT on portfolio page
+          borderBottom: `1px solid ${(isScrolled && !isPortfolioPage) ? 'rgba(201, 169, 97, 0.15)' : 'transparent'}`,
           paddingTop: isScrolled ? '1rem' : '1.75rem',
           paddingBottom: isScrolled ? '1rem' : '1.75rem',
           boxShadow: isScrolled ? '0 4px 30px rgba(0, 0, 0, 0.03)' : 'none',
