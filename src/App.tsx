@@ -1,26 +1,47 @@
+import React from 'react';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Hero from './components/Home';
+
 import Navbar from './components/Navbar';
-import Home from './components/Home';
 import About from './components/About';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+
 import Footer from './components/Footer';
-import EducationContactSections from './components/myContact';
-import HobbiesPage from './components/hobbies';
+import Hobbies from './components/hobbies';
+import Experience from './components/Experience';
+import Project from './components/project';
 
 
-function App() {
+// Wrapper component to scroll to top on route change
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+
+const App: React.FC = () => {
   return (
-    <main>
+    <HashRouter>
+      <ScrollToTop />
       <Navbar />
-      <Home />
-      <About />
-      <Projects />
-    <EducationContactSections/>
-    <HobbiesPage/>
-      <Contact />
+      <Routes>
+        <Route 
+          path="/" 
+          element={
+            <>
+              <Hero />
+              <About />
+              <Experience />
+              <Hobbies />
+            </>
+          } 
+        />
+        <Route path="/portfolio" element={<Project/>} />
+      </Routes>
       <Footer />
-    </main>
+    </HashRouter>
   );
-}
+};
 
 export default App;

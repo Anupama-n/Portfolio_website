@@ -1,91 +1,236 @@
-import React from 'react';
+import React from "react";
+import { MousePointer2, Mail } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 
-const Home: React.FC = () => {
+import { useNavigate } from "react-router-dom";
+// Luxury Color Palette
+const COLORS = {
+  bg: "#F5EDE4",
+  burgundy: "#2D161A",
+  rose: "#FF4D6D",
+  roseSoft: "#FFB3C1",
+  roseGold: "#B76E79",
+  gold: "#C9A961",
+  goldLight: "#D4B896",
+  cream: "#F5EDE4",
+};
+
+const Hero: React.FC = () => {
+   const navigate = useNavigate();
+  const [isOpeningEmail, setIsOpeningEmail] = React.useState(false);
+
+  const handleGetInTouch = () => {
+    setIsOpeningEmail(true);
+    window.location.href = "mailto:anupaneupane1994@gmail.com";
+    // Reset after a delay in case user returns to page
+    setTimeout(() => setIsOpeningEmail(false), 2000);
+  };
+
+
+   const handleViewProjects = () => {
+    navigate('/portfolio');
+  };
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.9, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div id='home' className="w-full min-h-screen flex flex-col" style={{ backgroundColor: '#FFF2F2' }}>
-      {/* Main Content */}
-      <div className="flex flex-col items-center justify-center px-2 sm:px-6 md:px-8 py-6 sm:py-14 md:py-20 flex-grow -mt-28 sm:-mt-12 md:mt-0">
-
-        {/* Profile Illustration */}
-        <div className="mb-4 sm:mb-10 md:mb-12">
-          <img
-            src="/images/Home.jpg"
-            alt="Profile Illustration"
-            className="w-[160px] h-[200px] sm:w-[180px] sm:h-[270px] md:w-[200px] md:h-[300px] object-cover rounded-[15px] sm:rounded-[25px] md:rounded-[30px] transition-all duration-300 hover:scale-105"
+    <motion.section
+      id="home"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
+      style={{ backgroundColor: COLORS.bg }}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: { duration: 1.2, ease: "easeOut" },
+        },
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.2, once: false }}
+    >
+      {/* Decorative Frame */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <motion.div
+          className="absolute inset-6 md:inset-10 pointer-events-none opacity-40"
+          animate={{ x: [0, 2, 0], y: [0, -2, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <div
+            className="absolute inset-0 rounded-sm"
+            style={{ border: `1px solid ${COLORS.gold}20` }}
           />
-        </div>
+          {[
+            "top-0 left-0 border-t border-l rounded-tl-sm",
+            "top-0 right-0 border-t border-r rounded-tr-sm",
+            "bottom-0 left-0 border-b border-l rounded-bl-sm",
+            "bottom-0 right-0 border-b border-r rounded-br-sm",
+          ].map((cls, i) => (
+            <div
+              key={i}
+              className={`absolute w-6 h-6 ${cls}`}
+              style={{ borderColor: `${COLORS.gold}60` }}
+            />
+          ))}
+        </motion.div>
 
-        {/* Text Block */}
-        <div className="flex flex-col items-center text-center mt-1">
-          {/* Main Heading */}
-          <h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light bg-gradient-to-r from-black to-[#666666] text-transparent bg-clip-text mb-3 sm:mb-5 md:mb-6 leading-tight"
-            style={{ fontFamily: "'Instrument Serif', serif" }}
+        {/* Floating Gradient Orbs */}
+        <motion.div
+          animate={{ opacity: [0.06, 0.12, 0.06], scale: [1, 1.1, 1] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-10 right-10 w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] rounded-full blur-[100px] lg:blur-[130px]"
+          style={{ backgroundColor: `${COLORS.roseGold}25` }}
+        />
+
+        <motion.div
+          animate={{ opacity: [0.04, 0.1, 0.04] }}
+          transition={{ duration: 17, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-10 left-10 w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] rounded-full blur-[80px] lg:blur-[110px]"
+          style={{ backgroundColor: `${COLORS.gold}25` }}
+        />
+
+        <motion.div
+          animate={{ opacity: [0.03, 0.08, 0.03] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[150px]"
+          style={{ backgroundColor: `${COLORS.roseGold}20` }}
+        />
+      </div>
+
+      {/* Main Content */}
+      <motion.div
+        className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-12 lg:px-16 text-center"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.2, once: false }}
+      >
+        {/* Tagline */}
+        <motion.div variants={itemVariants} className="flex items-center justify-center gap-3 mb-6">
+          <span className="h-px w-8" style={{ backgroundColor: COLORS.gold }} />
+          <span
+            className="text-sm md:text-base tracking-[0.3em] uppercase font-semibold"
+            style={{ color: COLORS.gold, fontFamily: "'Raleway', sans-serif" }}
           >
-            Hey I'm Anupama
-          </h1>
+            UX/UI Designer
+          </span>
+          <span className="h-px w-8" style={{ backgroundColor: COLORS.gold }} />
+        </motion.div>
 
-          {/* Subheading */}
-          <div className="flex flex-row items-center justify-center mb-3 sm:mb-5 md:mb-6 px-2">
-            <span
-              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl italic leading-tight sm:leading-[1.1] align-baseline mr-1 sm:mr-3"
-              style={{
-                fontFamily: "'Ingrid Darling', cursive",
-                color: 'rgba(0, 0, 0, 0.6)',
-                display: 'inline-block',
-                transform: 'translateY(1px)',
-              }}
-            >
-              E
-            </span>
-
-            <p
-              className="text-sm sm:text-xl md:text-2xl font-normal m-0 leading-relaxed"
-              style={{
-                fontFamily: "'Inika', serif",
-                color: 'rgba(0, 0, 0, 0.6)',
-                letterSpacing: '-0.04em',
-              }}
-            >
-              xploring the sweet spot between design and code.
-            </p>
-          </div>
-
-          {/* Description */}
-          <div className="text-center max-w-xs sm:max-w-lg md:max-w-2xl leading-relaxed px-2">
-            <p
-              className="text-sm sm:text-lg md:text-xl mb-0 leading-relaxed"
-              style={{ fontFamily: "'Instrument Sans', sans-serif", color: 'rgba(0, 0, 0, 0.6)' }}
-            >
-              Combining a love for thoughtful design with technical skills to build{' '}
-              <span className="hidden sm:inline"><br /></span>
-              engaging and responsive user interfaces.
-              <span className="hidden md:inline"><br /></span>
-            </p>
-          </div>
-
-          {/* Call-to-Action Button */}
-<div className="mt-6 sm:mt-10 md:mt-12 block">
-  <button
-    onClick={() => window.open('/resume.pdf', '_blank')}
-    className="px-4 py-2 sm:px-8 sm:py-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95 text-[12px] sm:text-base md:text-lg"
+     {/* Name – Clean Signature Cursive with MonteCarlo */}
+<motion.h1
+  variants={itemVariants}
+  className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl leading-[1.1] mb-6"
+  style={{
+    fontFamily: "'MonteCarlo', cursive",
+    color: COLORS.burgundy,
+    letterSpacing: "0.03em",
+  }}
+>
+  Anupama{" "}
+  <span
     style={{
-      backgroundColor: '#423E3E',
-      color: '#FFF2F2',
-      fontFamily: "'Instrument Sans', sans-serif",
-      fontWeight: '500',
-      border: 'none',
-      cursor: 'pointer'
+      background: `linear-gradient(135deg, ${COLORS.rose}, ${COLORS.roseGold})`,
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      backgroundClip: "text",
     }}
   >
-    View Resume
-  </button>
-</div>
+    Neupane
+  </span>
+</motion.h1>
 
-        </div>
-      </div>
-    </div>
+
+        {/* Tagline Quote */}
+        <motion.p
+          variants={itemVariants}
+          className="text-lg md:text-xl lg:text-2xl font-light italic leading-relaxed mb-8 max-w-2xl mx-auto"
+          style={{ color: `${COLORS.burgundy}E6`, fontFamily: "'Cormorant Garamond', serif" }}
+        >
+          "Crafting{" "}
+          <span
+            className="not-italic font-medium px-2 rounded"
+            style={{ color: COLORS.rose, backgroundColor: `${COLORS.roseSoft}20` }}
+          >
+            intuitive
+          </span>{" "}
+          digital experiences with{" "}
+          <span
+            className="not-italic font-medium px-2 rounded"
+            style={{ color: COLORS.gold, backgroundColor: `${COLORS.gold}20` }}
+          >
+            elegance
+          </span>{" "}
+          and purpose"
+        </motion.p>
+
+        {/* Description */}
+        <motion.p
+          variants={itemVariants}
+          className="text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-10 opacity-70"
+          style={{ color: COLORS.burgundy, fontFamily: "'Raleway', sans-serif" }}
+        >
+          Specializing in user-centered design, I transform complex problems into 
+          seamless, beautiful interfaces that delight users and drive results.
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+
+          {/* CTA Buttons */}
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* View Projects */}
+          <motion.button
+            onClick={handleViewProjects}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="group flex items-center gap-2 px-8 py-3.5 text-sm tracking-wider uppercase transition-all duration-300 font-semibold rounded-sm shadow-sm cursor-pointer"
+            style={{
+              backgroundColor: COLORS.roseGold,
+              color:"rgb(255, 255, 255)",
+              fontFamily: "sans-serif",
+            }}
+          >
+            <span>View Projects</span>
+            <MousePointer2 className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </motion.button>
+          </motion.div>
+
+          {/* Get in Touch */}
+          <motion.button
+            onClick={handleGetInTouch}
+            whileHover={{ scale: 1.02, backgroundColor: COLORS.gold, color: "#FFFFFF" }}
+            whileTap={{ scale: 0.98 }}
+            disabled={isOpeningEmail}
+            className="group flex items-center gap-2 px-8 py-3.5 text-sm tracking-wider uppercase transition-all duration-300 border-2 font-semibold rounded-sm cursor-pointer disabled:opacity-60 disabled:cursor-wait"
+            style={{
+              borderColor: COLORS.gold,
+              color: COLORS.gold,
+              fontFamily: "'Raleway', sans-serif",
+            }}
+          >
+            <span>{isOpeningEmail ? "Opening email..." : "Get in Touch"}</span>
+            <Mail className="w-4 h-4" />
+          </motion.button>
+
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 };
 
-export default Home;
+export default Hero;

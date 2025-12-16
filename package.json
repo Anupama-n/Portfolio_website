@@ -10,9 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
+    "framer-motion": "^12.23.26",
     "lucide-react": "^0.537.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-intersection-observer": "^10.0.0",
+    "react-router-dom": "^7.10.1",
     "tailwind-scrollbar-hide": "^2.0.0"
   },
   "devDependencies": {
