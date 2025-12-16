@@ -4,44 +4,82 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <title>Aupama Neupane</title>
+    <title>Aupama Neupane</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-  href="https://fonts.googleapis.com/css2?family=Allura&family=Raleway:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap"
-  rel="stylesheet"
-/>
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Raleway:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap"
+      rel="stylesheet"
+    />
 
-<link
-  href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
-  rel="stylesheet"
-/>
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap"
-  rel="stylesheet"
-/>
-<link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap" rel="stylesheet">
-
-    
     <style>
+      /* Base styles from user request */
       body {
         margin: 0;
         padding: 0;
         overflow-x: hidden;
         background-color: #F5EDE4;
+        color: #2c2c2c;
+      }
+
+      /* Hiding scrollbars completely while allowing scroll */
+      html, body {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* IE 10+ */
+      }
+
+      html::-webkit-scrollbar, body::-webkit-scrollbar { 
+        display: none;  /* Chrome, Safari, Opera */
+        width: 0;
+        height: 0;
+        background: transparent; 
+      }
+      
+      /* Ensure inner scrollable containers also hide scrollbars if needed, can be removed if specific elements should scroll visibly */
+      * {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      *::-webkit-scrollbar {
+        display: none;
       }
     </style>
-  </head>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+</head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+
