@@ -52,7 +52,7 @@ const PROJECT_CONTENT: Record<string, any> = {
   "hulaki": {
     id: "hulaki",
     title: "Hulaki Mobile App",
-    subtitle: "Logistics & Delivery Solution",
+    subtitle: "News App Targeting Nepali Audience",
     type: "Mobile App Design",
     description: "Hulaki is a news app for all age groups, featuring three scrollable UI styles: an image-heavy, social-media-style feed for short-form content (Genz), a clean no-image list view for older users and millennials, and a grid-based layout for general readers, with both light and dark theme support.",
     tags: ["Figma", "Mobile UI", "Prototyping"],
