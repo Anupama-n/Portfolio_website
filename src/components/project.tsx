@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, Smartphone, Layout, Monitor, X, ZoomIn, ChevronLeft, ChevronRight, FileText, Hourglass, PanelRightClose, PanelRightOpen, ArrowUpRight } from "lucide-react";
 
+
+
 // Luxury Color Palette
 const COLORS = {
   bg: "#F5EDE4",
@@ -314,8 +316,8 @@ const Project: React.FC = () => {
 
   const currentData = PROJECT_CONTENT[activeProject];
 
-  // Sidebar width constants (6vw for minimal width)
-  const COLLAPSED_WIDTH = "6vw";
+  // Sidebar width constants - INCREASED WIDTH FOR MOBILE
+  const COLLAPSED_WIDTH = "11vw"; // Increased from 6vw
   const EXPANDED_WIDTH = "72vw";
 
   // Scroll to top on mount
@@ -474,11 +476,11 @@ const Project: React.FC = () => {
           }}
           style={{ 
             backgroundColor: COLORS.cream,
-            borderLeft: `1px solid ${COLORS.roseGold}50`,
-            borderTop: `1px solid ${COLORS.roseGold}50`,
-            borderBottom: `1px solid ${COLORS.roseGold}50`,
+            borderLeft: `1px solid ${COLORS.roseGold}20`,
+            borderTop: `1px solid ${COLORS.roseGold}20`,
+            borderBottom: `1px solid ${COLORS.roseGold}20`,
             borderRight: "none",
-            borderRadius: "10px 0 0 10px",
+            borderRadius: "24px 0 0 24px", // MORE ROUNDED CORNERS
             boxShadow: "-4px 0 20px rgba(45, 22, 26, 0.05)",
             top: "4rem",
             height: "calc(100dvh - 4rem)",
@@ -487,10 +489,10 @@ const Project: React.FC = () => {
         >
           <div className="h-full flex flex-col pt-6 overflow-hidden">
             
-            {/* Toggle Button */}
+            {/* Toggle Button - ENLARGED */}
             <button
               onClick={() => setIsMobileSidebarExpanded(!isMobileSidebarExpanded)}
-              className="absolute top-3 -left-3 z-50 w-6 h-6 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
+              className="absolute top-4 -left-5 z-50 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
               style={{ 
                 backgroundColor: COLORS.roseGold,
                 color: COLORS.white,
@@ -502,7 +504,8 @@ const Project: React.FC = () => {
                 animate={{ rotate: isMobileSidebarExpanded ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                {isMobileSidebarExpanded ? <PanelRightClose size={12} /> : <PanelRightOpen size={12} />}
+                {/* ENLARGED ICON */}
+                {isMobileSidebarExpanded ? <PanelRightClose size={20} /> : <PanelRightOpen size={20} />}
               </motion.div>
             </button>
 
@@ -517,29 +520,29 @@ const Project: React.FC = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="flex flex-col items-center gap-2 pt-4"
+                    className="flex flex-col items-center gap-2 pt-8"
                   >
                     {NAVIGATION.map((group, groupIndex) => (
-                      <div key={group.category} className="flex flex-col items-center gap-1 mb-3">
+                      <div key={group.category} className="flex flex-col items-center gap-1 mb-4">
                         <div 
-                          className="w-6 h-6 rounded-lg flex items-center justify-center opacity-60"
+                          className="w-8 h-8 rounded-lg flex items-center justify-center opacity-60"
                           style={{ 
                             backgroundColor: `${COLORS.goldLight}30`,
                             color: COLORS.burgundy
                           }}
                           title={group.category}
                         >
-                          {React.cloneElement(group.icon, { size: 12 })}
+                          {React.cloneElement(group.icon, { size: 16 })}
                         </div>
                         
-                        <div className="flex flex-col gap-1 mt-1">
+                        <div className="flex flex-col gap-1.5 mt-1.5">
                           {group.projects.map((pid) => (
                             <button
                               key={pid}
                               onClick={() => {
                                 if (activeProject !== pid) setActiveProject(pid);
                               }}
-                              className="w-2 h-2 rounded-full transition-all duration-300 hover:scale-150"
+                              className="w-2.5 h-2.5 rounded-full transition-all duration-300 hover:scale-150"
                               style={{ 
                                 backgroundColor: activeProject === pid ? COLORS.roseGold : `${COLORS.burgundy}30`,
                                 boxShadow: activeProject === pid ? `0 0 6px ${COLORS.roseGold}60` : 'none'
@@ -551,7 +554,7 @@ const Project: React.FC = () => {
                         
                         {groupIndex < NAVIGATION.length - 1 && (
                           <div 
-                            className="w-4 h-px mt-2"
+                            className="w-5 h-px mt-3"
                             style={{ backgroundColor: `${COLORS.goldLight}40` }}
                           />
                         )}
