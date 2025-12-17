@@ -187,22 +187,22 @@ const Hero: React.FC = () => {
           seamless, beautiful interfaces that delight users and drive results.
         </motion.p>
 
-        {/* CTA Buttons - Optimized layout (stack vs row) and width for mobile */}
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
+        {/* CTA Buttons - Optimized layout: Row on mobile, side-by-side */}
+        <motion.div variants={itemVariants} className="flex flex-row items-center justify-center gap-3 sm:gap-4 w-auto">
           
           {/* View Projects */}
           <motion.button
             onClick={handleViewProjects}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="group flex items-center justify-center gap-2 px-8 py-3 sm:py-3.5 w-full sm:w-auto text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 font-semibold rounded-sm shadow-sm cursor-pointer"
+            className="group flex items-center justify-center gap-2 px-5 py-3 sm:px-8 sm:py-3.5 w-auto text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 font-semibold rounded-sm shadow-sm cursor-pointer"
             style={{
               backgroundColor: COLORS.roseGold,
               color:"rgb(255, 255, 255)",
               fontFamily: "sans-serif",
             }}
           >
-            <span>View Projects</span>
+            <span className="whitespace-nowrap">View Projects</span>
             <MousePointer2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" />
           </motion.button>
 
@@ -212,14 +212,14 @@ const Hero: React.FC = () => {
             whileHover={{ scale: 1.02, backgroundColor: COLORS.gold, color: "#FFFFFF" }}
             whileTap={{ scale: 0.98 }}
             disabled={isOpeningEmail}
-            className="group flex items-center justify-center gap-2 px-8 py-3 sm:py-3.5 w-full sm:w-auto text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 border sm:border-2 font-semibold rounded-sm cursor-pointer disabled:opacity-60 disabled:cursor-wait"
+            className="group flex items-center justify-center gap-2 px-5 py-3 sm:px-8 sm:py-3.5 w-auto text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 border sm:border-2 font-semibold rounded-sm cursor-pointer disabled:opacity-60 disabled:cursor-wait"
             style={{
               borderColor: COLORS.gold,
               color: COLORS.gold,
               fontFamily: "'Raleway', sans-serif",
             }}
           >
-            <span>{isOpeningEmail ? "Opening email..." : "Get in Touch"}</span>
+            <span className="whitespace-nowrap">{isOpeningEmail ? "Opening..." : "Get in Touch"}</span>
             <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </motion.button>
         </motion.div>
