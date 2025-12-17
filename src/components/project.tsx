@@ -455,7 +455,7 @@ const Project: React.FC = () => {
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.05}
-          onDragEnd={(e, { offset, velocity }) => {
+          onDragEnd={(_e, { offset, velocity }) => {
             const swipeThreshold = 50;
             const velocityThreshold = 200;
             
