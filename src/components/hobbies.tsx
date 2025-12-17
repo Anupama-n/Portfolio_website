@@ -14,30 +14,31 @@ const COLORS = {
   cream: "#F5EDE4",
 };
 
+// Using picsum images as placeholders since local assets are not available
 const artworks = [
   {
     id: 1,
     title: "Serene Landscape",
     medium: "Acrylics on Canvas",
-    image: "images/landscape.jpg",
+    image: "images/landscape.jpg", // Forest/Landscape
   },
   {
     id: 2,
     title: "Abstract Expression",
     medium: "Pencil Color",
-    image: "images/abstract.jpg",
+    image: "images/abstract.jpg", // Abstract
   },
   {
     id: 3,
     title: "Portrait Study",
     medium: "Acrylics on Canvas",
-    image: "images/portrait.jpg",
+    image: "images/portrait.jpg", // Portrait
   },
   {
     id: 4,
     title: "Still Life",
     medium: "Pencil Color",
-    image: "images/portrait.png",
+    image: "images/portrait.png", // Still object
   },
 ];
 
@@ -51,7 +52,7 @@ const designInsights = [
 const BeyondWork: React.FC = () => {
   // Variant for staggered containers
   const staggerContainer: Variants = {
-    hidden: { opacity: 1 }, 
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
@@ -83,7 +84,7 @@ const BeyondWork: React.FC = () => {
   return (
     <section
       id="beyond-work"
-      className="relative w-full py-16 lg:py-24 overflow-hidden"
+      className="relative w-full py-12 lg:py-24 overflow-hidden"
       style={{ backgroundColor: COLORS.bg }}
     >
       {/* Decorative Background */}
@@ -137,18 +138,18 @@ const BeyondWork: React.FC = () => {
           variants={itemVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.5 }} 
-          className="text-center mb-12 lg:mb-16"
+          viewport={{ once: false, amount: 0.5 }}
+          className="text-center mb-8 lg:mb-16"
         >
           {/* Tagline */}
-          <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="flex items-center justify-center gap-3 mb-3 lg:mb-4">
             <span
-              className="h-px w-8"
+              className="h-px w-6 lg:w-8"
               style={{ backgroundColor: COLORS.gold }}
             />
-            <Palette className="w-4 h-4" style={{ color: COLORS.gold }} />
+            <Palette className="w-3.5 h-3.5 lg:w-4 lg:h-4" style={{ color: COLORS.gold }} />
             <span
-              className="text-xs tracking-[0.3em] uppercase font-semibold"
+              className="text-[10px] lg:text-xs tracking-[0.3em] uppercase font-semibold"
               style={{
                 color: COLORS.gold,
                 fontFamily: "'Raleway', sans-serif",
@@ -157,14 +158,14 @@ const BeyondWork: React.FC = () => {
               Beyond Work
             </span>
             <span
-              className="h-px w-8"
+              className="h-px w-6 lg:w-8"
               style={{ backgroundColor: COLORS.gold }}
             />
           </div>
 
           {/* Headline */}
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-4"
+            className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-3 lg:mb-4"
             style={{
               color: COLORS.cream,
               fontFamily: "'Cormorant Garamond', serif",
@@ -194,7 +195,7 @@ const BeyondWork: React.FC = () => {
 
           {/* Subtitle */}
           <p
-            className="text-sm md:text-base max-w-xl mx-auto opacity-70"
+            className="text-sm md:text-base max-w-xl mx-auto opacity-70 leading-relaxed"
             style={{ color: COLORS.cream, fontFamily: "'Raleway', sans-serif" }}
           >
             Beyond pixels and interfaces, I find solace in traditional art, a
@@ -208,7 +209,8 @@ const BeyondWork: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, margin: "-50px" }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 mb-12 lg:mb-16"
+          // Optimized for mobile: gap-3 (compact), mb-10 (reduced spacing)
+          className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5 mb-10 lg:mb-16"
         >
           {artworks.map((artwork) => (
             <motion.div
@@ -221,7 +223,7 @@ const BeyondWork: React.FC = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              {/* Shimmer Overlay (from About) */}
+              {/* Shimmer Overlay */}
               <div
                 className="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-1500"
                 style={{
@@ -236,7 +238,7 @@ const BeyondWork: React.FC = () => {
                 }}
               />
 
-              {/* Gold Frame Effect (Existing) */}
+              {/* Gold Frame Effect */}
               <div
                 className="absolute inset-0 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{
@@ -244,20 +246,21 @@ const BeyondWork: React.FC = () => {
                 }}
               />
 
-              {/* Image (Modified with saturation from About) */}
+              {/* Image */}
               <img
                 src={artwork.image}
                 alt={artwork.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 saturate-[0.9]"
               />
 
-              {/* Mix-Blend Overlay (from About) */}
+              {/* Mix-Blend Overlay */}
               <div
                 className="absolute inset-0 mix-blend-overlay opacity-30 pointer-events-none"
                 style={{ backgroundColor: COLORS.roseGold }}
               />
 
               {/* Overlay with Caption */}
+              {/* Mobile Optimization: Content is visible on hover/tap, but style adjusted to ensure text fits nicely */}
               <div
                 className="absolute inset-0 flex flex-col justify-end p-3 lg:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"
                 style={{
@@ -265,7 +268,7 @@ const BeyondWork: React.FC = () => {
                 }}
               >
                 <h4
-                  className="text-sm lg:text-base font-medium"
+                  className="text-sm lg:text-base font-medium truncate"
                   style={{
                     color: COLORS.cream,
                     fontFamily: "'Cormorant Garamond', serif",
@@ -274,7 +277,7 @@ const BeyondWork: React.FC = () => {
                   {artwork.title}
                 </h4>
                 <p
-                  className="text-xs opacity-70"
+                  className="text-[10px] lg:text-xs opacity-70 truncate"
                   style={{
                     color: COLORS.goldLight,
                     fontFamily: "'Raleway', sans-serif",
@@ -308,7 +311,7 @@ const BeyondWork: React.FC = () => {
           {/* Section Header for Insights */}
           <motion.h3
             variants={itemVariants}
-            className="text-xs tracking-widest uppercase mb-6 opacity-70 font-bold inline-block"
+            className="text-xs tracking-widest uppercase mb-4 lg:mb-6 opacity-70 font-bold inline-block"
             style={{
               color: COLORS.goldLight,
               fontFamily: "'Raleway', sans-serif",
@@ -317,7 +320,8 @@ const BeyondWork: React.FC = () => {
             How Art Enhances My Design
           </motion.h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Mobile Optimization: Switch from stacked (grid-cols-1) to 2x2 grid (grid-cols-2) for compactness */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
             {designInsights.map((insight, index) => (
               <motion.div
                 key={index}
@@ -327,7 +331,8 @@ const BeyondWork: React.FC = () => {
                   backgroundColor: `${COLORS.gold}10`,
                   borderColor: COLORS.gold,
                 }}
-                className="p-4 lg:p-5 rounded-sm border transition-all duration-300"
+                // Reduced padding for mobile
+                className="p-3 lg:p-5 rounded-sm border transition-all duration-300 flex flex-col justify-start items-center h-full"
                 style={{
                   borderColor: `${COLORS.roseGold}30`,
                   backgroundColor: `${COLORS.rose}05`,
@@ -335,7 +340,7 @@ const BeyondWork: React.FC = () => {
               >
                 {/* Number */}
                 <span
-                  className="block text-2xl lg:text-3xl font-light mb-2 opacity-40"
+                  className="block text-xl lg:text-3xl font-light mb-1 lg:mb-2 opacity-40"
                   style={{
                     color: COLORS.gold,
                     fontFamily: "'Cormorant Garamond', serif",
@@ -346,7 +351,7 @@ const BeyondWork: React.FC = () => {
 
                 {/* Text */}
                 <p
-                  className="text-xs lg:text-sm leading-relaxed"
+                  className="text-[10px] lg:text-sm leading-tight lg:leading-relaxed"
                   style={{
                     color: `${COLORS.cream}CC`,
                     fontFamily: "'Raleway', sans-serif",
