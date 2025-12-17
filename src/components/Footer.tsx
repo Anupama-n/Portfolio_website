@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
   return (
     <footer
       id="contact"
-      className="py-16 px-6 sm:px-10 lg:px-14"
+      className="py-10 lg:py-16 px-6 sm:px-10 lg:px-14 transition-colors duration-300"
       style={{ backgroundColor: bgStyle, color: textStyle }}
     >
       <div className="max-w-5xl mx-auto">
@@ -44,14 +44,14 @@ const Footer: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ amount: 0.2 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-10"
+          className="text-center mb-8 lg:mb-10"
         >
           <motion.span
             initial={{ opacity: 0, y: -5 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ amount: 0.2 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-xs tracking-[0.2em] uppercase block mb-3"
+            className="text-[10px] lg:text-xs tracking-[0.2em] uppercase block mb-2 lg:mb-3"
             style={{ color: COLORS.gold, fontFamily: "'Raleway', sans-serif" }}
           >
             Let's Connect
@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ amount: 0.2 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-3xl md:text-4xl font-medium mb-4"
+            className="text-2xl md:text-3xl lg:text-4xl font-medium mb-3 lg:mb-4"
             style={{ fontFamily: "'Cormorant Garamond', serif", color: textStyle }}
           >
             Ready to{" "}
@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ amount: 0.2 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="max-w-md mx-auto text-sm opacity-70"
+            className="max-w-xs md:max-w-md mx-auto text-xs md:text-sm opacity-70 leading-relaxed"
             style={{ fontFamily: "'Raleway', sans-serif", color: textStyle }}
           >
             I'm always open to discussing new projects, creative ideas, or meaningful collaborations.
@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
           variants={{
             visible: { transition: { staggerChildren: 0.12 } },
           }}
-          className="flex justify-center gap-5 mb-14"
+          className="flex justify-center gap-6 lg:gap-5 mb-10 lg:mb-14"
         >
           {contactInfo.map((contact, index) => (
             <motion.a
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
               target={contact.type === "Email" ? undefined : "_blank"}
               rel={contact.type === "Email" ? undefined : "noopener noreferrer"}
               aria-label={contact.type}
-              className="transition-transform hover:scale-110 hover:opacity-80"
+              className="transition-transform hover:scale-110 hover:opacity-80 p-1 lg:p-0"
               style={{ color: isPortfolio ? COLORS.gold : COLORS.roseGold }}
               initial={{ opacity: 0, y: 6, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -123,17 +123,17 @@ const Footer: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ amount: 0.2 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="pt-6 border-t flex flex-col items-center gap-2"
+          className="pt-5 lg:pt-6 border-t flex flex-col items-center gap-2"
           style={{ borderColor: isPortfolio ? 'rgba(255,255,255,0.1)' : `${COLORS.burgundy}15` }}
         >
           <span
-            className="text-xs opacity-60 tracking-wider"
+            className="text-[10px] lg:text-xs opacity-60 tracking-wider text-center"
             style={{ fontFamily: "'Raleway', sans-serif", color: textStyle }}
           >
             Designed & Developed by Anupama Neupane
           </span>
           <span
-            className="text-[11px] opacity-40 tracking-wider"
+            className="text-[9px] lg:text-[11px] opacity-40 tracking-wider text-center"
             style={{ fontFamily: "'Raleway', sans-serif", color: textStyle }}
           >
             © {new Date().getFullYear()} Anupama Neupane. All rights reserved.
