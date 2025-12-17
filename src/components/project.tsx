@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Smartphone, Layout, Monitor, X, ZoomIn, ChevronLeft, ChevronRight, FileText, Hourglass, PanelRightClose, PanelRightOpen } from "lucide-react";
+import { ExternalLink, Github, Smartphone, Layout, Monitor, X, ZoomIn, ChevronLeft, ChevronRight, FileText, Hourglass, PanelRightClose, PanelRightOpen, ArrowUpRight } from "lucide-react";
 
 // Luxury Color Palette
 const COLORS = {
@@ -710,21 +710,41 @@ const Project: React.FC = () => {
                 {currentData.isWip ? (
                   <WorkInProgress />
                 ) : currentData.pdf ? (
-                  <div className="w-full h-[85vh] border border-[#D4B896]/30 rounded-sm bg-white relative group overflow-hidden">
-                    <iframe
-                      src={`${currentData.pdf}#view=FitH`}
+                  <div className="w-full h-[60vh] md:h-[85vh] border border-[#D4B896]/30 rounded-sm bg-white relative group overflow-hidden">
+                    {/* Replaced iframe with object for better fallback handling on mobile */}
+                    <object
+                      data={`${currentData.pdf}#view=FitH`}
+                      type="application/pdf"
                       className="w-full h-full"
-                      title={currentData.title}
-                    />
+                    >
+                      {/* Fallback content for devices that cannot embed PDF directly */}
+                      <div className="flex flex-col items-center justify-center h-full bg-[#F5EDE4]/30 text-center p-8">
+                        <FileText size={64} className="text-[#B76E79] opacity-50 mb-6" />
+                        <h3 className="text-xl font-serif text-[#2D161A] mb-2">
+                          Preview Unavailable on this Device
+                        </h3>
+                        <p className="text-[#2D161A]/70 max-w-xs mb-8 font-sans text-sm leading-relaxed">
+                          Your browser may not support embedded PDFs. Tap the button below to view the document.
+                        </p>
+                        <a
+                          href={currentData.pdf}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-6 py-3 bg-[#B76E79] text-white font-bold uppercase tracking-widest text-xs hover:bg-[#2D161A] transition-all shadow-lg rounded-sm"
+                        >
+                          <ExternalLink size={14} /> Open PDF
+                        </a>
+                      </div>
+                    </object>
                     
-                    {/* Desktop Overlay Button (kept as helper) */}
+                    {/* Always visible action button on mobile/touch, hover on desktop */}
                     <a
                       href={currentData.pdf}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hidden md:flex absolute top-4 right-4 items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur border border-[#D4B896]/50 text-[#2D161A] rounded-sm text-xs font-bold uppercase tracking-widest shadow-sm hover:bg-[#2D161A] hover:text-white transition-all opacity-0 group-hover:opacity-100 duration-300"
+                      className="absolute top-4 right-4 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur border border-[#D4B896]/50 text-[#2D161A] rounded-sm text-xs font-bold uppercase tracking-widest shadow-sm hover:bg-[#2D161A] hover:text-white transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100 duration-300 z-10"
                     >
-                      <ExternalLink size={12} /> Open Fullscreen
+                      <ArrowUpRight size={14} /> <span className="hidden sm:inline">Open Fullscreen</span><span className="sm:hidden">Open</span>
                     </a>
                   </div>
                 ) : (
