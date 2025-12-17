@@ -452,6 +452,26 @@ const Project: React.FC = () => {
             pointerEvents: isSidebarVisible ? "auto" : "none"
           }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.05}
+          onDragEnd={(e, { offset, velocity }) => {
+            const swipeThreshold = 50;
+            const velocityThreshold = 200;
+            
+            // If expanded, swipe right (positive) to close
+            if (isMobileSidebarExpanded) {
+              if (offset.x > swipeThreshold || velocity.x > velocityThreshold) {
+                setIsMobileSidebarExpanded(false);
+              }
+            } 
+            // If collapsed, swipe left (negative) to open
+            else {
+              if (offset.x < -swipeThreshold || velocity.x < -velocityThreshold) {
+                setIsMobileSidebarExpanded(true);
+              }
+            }
+          }}
           style={{ 
             backgroundColor: COLORS.cream,
             borderLeft: `1px solid ${COLORS.roseGold}50`,
@@ -461,7 +481,8 @@ const Project: React.FC = () => {
             borderRadius: "10px 0 0 10px",
             boxShadow: "-4px 0 20px rgba(45, 22, 26, 0.05)",
             top: "4rem",
-            height: "calc(100dvh - 4rem)"
+            height: "calc(100dvh - 4rem)",
+            touchAction: "pan-y"
           }}
         >
           <div className="h-full flex flex-col pt-6 overflow-hidden">
@@ -664,8 +685,8 @@ const Project: React.FC = () => {
                     ))}
                   </div>
 
-                  {(currentData.links?.live || currentData.links?.github) && (
-                    <div className="flex gap-6">
+                  {(currentData.links?.live || currentData.links?.github || currentData.pdf) && (
+                    <div className="flex gap-6 flex-wrap">
                       {currentData.links.live && currentData.links.live !== "#" && (
                         <a href={currentData.links.live} className="flex items-center gap-2 text-xs md:text-sm font-bold uppercase tracking-widest hover:text-[#B76E79] transition-colors" style={{ color: COLORS.burgundy }}>
                           <ExternalLink size={14} /> Live Demo
@@ -676,6 +697,11 @@ const Project: React.FC = () => {
                           <Github size={14} /> Codebase
                         </a>
                       )}
+                      {currentData.pdf && (
+                        <a href={currentData.pdf} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs md:text-sm font-bold uppercase tracking-widest hover:text-[#B76E79] transition-colors" style={{ color: COLORS.burgundy }}>
+                          <FileText size={14} /> Read PDF
+                        </a>
+                      )}
                     </div>
                   )}
                 </div>
@@ -684,12 +710,22 @@ const Project: React.FC = () => {
                 {currentData.isWip ? (
                   <WorkInProgress />
                 ) : currentData.pdf ? (
-                  <div className="w-full h-[60vh] md:h-[80vh] border border-[#D4B896]/30 rounded-sm overflow-hidden bg-white">
-                    <img
-                      src={currentData.pdf} 
-                      className="w-full h-full object-cover" 
-                      alt={currentData.title}
+                  <div className="w-full h-[85vh] border border-[#D4B896]/30 rounded-sm bg-white relative group overflow-hidden">
+                    <iframe
+                      src={`${currentData.pdf}#view=FitH`}
+                      className="w-full h-full"
+                      title={currentData.title}
                     />
+                    
+                    {/* Desktop Overlay Button (kept as helper) */}
+                    <a
+                      href={currentData.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hidden md:flex absolute top-4 right-4 items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur border border-[#D4B896]/50 text-[#2D161A] rounded-sm text-xs font-bold uppercase tracking-widest shadow-sm hover:bg-[#2D161A] hover:text-white transition-all opacity-0 group-hover:opacity-100 duration-300"
+                    >
+                      <ExternalLink size={12} /> Open Fullscreen
+                    </a>
                   </div>
                 ) : (
                   <div className={`grid gap-6 ${isMobileLayout ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4' : 'grid-cols-1 md:grid-cols-2'}`}>
