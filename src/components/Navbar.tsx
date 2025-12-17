@@ -112,25 +112,29 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
+  // Dynamic padding classes to handle responsive compactness
+  // Mobile: py-3 (scrolled) / py-4 (top) -> Very compact
+  // Desktop: py-4 (scrolled) / py-7 (top) -> Spacious
+  const paddingClass = isScrolled 
+    ? 'py-3 lg:py-4' 
+    : 'py-4 lg:py-7';
+
   return (
     <>
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${paddingClass}`}
         style={{
           backgroundColor: isScrolled || isPortfolioPage ? `rgba(245, 237, 228, 0.95)` : 'transparent',
           backdropFilter: isScrolled || isPortfolioPage ? 'blur(12px)' : 'none',
-          // Only show border if scrolled AND NOT on portfolio page
           borderBottom: `1px solid ${(isScrolled && !isPortfolioPage) ? 'rgba(201, 169, 97, 0.15)' : 'transparent'}`,
-          paddingTop: isScrolled ? '1rem' : '1.75rem',
-          paddingBottom: isScrolled ? '1rem' : '1.75rem',
           boxShadow: isScrolled ? '0 4px 30px rgba(0, 0, 0, 0.03)' : 'none',
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
-          <div className="flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-12 lg:px-16">
+          <div className="flex justify-between items-center relative">
 
             {/* Logo */}
             <button
@@ -139,7 +143,7 @@ const Navbar: React.FC = () => {
             >
               <div className="flex flex-col items-start leading-none">
                 <span
-                  className="text-2xl md:text-3xl font-medium tracking-tight transition-colors duration-300"
+                  className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight transition-colors duration-300"
                   style={{
                     color: COLORS.burgundy,
                     fontFamily: "'Cormorant Garamond', serif",
@@ -149,7 +153,7 @@ const Navbar: React.FC = () => {
                 </span>
               </div>
               <span
-                className="text-2xl md:text-3xl font-medium tracking-tight transition-colors duration-300 group-hover:text-rose-500"
+                className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight transition-colors duration-300 group-hover:text-rose-500"
                 style={{
                   color: COLORS.roseGold,
                   fontFamily: "'Cormorant Garamond', serif",
@@ -218,7 +222,7 @@ const Navbar: React.FC = () => {
                 </div>
               )}
 
-              {/* Action Button (Resume) */}
+              {/* Action Button (Resume) - Desktop */}
               <div className="flex items-center">
                 <button
                   onClick={handleViewResume}
@@ -250,65 +254,67 @@ const Navbar: React.FC = () => {
                   // Portfolio: Mobile Back Button
                   <button
                     onClick={() => navigate('/')}
-                    className="p-2 text-[#2D161A] hover:text-[#B76E79] transition-colors"
+                    className="p-1 text-[#2D161A] hover:text-[#B76E79] transition-colors"
                     aria-label="Back to Home"
                   >
-                    <ArrowLeft size={24} />
+                    <ArrowLeft size={22} />
                   </button>
                 ) : (
                   // Home: Mobile Menu Toggle
                   <button
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="p-2 text-gray-800 transition-transform duration-300 hover:rotate-90"
+                    className="p-1 text-gray-800 transition-transform duration-300 hover:rotate-90 active:scale-95"
                     aria-label="Toggle mobile menu"
                   >
-                    {isMobileMenuOpen ? <X size={24} color={COLORS.burgundy} /> : <Menu size={24} color={COLORS.burgundy} />}
+                    {isMobileMenuOpen ? <X size={22} color={COLORS.burgundy} /> : <Menu size={22} color={COLORS.burgundy} />}
                   </button>
                 )}
               </div>
             </div>
           </div>
-
         </div>
 
-      {/* Mobile Menu Overlay - Only render on Home page */}
+      {/* Mobile Menu Overlay - Compact Box on Right */}
       <AnimatePresence>
         {isMobileMenuOpen && !isPortfolioPage && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-b border-stone-100"
+            initial={{ opacity: 0, scale: 0.9, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: -10 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="lg:hidden absolute top-full right-4 sm:right-12 mt-2 w-44 rounded-xl shadow-2xl overflow-hidden border border-white/40 origin-top-right"
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.92)',
+              backdropFilter: 'blur(16px)',
+            }}
           >
-            <div className="px-6 py-8 space-y-4 flex flex-col items-center">
-              {navItems.map((item, index) => (
-                <motion.button
+            <div className="flex flex-col py-3 space-y-1">
+              {navItems.map((item) => (
+                <button
                   key={item.name}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
                   onClick={() => handleNavClick(item.name, item.href)}
-                  className="w-full text-center py-3 text-lg tracking-widest uppercase"
+                  className="w-full text-center py-2 text-sm tracking-widest uppercase transition-colors hover:bg-stone-50"
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
                     color: activeSection === item.name ? COLORS.gold : COLORS.burgundy,
-                    fontStyle: 'italic'
+                    fontWeight: activeSection === item.name ? 600 : 500,
                   }}
                 >
                   {item.name}
-                </motion.button>
+                </button>
               ))}
-              <motion.button
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                onClick={handleViewResume}
-                className="mt-4 px-8 py-3 text-white text-xs tracking-widest uppercase rounded-sm w-full max-w-xs"
-                style={{ backgroundColor: COLORS.roseGold }}
-              >
-                View Resume
-              </motion.button>
+              
+              <div className="mx-8 my-1.5 h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent" />
+
+              <div className="px-3 pb-2 pt-1">
+                <button
+                  onClick={handleViewResume}
+                  className="w-full py-2.5 text-white text-xs tracking-[0.15em] uppercase font-medium rounded-sm shadow-md active:scale-95 transition-all hover:brightness-105"
+                  style={{ backgroundColor: COLORS.roseGold }}
+                >
+                  View Resume
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
