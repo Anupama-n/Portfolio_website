@@ -1,6 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import { Briefcase } from "lucide-react";
-import { motion, useAnimation, type Variants, useInView } from "framer-motion";
+import {
+  motion,
+  useAnimation,
+  type Variants,
+  useInView,
+} from "framer-motion";
 
 const COLORS = {
   bg: "#F5EDE4",
@@ -44,7 +49,11 @@ const experiences = [
 
 const ExperienceEducation: React.FC = () => {
   const containerRef = useRef(null);
-  const inView = useInView(containerRef, { amount: 0.2, once: false });
+  const inView = useInView(containerRef, {
+    amount: 0.15,
+    once: false, // 🔑 animate every visit
+  });
+
   const controls = useAnimation();
 
   useEffect(() => {
@@ -55,23 +64,41 @@ const ExperienceEducation: React.FC = () => {
     }
   }, [inView, controls]);
 
+  /* ---------------- Variants ---------------- */
+
+  const sectionVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
   const containerVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
         staggerChildren: 0.15,
-        delayChildren: 0.1,
+        delayChildren: 0.15,
       },
     },
   };
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
+  const cardVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 24,
+      scale: 0.98,
+    },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: {
+        duration: 0.55,
+        ease: "easeOut",
+      },
     },
   };
 
@@ -79,24 +106,27 @@ const ExperienceEducation: React.FC = () => {
     <section id="experience" className="relative w-full">
       <motion.div
         ref={containerRef}
-        className="relative w-full py-16 lg:py-24 overflow-hidden"
+        variants={sectionVariants}
+        initial="hidden"
+        animate={controls}
+        className="relative w-full py-12 lg:py-24 overflow-hidden"
         style={{ backgroundColor: COLORS.bg }}
       >
         <motion.div
-          className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-12 lg:px-16"
+          className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-12 lg:px-16"
           variants={containerVariants}
           initial="hidden"
           animate={controls}
         >
           {/* Section Header */}
           <motion.div
-            variants={itemVariants}
-            className="flex items-center gap-3 mb-10"
+            variants={cardVariants}
+            className="flex items-center gap-3 mb-6 lg:mb-10"
           >
-            <span className="h-px w-8" style={{ backgroundColor: COLORS.gold }} />
-            <Briefcase className="w-4 h-4" style={{ color: COLORS.gold }} />
+            <span className="h-px w-6 sm:w-8" style={{ backgroundColor: COLORS.gold }} />
+            <Briefcase className="w-3.5 h-3.5 sm:w-4 sm:h-4" style={{ color: COLORS.gold }} />
             <span
-              className="text-xs tracking-[0.3em] uppercase font-semibold"
+              className="text-[10px] sm:text-xs tracking-[0.3em] uppercase font-semibold"
               style={{ color: COLORS.gold, fontFamily: "'Raleway', sans-serif" }}
             >
               Experience
@@ -104,54 +134,58 @@ const ExperienceEducation: React.FC = () => {
           </motion.div>
 
           {/* Experience Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
             {experiences.map((exp) => (
               <motion.div
                 key={exp.company}
-                variants={itemVariants}
-                whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                className="group relative p-6 lg:p-8 rounded-sm backdrop-blur-sm"
+                variants={cardVariants}
+                whileHover={{
+                  y: -6,
+                  transition: { duration: 0.25, ease: "easeOut" },
+                }}
+                className="group relative p-5 lg:p-8 rounded-sm backdrop-blur-sm flex flex-col"
                 style={{
                   backgroundColor: `${COLORS.burgundy}08`,
                   border: `1px solid ${COLORS.gold}20`,
                 }}
               >
-                {/* Card Corner Accents */}
+                {/* Corner Accents */}
                 <div
-                  className="absolute top-0 left-0 w-4 h-4 border-t border-l rounded-tl-sm transition-all duration-300 group-hover:w-6 group-hover:h-6"
+                  className="absolute top-0 left-0 w-3 h-3 lg:w-4 lg:h-4 border-t border-l rounded-tl-sm transition-all duration-300 group-hover:w-5 group-hover:h-5"
                   style={{ borderColor: COLORS.gold }}
                 />
                 <div
-                  className="absolute bottom-0 right-0 w-4 h-4 border-b border-r rounded-br-sm transition-all duration-300 group-hover:w-6 group-hover:h-6"
+                  className="absolute bottom-0 right-0 w-3 h-3 lg:w-4 lg:h-4 border-b border-r rounded-br-sm transition-all duration-300 group-hover:w-5 group-hover:h-5"
                   style={{ borderColor: COLORS.roseGold }}
                 />
 
-                {/* Period Badge */}
-                <div
-                  className="absolute top-3 right-3 px-3 py-1 text-xs font-medium tracking-widest uppercase rounded-full"
-                  style={{
-                    backgroundColor: exp.badgeBg,
-                    color: exp.badgeText,
-                    fontFamily: "'Raleway', sans-serif",
-                  }}
-                >
-                  {exp.period}
-                </div>
+                {/* Header */}
+                <div className="flex flex-col-reverse lg:block relative mb-1 lg:mb-0">
+                  <h3
+                    className="text-xl lg:text-3xl font-medium mb-1 lg:mb-2"
+                    style={{
+                      color: COLORS.burgundy,
+                      fontFamily: "'Cormorant Garamond', serif",
+                    }}
+                  >
+                    {exp.company}
+                  </h3>
 
-                {/* Company Name */}
-                <h3
-                  className="text-2xl lg:text-3xl font-medium mb-2"
-                  style={{
-                    color: COLORS.burgundy,
-                    fontFamily: "'Cormorant Garamond', serif",
-                  }}
-                >
-                  {exp.company}
-                </h3>
+                  <div
+                    className="self-start mb-2 lg:absolute lg:top-3 lg:right-3 px-2.5 lg:px-3 py-1 text-[10px] lg:text-xs tracking-widest uppercase rounded-full"
+                    style={{
+                      backgroundColor: exp.badgeBg,
+                      color: exp.badgeText,
+                      fontFamily: "'Raleway', sans-serif",
+                    }}
+                  >
+                    {exp.period}
+                  </div>
+                </div>
 
                 {/* Role */}
                 <p
-                  className="text-sm font-medium mb-4 tracking-wide"
+                  className="text-xs lg:text-sm font-medium mb-3 tracking-wide"
                   style={{
                     color: COLORS.roseGold,
                     fontFamily: "'Raleway', sans-serif",
@@ -162,12 +196,12 @@ const ExperienceEducation: React.FC = () => {
 
                 {/* Divider */}
                 <div
-                  className="w-12 h-px mb-4"
+                  className="w-8 lg:w-12 h-px mb-3"
                   style={{ backgroundColor: `${COLORS.gold}40` }}
                 />
 
                 {/* Description */}
-                <ul className="space-y-2">
+                <ul className="space-y-1.5 lg:space-y-2">
                   {exp.description.map((item, idx) => (
                     <li
                       key={idx}
@@ -178,7 +212,7 @@ const ExperienceEducation: React.FC = () => {
                       }}
                     >
                       <span
-                        className="inline-block w-1 h-1 rounded-full mt-1.5 flex-shrink-0"
+                        className="w-1 h-1 rounded-full mt-1.5"
                         style={{ backgroundColor: COLORS.roseGold }}
                       />
                       {item}
