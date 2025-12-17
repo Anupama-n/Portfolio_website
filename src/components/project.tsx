@@ -454,22 +454,22 @@ const Project: React.FC = () => {
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
           style={{ 
             backgroundColor: COLORS.cream,
-            borderLeft: `2px solid ${COLORS.roseGold}50`,
-            borderTop: `2px solid ${COLORS.roseGold}50`,
-            borderBottom: `2px solid ${COLORS.roseGold}50`,
+            borderLeft: `1px solid ${COLORS.roseGold}50`,
+            borderTop: `1px solid ${COLORS.roseGold}50`,
+            borderBottom: `1px solid ${COLORS.roseGold}50`,
             borderRight: "none",
-            borderRadius: "20px 0 0 20px",
+            borderRadius: "10px 0 0 10px",
             boxShadow: "-4px 0 20px rgba(45, 22, 26, 0.05)",
-            top: "5rem",
-            height: "calc(100dvh - 6rem)"
+            top: "4rem",
+            height: "calc(100dvh - 4rem)"
           }}
         >
-          <div className="h-full flex flex-col pt-10 overflow-hidden">
+          <div className="h-full flex flex-col pt-6 overflow-hidden">
             
             {/* Toggle Button */}
             <button
               onClick={() => setIsMobileSidebarExpanded(!isMobileSidebarExpanded)}
-              className="absolute top-4 -left-3 z-50 w-6 h-6 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
+              className="absolute top-3 -left-3 z-50 w-6 h-6 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 active:scale-95"
               style={{ 
                 backgroundColor: COLORS.roseGold,
                 color: COLORS.white,
@@ -544,7 +544,7 @@ const Project: React.FC = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2, delay: 0.1 }}
-                    className="space-y-6 pt-4"
+                    className="space-y-4 pt-4"
                   >
                     <div className="px-2 mb-6">
                       <h2 
