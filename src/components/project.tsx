@@ -228,13 +228,13 @@ const ClassyLoader: React.FC = () => {
         >
           <span 
             style={{ 
-              fontFamily: FONTS.cursive, 
-              fontSize: "2.5rem", 
+              fontFamily: FONTS.serif, 
+              fontSize: "3rem", 
               color: COLORS.burgundy,
               textShadow: `0 0 20px ${COLORS.roseGold}40`
             }}
           >
-            A
+            a
           </span>
         </motion.div>
       </div>
