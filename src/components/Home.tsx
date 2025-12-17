@@ -63,31 +63,9 @@ const Hero: React.FC = () => {
       whileInView="visible"
       viewport={{ amount: 0.2, once: false }}
     >
-      {/* Decorative Frame - Optimized sizing for mobile */}
+      {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div
-          className="absolute inset-4 sm:inset-6 md:inset-10 pointer-events-none opacity-40"
-          animate={{ x: [0, 2, 0], y: [0, -2, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <div
-            className="absolute inset-0 rounded-sm"
-            style={{ border: `1px solid ${COLORS.gold}20` }}
-          />
-          {[
-            "top-0 left-0 border-t border-l rounded-tl-sm",
-            "top-0 right-0 border-t border-r rounded-tr-sm",
-            "bottom-0 left-0 border-b border-l rounded-bl-sm",
-            "bottom-0 right-0 border-b border-r rounded-br-sm",
-          ].map((cls, i) => (
-            <div
-              key={i}
-              className={`absolute w-4 h-4 sm:w-6 sm:h-6 ${cls}`}
-              style={{ borderColor: `${COLORS.gold}60` }}
-            />
-          ))}
-        </motion.div>
-
+        
         {/* Floating Gradient Orbs - Optimized sizing for mobile */}
         <motion.div
           animate={{ opacity: [0.06, 0.12, 0.06], scale: [1, 1.1, 1] }}
