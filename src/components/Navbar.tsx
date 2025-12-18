@@ -225,7 +225,7 @@ const Navbar: React.FC = () => {
               {/* Action Button (Resume) - Desktop */}
               <div className="flex items-center">
                 <button
-                  onClick={handleViewResume}
+                   onClick={handleViewResume}
                   disabled={isOpeningResume}
                   className="
                     hidden sm:flex items-center gap-2
